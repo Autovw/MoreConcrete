@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_wall",
+    "moreconcrete:orange_concrete_wall",
+    "moreconcrete:magenta_concrete_wall",
+    "moreconcrete:light_blue_concrete_wall",
+    "moreconcrete:yellow_concrete_wall",
+    "moreconcrete:lime_concrete_wall",
+    "moreconcrete:pink_concrete_wall",
+    "moreconcrete:gray_concrete_wall",
+    "moreconcrete:light_gray_concrete_wall",
+    "moreconcrete:cyan_concrete_wall",
+    "moreconcrete:purple_concrete_wall",
+    "moreconcrete:blue_concrete_wall",
+    "moreconcrete:brown_concrete_wall",
+    "moreconcrete:green_concrete_wall",
+    "moreconcrete:red_concrete_wall",
+    "moreconcrete:black_concrete_wall"
+  ]
+}

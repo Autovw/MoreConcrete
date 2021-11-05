@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="GNU General Public License v3.0"
+#issueTrackerURL=""
+
+[[mods]]
+modId="moreconcrete"
+version="1.0.0"
+displayName="More Concrete"
+#updateJSONURL=""
+#displayURL=""
+#logoFile=""
+#credits=""
+authors="Autovw"
+description='''
+A simple mod that adds more concrete variants into Minecraft!
+'''
+
+[[dependencies.moreconcrete]]
+    modId="forge"
+    mandatory=true
+    versionRange="[34,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.moreconcrete]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3,1.17)"
+    ordering="NONE"
+    side="BOTH"
+
+[modproperties.moreconcrete]
+    #Catalogue also supports items. Use "catalogueItemIcon" instead.
+    #catalogueImageIcon="logo.png" #Optional support for Cataloque mod.
+    configuredBackground="minecraft:textures/block/light_blue_concrete.png" #Optional support for Configured mod.
