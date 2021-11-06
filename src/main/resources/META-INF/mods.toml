@@ -9,7 +9,7 @@ version="1.0.0"
 displayName="More Concrete"
 updateJSONURL="https://raw.githubusercontent.com/Autovw/ModUpdates/main/moreconcrete/update.json"
 displayURL="https://github.com/Autovw/MoreConcrete/wiki"
-#logoFile=""
+logoFile="more_concrete_banner.png"
 #credits=""
 authors="Autovw"
 description='''
@@ -30,6 +30,5 @@ A simple mod that adds more concrete variants into Minecraft!
     side="BOTH"
 
 [modproperties.moreconcrete]
-    #Catalogue also supports items. Use "catalogueItemIcon" instead.
-    #catalogueImageIcon="logo.png" #Optional support for Cataloque mod.
+    catalogueItemIcon="moreconcrete:light_blue_concrete_stairs" #Optional support for Cataloque mod.
     configuredBackground="minecraft:textures/block/light_blue_concrete.png" #Optional support for Configured mod.
