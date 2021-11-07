@@ -4,21 +4,21 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 
-version = '1.0.0-1.16.5'
+version = '1.0.0-1.17.1'
 group = 'com.autovw.moreconcrete'
 archivesBaseName = 'moreconcrete'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: '1.17.1'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -70,11 +70,11 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.0.104'
 
-    runtimeOnly fg.deobf('curse.maven:jei-238222:3514175')
-    runtimeOnly fg.deobf('curse.maven:catalogue-459701:3399554')
-    runtimeOnly fg.deobf('curse.maven:configured-457570:3434071')
+    runtimeOnly fg.deobf('curse.maven:jei-238222:3502663')
+    runtimeOnly fg.deobf('curse.maven:catalogue-459701:3399552')
+    runtimeOnly fg.deobf('curse.maven:configured-457570:3434072')
 }
 
 jar {
