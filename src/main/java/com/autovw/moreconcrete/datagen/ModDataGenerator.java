@@ -3,7 +3,7 @@ package com.autovw.moreconcrete.datagen;
 import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.datagen.providers.*;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
@@ -22,7 +22,7 @@ public class ModDataGenerator {
 
         generator.addProvider(new ModBlockStatesProvider(generator, helper));
         generator.addProvider(new ModItemModelProvider(generator, helper));
-        generator.addProvider(new ModBlockTagsProvider(generator, helper));
+        generator.addProvider(new ModBlockTagsProvider(generator));
         generator.addProvider(new ModRecipeProvider(generator));
         generator.addProvider(new ModLootTableProvider(generator));
     }
