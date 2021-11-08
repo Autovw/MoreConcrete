@@ -10,27 +10,7 @@
     },
     {
       "when": {
-        "east": "low"
-      },
-      "apply": {
-        "model": "moreconcrete:block/white_concrete_wall_side",
-        "y": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "tall"
-      },
-      "apply": {
-        "model": "moreconcrete:block/white_concrete_wall_side_tall",
-        "y": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "north": "low"
+        "north": "true"
       },
       "apply": {
         "model": "moreconcrete:block/white_concrete_wall_side",
@@ -39,16 +19,7 @@
     },
     {
       "when": {
-        "north": "tall"
-      },
-      "apply": {
-        "model": "moreconcrete:block/white_concrete_wall_side_tall",
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "south": "low"
+        "south": "true"
       },
       "apply": {
         "model": "moreconcrete:block/white_concrete_wall_side",
@@ -58,17 +29,7 @@
     },
     {
       "when": {
-        "south": "tall"
-      },
-      "apply": {
-        "model": "moreconcrete:block/white_concrete_wall_side_tall",
-        "y": 180,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "west": "low"
+        "west": "true"
       },
       "apply": {
         "model": "moreconcrete:block/white_concrete_wall_side",
@@ -78,11 +39,11 @@
     },
     {
       "when": {
-        "west": "tall"
+        "east": "true"
       },
       "apply": {
-        "model": "moreconcrete:block/white_concrete_wall_side_tall",
-        "y": 270,
+        "model": "moreconcrete:block/white_concrete_wall_side",
+        "y": 90,
         "uvlock": true
       }
     }

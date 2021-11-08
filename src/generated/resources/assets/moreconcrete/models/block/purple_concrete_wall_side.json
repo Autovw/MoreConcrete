@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/template_wall_side",
+  "parent": "block/template_wall_side",
   "textures": {
-    "wall": "minecraft:block/purple_concrete"
+    "wall": "block/purple_concrete"
   }
 }
