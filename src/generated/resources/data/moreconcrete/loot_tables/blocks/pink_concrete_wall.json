@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "type": "minecraft:block",
   "pools": [
@@ -15,10 +14,7 @@
         {
           "condition": "minecraft:survives_explosion"
         }
-      ],
-      "functions": []
+      ]
     }
   ]
 }
-=======
->>>>>>> parent of 6c91fe3 (🐛 Fixed gson errors when loading the mod on a server)

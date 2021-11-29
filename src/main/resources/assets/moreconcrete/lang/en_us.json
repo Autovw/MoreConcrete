@@ -65,5 +65,22 @@
   "block.moreconcrete.brown_concrete_lever": "Brown Concrete Lever",
   "block.moreconcrete.green_concrete_lever": "Green Concrete Lever",
   "block.moreconcrete.red_concrete_lever": "Red Concrete Lever",
-  "block.moreconcrete.black_concrete_lever": "Black Concrete Lever"
+  "block.moreconcrete.black_concrete_lever": "Black Concrete Lever",
+
+  "block.moreconcrete.white_concrete_pressure_plate": "White Concrete Pressure Plate",
+  "block.moreconcrete.orange_concrete_pressure_plate": "Orange Concrete Pressure Plate",
+  "block.moreconcrete.magenta_concrete_pressure_plate": "Magenta Concrete Pressure Plate",
+  "block.moreconcrete.light_blue_concrete_pressure_plate": "Light Blue Concrete Pressure Plate",
+  "block.moreconcrete.yellow_concrete_pressure_plate": "Yellow Concrete Pressure Plate",
+  "block.moreconcrete.lime_concrete_pressure_plate": "Lime Concrete Pressure Plate",
+  "block.moreconcrete.pink_concrete_pressure_plate": "Pink Concrete Pressure Plate",
+  "block.moreconcrete.gray_concrete_pressure_plate": "Gray Concrete Pressure Plate",
+  "block.moreconcrete.light_gray_concrete_pressure_plate": "Light Gray Concrete Pressure Plate",
+  "block.moreconcrete.cyan_concrete_pressure_plate": "Cyan Concrete Pressure Plate",
+  "block.moreconcrete.purple_concrete_pressure_plate": "Purple Concrete Pressure Plate",
+  "block.moreconcrete.blue_concrete_pressure_plate": "Blue Concrete Pressure Plate",
+  "block.moreconcrete.brown_concrete_pressure_plate": "Brown Concrete Pressure Plate",
+  "block.moreconcrete.green_concrete_pressure_plate": "Green Concrete Pressure Plate",
+  "block.moreconcrete.red_concrete_pressure_plate": "Red Concrete Pressure Plate",
+  "block.moreconcrete.black_concrete_pressure_plate": "Black Concrete Pressure Plate"
 }

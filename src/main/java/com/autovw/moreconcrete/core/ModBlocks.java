@@ -89,6 +89,25 @@ public class ModBlocks {
     public static final RegistryObject<Block> RED_CONCRETE_LEVER = registerLever("red_concrete_lever");
     public static final RegistryObject<Block> BLACK_CONCRETE_LEVER = registerLever("black_concrete_lever");
 
+    // Pressure Plates
+    public static final RegistryObject<Block> WHITE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("white_concrete_pressure_plate");
+    public static final RegistryObject<Block> ORANGE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("orange_concrete_pressure_plate");
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_PRESSURE_PLATE = registerPressurePlate("magenta_concrete_pressure_plate");
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("light_blue_concrete_pressure_plate");
+    public static final RegistryObject<Block> YELLOW_CONCRETE_PRESSURE_PLATE = registerPressurePlate("yellow_concrete_pressure_plate");
+    public static final RegistryObject<Block> LIME_CONCRETE_PRESSURE_PLATE = registerPressurePlate("lime_concrete_pressure_plate");
+    public static final RegistryObject<Block> PINK_CONCRETE_PRESSURE_PLATE = registerPressurePlate("pink_concrete_pressure_plate");
+    public static final RegistryObject<Block> GRAY_CONCRETE_PRESSURE_PLATE = registerPressurePlate("gray_concrete_pressure_plate");
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_PRESSURE_PLATE = registerPressurePlate("light_gray_concrete_pressure_plate");
+    public static final RegistryObject<Block> CYAN_CONCRETE_PRESSURE_PLATE = registerPressurePlate("cyan_concrete_pressure_plate");
+    public static final RegistryObject<Block> PURPLE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("purple_concrete_pressure_plate");
+    public static final RegistryObject<Block> BLUE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("blue_concrete_pressure_plate");
+    public static final RegistryObject<Block> BROWN_CONCRETE_PRESSURE_PLATE = registerPressurePlate("brown_concrete_pressure_plate");
+    public static final RegistryObject<Block> GREEN_CONCRETE_PRESSURE_PLATE = registerPressurePlate("green_concrete_pressure_plate");
+    public static final RegistryObject<Block> RED_CONCRETE_PRESSURE_PLATE = registerPressurePlate("red_concrete_pressure_plate");
+    public static final RegistryObject<Block> BLACK_CONCRETE_PRESSURE_PLATE = registerPressurePlate("black_concrete_pressure_plate");
+
+
     private static RegistryObject<Block> register(String name, Block blockType) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> blockType);
         ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
@@ -103,6 +122,13 @@ public class ModBlocks {
 
     private static RegistryObject<Block> registerLever(String name) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new LeverBlock(BlockBehaviour.Properties.copy(Blocks.LEVER)));
+        ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+        return block;
+    }
+
+    // Concrete Pressure Plates are similar to vanilla Stone Pressure Plates
+    private static RegistryObject<Block> registerPressurePlate(String name) {
+        RegistryObject<Block> block = BLOCKS.register(name, () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE)));
         ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
         return block;
     }

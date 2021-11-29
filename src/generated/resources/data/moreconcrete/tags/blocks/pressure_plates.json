@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_pressure_plate",
+    "moreconcrete:orange_concrete_pressure_plate",
+    "moreconcrete:magenta_concrete_pressure_plate",
+    "moreconcrete:light_blue_concrete_pressure_plate",
+    "moreconcrete:yellow_concrete_pressure_plate",
+    "moreconcrete:lime_concrete_pressure_plate",
+    "moreconcrete:pink_concrete_pressure_plate",
+    "moreconcrete:gray_concrete_pressure_plate",
+    "moreconcrete:light_gray_concrete_pressure_plate",
+    "moreconcrete:cyan_concrete_pressure_plate",
+    "moreconcrete:purple_concrete_pressure_plate",
+    "moreconcrete:blue_concrete_pressure_plate",
+    "moreconcrete:brown_concrete_pressure_plate",
+    "moreconcrete:green_concrete_pressure_plate",
+    "moreconcrete:red_concrete_pressure_plate",
+    "moreconcrete:black_concrete_pressure_plate"
+  ]
+}

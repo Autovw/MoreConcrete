@@ -150,6 +150,25 @@ public class ModRecipeProvider extends RecipeProvider {
         concreteLever(consumer, ModBlocks.GREEN_CONCRETE_LEVER.get(), Blocks.GREEN_CONCRETE);
         concreteLever(consumer, ModBlocks.RED_CONCRETE_LEVER.get(), Blocks.RED_CONCRETE);
         concreteLever(consumer, ModBlocks.BLACK_CONCRETE_LEVER.get(), Blocks.BLACK_CONCRETE);
+
+
+        // Pressure Plates
+        concretePressurePlate(consumer, ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get(), Blocks.WHITE_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get(), Blocks.ORANGE_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get(), Blocks.MAGENTA_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get(), Blocks.LIGHT_BLUE_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get(), Blocks.YELLOW_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get(), Blocks.LIME_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get(), Blocks.PINK_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get(), Blocks.GRAY_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get(), Blocks.LIGHT_GRAY_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get(), Blocks.CYAN_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get(), Blocks.PURPLE_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get(), Blocks.BLUE_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get(), Blocks.BROWN_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get(), Blocks.GREEN_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get(), Blocks.RED_CONCRETE);
+        concretePressurePlate(consumer, ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get(), Blocks.BLACK_CONCRETE);
     }
 
     private static void concreteSlab(Consumer<FinishedRecipe> recipeConsumer, ItemLike slab, ItemLike ingredient) {
@@ -186,6 +205,15 @@ public class ModRecipeProvider extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(ingredient, result, amount)
                 .unlockedBy("has_concrete", has(type))
                 .save(recipeConsumer, new ResourceLocation(MoreConcrete.MODID, result.asItem() + "_from_" + type.asItem() + "_stonecutting"));
+    }
+
+    private static void concretePressurePlate(Consumer<FinishedRecipe> recipeConsumer, ItemLike pressurePlate, ItemLike ingredient) {
+        ShapedRecipeBuilder.shaped(pressurePlate, 1)
+                .define('#', ingredient)
+                .pattern("##")
+                .group("concrete_pressure_plate")
+                .unlockedBy("has_concrete", has(ingredient))
+                .save(recipeConsumer);
     }
 
     private static void concreteLever(Consumer<FinishedRecipe> recipeConsumer, ItemLike lever, ItemLike ingredient) {

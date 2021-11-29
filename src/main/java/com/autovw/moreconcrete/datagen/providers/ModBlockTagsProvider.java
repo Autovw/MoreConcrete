@@ -95,5 +95,24 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_LEVER.get())
                 .add(ModBlocks.RED_CONCRETE_LEVER.get())
                 .add(ModBlocks.BLACK_CONCRETE_LEVER.get());
+
+        // Pressure Plates
+        tag(ModTags.MOD_PRESSURE_PLATES)
+                .add(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get())
+                .add(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
     }
 }
