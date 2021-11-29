@@ -101,5 +101,22 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModBlocks.GREEN_CONCRETE_LEVER.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/green_concrete_lever"));
         withExistingParent(ModBlocks.RED_CONCRETE_LEVER.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/red_concrete_lever"));
         withExistingParent(ModBlocks.BLACK_CONCRETE_LEVER.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/black_concrete_lever"));
+
+        withExistingParent(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/white_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/orange_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/magenta_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/light_blue_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/yellow_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/lime_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/pink_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/gray_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/light_gray_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/cyan_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/purple_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/blue_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/brown_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/green_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/red_concrete_pressure_plate"));
+        withExistingParent(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/black_concrete_pressure_plate"));
     }
 }

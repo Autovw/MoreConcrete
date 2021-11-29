@@ -13,6 +13,7 @@ public class ModTags {
     public static final ITag.INamedTag<Block> MOD_STAIRS = blockTag("stairs");
     public static final ITag.INamedTag<Block> MOD_WALLS = blockTag("walls");
     public static final ITag.INamedTag<Block> MOD_LEVERS = blockTag("levers");
+    public static final ITag.INamedTag<Block> MOD_PRESSURE_PLATES = blockTag("pressure_plates");
 
     private static ITag.INamedTag<Block> blockTag(String location) {
         return BlockTags.bind(MoreConcrete.MODID + ":" + location);

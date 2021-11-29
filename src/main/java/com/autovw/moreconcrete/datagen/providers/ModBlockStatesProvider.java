@@ -92,6 +92,23 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         leverBlock(ModBlocks.GREEN_CONCRETE_LEVER.get(), "green");
         leverBlock(ModBlocks.RED_CONCRETE_LEVER.get(), "red");
         leverBlock(ModBlocks.BLACK_CONCRETE_LEVER.get(), "black");
+
+        pressurePlateBlock(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get(), "white");
+        pressurePlateBlock(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get(), "orange");
+        pressurePlateBlock(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get(), "magenta");
+        pressurePlateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get(), "light_blue");
+        pressurePlateBlock(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get(), "yellow");
+        pressurePlateBlock(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get(), "lime");
+        pressurePlateBlock(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get(), "pink");
+        pressurePlateBlock(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get(), "gray");
+        pressurePlateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get(), "light_gray");
+        pressurePlateBlock(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get(), "cyan");
+        pressurePlateBlock(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get(), "purple");
+        pressurePlateBlock(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get(), "blue");
+        pressurePlateBlock(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get(), "brown");
+        pressurePlateBlock(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get(), "green");
+        pressurePlateBlock(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get(), "red");
+        pressurePlateBlock(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get(), "black");
     }
 
     /**
@@ -119,5 +136,24 @@ public class ModBlockStatesProvider extends BlockStateProvider {
                     .rotationY((int) (face == AttachFace.CEILING ? facing : facing.getOpposite()).toYRot())
                     .build();
         });
+    }
+
+    /**
+     * Helper method for registering blockstates/models for pressure plates.
+     *
+     * @param pressurePlate Registered pressure plate
+     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
+     */
+    public void pressurePlateBlock(Block pressurePlate, String concreteColor) {
+        ResourceLocation texture = mcLoc("block/" + concreteColor + "_concrete");
+
+        // Creates pressure plate model file
+        BlockModelBuilder pressurePlateModel = models().withExistingParent(pressurePlate.getRegistryName().getPath(), mcLoc("block/pressure_plate_up")).texture("texture", texture);
+        // Creates pressure plate down model file
+        BlockModelBuilder pressurePlateModelDown = models().withExistingParent(pressurePlate.getRegistryName().getPath() + "_down", mcLoc("block/pressure_plate_down")).texture("texture", texture);
+
+        getVariantBuilder(pressurePlate)
+                .partialState().with(PressurePlateBlock.POWERED, true).addModels(new ConfiguredModel(pressurePlateModelDown))
+                .partialState().with(PressurePlateBlock.POWERED, false).addModels(new ConfiguredModel(pressurePlateModel));
     }
 }
