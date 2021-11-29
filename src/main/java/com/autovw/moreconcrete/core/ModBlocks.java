@@ -73,7 +73,6 @@ public class ModBlocks {
 
     // Levers
     public static final RegistryObject<Block> WHITE_CONCRETE_LEVER = registerLever("white_concrete_lever");
-    /*
     public static final RegistryObject<Block> ORANGE_CONCRETE_LEVER = registerLever("orange_concrete_lever");
     public static final RegistryObject<Block> MAGENTA_CONCRETE_LEVER = registerLever("magenta_concrete_lever");
     public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_LEVER = registerLever("light_blue_concrete_lever");
@@ -89,7 +88,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> GREEN_CONCRETE_LEVER = registerLever("green_concrete_lever");
     public static final RegistryObject<Block> RED_CONCRETE_LEVER = registerLever("red_concrete_lever");
     public static final RegistryObject<Block> BLACK_CONCRETE_LEVER = registerLever("black_concrete_lever");
-     */
 
     private static RegistryObject<Block> register(String name, Block blockType) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> blockType);

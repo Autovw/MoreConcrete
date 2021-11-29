@@ -2,10 +2,7 @@ package com.autovw.moreconcrete.datagen.providers;
 
 import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.*;
 import net.minecraft.data.*;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.properties.AttachFace;
@@ -14,14 +11,14 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.Objects;
 import java.util.function.Consumer;
 
 public class ModBlockStatesProvider extends BlockStateProvider {
-    private Consumer<IFinishedBlockState> blockStateOutput;
-
     public ModBlockStatesProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, MoreConcrete.MODID, exFileHelper);
     }
@@ -79,54 +76,48 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         wallBlock((WallBlock) ModBlocks.RED_CONCRETE_WALL.get(), new ResourceLocation("block/red_concrete"));
         wallBlock((WallBlock) ModBlocks.BLACK_CONCRETE_WALL.get(), new ResourceLocation("block/black_concrete"));
 
-        leverBlock(ModBlocks.WHITE_CONCRETE_LEVER.get(), "white_concrete");
+        leverBlock(ModBlocks.WHITE_CONCRETE_LEVER.get(), "white");
+        leverBlock(ModBlocks.ORANGE_CONCRETE_LEVER.get(), "orange");
+        leverBlock(ModBlocks.MAGENTA_CONCRETE_LEVER.get(), "magenta");
+        leverBlock(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get(), "light_blue");
+        leverBlock(ModBlocks.YELLOW_CONCRETE_LEVER.get(), "yellow");
+        leverBlock(ModBlocks.LIME_CONCRETE_LEVER.get(), "lime");
+        leverBlock(ModBlocks.PINK_CONCRETE_LEVER.get(), "pink");
+        leverBlock(ModBlocks.GRAY_CONCRETE_LEVER.get(), "gray");
+        leverBlock(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get(), "light_gray");
+        leverBlock(ModBlocks.CYAN_CONCRETE_LEVER.get(), "cyan");
+        leverBlock(ModBlocks.PURPLE_CONCRETE_LEVER.get(), "purple");
+        leverBlock(ModBlocks.BLUE_CONCRETE_LEVER.get(), "blue");
+        leverBlock(ModBlocks.BROWN_CONCRETE_LEVER.get(), "brown");
+        leverBlock(ModBlocks.GREEN_CONCRETE_LEVER.get(), "green");
+        leverBlock(ModBlocks.RED_CONCRETE_LEVER.get(), "red");
+        leverBlock(ModBlocks.BLACK_CONCRETE_LEVER.get(), "black");
     }
 
     /**
      * Helper method for registering blockstates/models for levers.
      *
      * @param lever Registered lever
-     * @param concreteType Name of the concrete texture (without "block/")
+     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
      */
-    public void leverBlock(Block lever, String concreteType) {
-        ResourceLocation texture = mcLoc("block/" + concreteType);
+    public void leverBlock(Block lever, String concreteColor) {
+        ResourceLocation texture = mcLoc("block/" + concreteColor + "_concrete");
 
         // Creates lever_model model file
         BlockModelBuilder leverModel = models().withExistingParent(Objects.requireNonNull(lever.getRegistryName()).getPath(), new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("particle", texture).texture("base", texture);
         // Creates lever_model_on model file
         BlockModelBuilder leverModelOn = models().withExistingParent(lever.getRegistryName().getPath() + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("particle", texture).texture("base", texture);
 
-        try {
-            leverBlock(lever);
-        }
-        catch (NullPointerException exception) {
-            MoreConcrete.LOGGER.error("Could not generate Block States for Levers");
-        }
-    }
+        getVariantBuilder(lever).forAllStates(blockState -> {
+            Direction facing = blockState.getValue(LeverBlock.FACING);
+            AttachFace face = blockState.getValue(LeverBlock.FACE);
+            boolean powered = blockState.getValue(LeverBlock.POWERED);
 
-    // Does the blockstate part
-    private void leverBlock(Block lever) {
-        ResourceLocation leverOff = new ResourceLocation(MoreConcrete.MODID, "block/" + Objects.requireNonNull(lever.getRegistryName()).getPath());
-        ResourceLocation leverOn = new ResourceLocation(MoreConcrete.MODID, "block/" + lever.getRegistryName().getPath() + "_on");
-
-        this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(lever)
-                .with(createBooleanModelDispatch(BlockStateProperties.POWERED, leverOff, leverOn))
-                .with(BlockStateVariantBuilder.properties(BlockStateProperties.ATTACH_FACE, BlockStateProperties.HORIZONTAL_FACING)
-                        .select(AttachFace.CEILING, Direction.NORTH, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R180).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180))
-                        .select(AttachFace.CEILING, Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R180).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270))
-                        .select(AttachFace.CEILING, Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R180))
-                        .select(AttachFace.CEILING, Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R180).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90))
-                        .select(AttachFace.FLOOR, Direction.NORTH, BlockModelDefinition.variant())
-                        .select(AttachFace.FLOOR, Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90))
-                        .select(AttachFace.FLOOR, Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180))
-                        .select(AttachFace.FLOOR, Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270))
-                        .select(AttachFace.WALL, Direction.NORTH, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90))
-                        .select(AttachFace.WALL, Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90))
-                        .select(AttachFace.WALL, Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180))
-                        .select(AttachFace.WALL, Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270))));
-    }
-
-    private static BlockStateVariantBuilder createBooleanModelDispatch(BooleanProperty property, ResourceLocation loc1, ResourceLocation loc2) {
-        return BlockStateVariantBuilder.property(property).select(true, BlockModelDefinition.variant().with(BlockModelFields.MODEL, loc1)).select(false, BlockModelDefinition.variant().with(BlockModelFields.MODEL, loc2));
+            return ConfiguredModel.builder()
+                    .modelFile(powered ? leverModel : leverModelOn)
+                    .rotationX(face == AttachFace.FLOOR ? 0 : (face == AttachFace.WALL ? 90 : 180))
+                    .rotationY((int) (face == AttachFace.CEILING ? facing : facing.getOpposite()).toYRot())
+                    .build();
+        });
     }
 }

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_lever",
+    "moreconcrete:orange_concrete_lever",
+    "moreconcrete:magenta_concrete_lever",
+    "moreconcrete:light_blue_concrete_lever",
+    "moreconcrete:yellow_concrete_lever",
+    "moreconcrete:lime_concrete_lever",
+    "moreconcrete:pink_concrete_lever",
+    "moreconcrete:gray_concrete_lever",
+    "moreconcrete:light_gray_concrete_lever",
+    "moreconcrete:cyan_concrete_lever",
+    "moreconcrete:purple_concrete_lever",
+    "moreconcrete:blue_concrete_lever",
+    "moreconcrete:brown_concrete_lever",
+    "moreconcrete:green_concrete_lever",
+    "moreconcrete:red_concrete_lever",
+    "moreconcrete:black_concrete_lever"
+  ]
+}

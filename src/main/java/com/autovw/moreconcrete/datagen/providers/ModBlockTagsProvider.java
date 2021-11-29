@@ -36,5 +36,23 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.RED_CONCRETE_WALL.get())
                 .add(ModBlocks.BLACK_CONCRETE_WALL.get());
         tag(BlockTags.WALLS).addTag(ModTags.MOD_WALLS);
+
+        tag(ModTags.MOD_LEVERS)
+                .add(ModBlocks.WHITE_CONCRETE_LEVER.get())
+                .add(ModBlocks.ORANGE_CONCRETE_LEVER.get())
+                .add(ModBlocks.MAGENTA_CONCRETE_LEVER.get())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get())
+                .add(ModBlocks.YELLOW_CONCRETE_LEVER.get())
+                .add(ModBlocks.LIME_CONCRETE_LEVER.get())
+                .add(ModBlocks.PINK_CONCRETE_LEVER.get())
+                .add(ModBlocks.GRAY_CONCRETE_LEVER.get())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get())
+                .add(ModBlocks.CYAN_CONCRETE_LEVER.get())
+                .add(ModBlocks.PURPLE_CONCRETE_LEVER.get())
+                .add(ModBlocks.BLUE_CONCRETE_LEVER.get())
+                .add(ModBlocks.BROWN_CONCRETE_LEVER.get())
+                .add(ModBlocks.GREEN_CONCRETE_LEVER.get())
+                .add(ModBlocks.RED_CONCRETE_LEVER.get())
+                .add(ModBlocks.BLACK_CONCRETE_LEVER.get());
     }
 }

@@ -4,6 +4,7 @@ import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
@@ -126,6 +127,25 @@ public class ModRecipeProvider extends RecipeProvider {
         stonecutting(consumer, ModBlocks.GREEN_CONCRETE_WALL.get(), Ingredient.of(Blocks.GREEN_CONCRETE), 1, Blocks.GREEN_CONCRETE);
         stonecutting(consumer, ModBlocks.RED_CONCRETE_WALL.get(), Ingredient.of(Blocks.RED_CONCRETE), 1, Blocks.RED_CONCRETE);
         stonecutting(consumer, ModBlocks.BLACK_CONCRETE_WALL.get(), Ingredient.of(Blocks.BLACK_CONCRETE), 1, Blocks.BLACK_CONCRETE);
+
+
+        // Levers
+        concreteLever(consumer, ModBlocks.WHITE_CONCRETE_LEVER.get(), Blocks.WHITE_CONCRETE);
+        concreteLever(consumer, ModBlocks.ORANGE_CONCRETE_LEVER.get(), Blocks.ORANGE_CONCRETE);
+        concreteLever(consumer, ModBlocks.MAGENTA_CONCRETE_LEVER.get(), Blocks.MAGENTA_CONCRETE);
+        concreteLever(consumer, ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get(), Blocks.LIGHT_BLUE_CONCRETE);
+        concreteLever(consumer, ModBlocks.YELLOW_CONCRETE_LEVER.get(), Blocks.YELLOW_CONCRETE);
+        concreteLever(consumer, ModBlocks.LIME_CONCRETE_LEVER.get(), Blocks.LIME_CONCRETE);
+        concreteLever(consumer, ModBlocks.PINK_CONCRETE_LEVER.get(), Blocks.PINK_CONCRETE);
+        concreteLever(consumer, ModBlocks.GRAY_CONCRETE_LEVER.get(), Blocks.GRAY_CONCRETE);
+        concreteLever(consumer, ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get(), Blocks.LIGHT_GRAY_CONCRETE);
+        concreteLever(consumer, ModBlocks.CYAN_CONCRETE_LEVER.get(), Blocks.CYAN_CONCRETE);
+        concreteLever(consumer, ModBlocks.PURPLE_CONCRETE_LEVER.get(), Blocks.PURPLE_CONCRETE);
+        concreteLever(consumer, ModBlocks.BLUE_CONCRETE_LEVER.get(), Blocks.BLUE_CONCRETE);
+        concreteLever(consumer, ModBlocks.BROWN_CONCRETE_LEVER.get(), Blocks.BROWN_CONCRETE);
+        concreteLever(consumer, ModBlocks.GREEN_CONCRETE_LEVER.get(), Blocks.GREEN_CONCRETE);
+        concreteLever(consumer, ModBlocks.RED_CONCRETE_LEVER.get(), Blocks.RED_CONCRETE);
+        concreteLever(consumer, ModBlocks.BLACK_CONCRETE_LEVER.get(), Blocks.BLACK_CONCRETE);
     }
 
     private static void concreteSlab(Consumer<IFinishedRecipe> recipeConsumer, IItemProvider slab, IItemProvider ingredient) {
@@ -154,6 +174,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .pattern("###")
                 .group("concrete_wall")
+                .unlockedBy("has_concrete", has(ingredient))
+                .save(recipeConsumer);
+    }
+
+    private static void concreteLever(Consumer<IFinishedRecipe> recipeConsumer, IItemProvider lever, IItemProvider ingredient) {
+        ShapedRecipeBuilder.shaped(lever, 1)
+                .define('#', ingredient)
+                .define('X', Items.STICK)
+                .pattern("X")
+                .pattern("#")
+                .group("concrete_lever")
                 .unlockedBy("has_concrete", has(ingredient))
                 .save(recipeConsumer);
     }

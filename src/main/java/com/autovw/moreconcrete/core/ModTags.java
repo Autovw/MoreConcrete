@@ -10,6 +10,7 @@ import net.minecraft.tags.ITag;
  */
 public class ModTags {
     public static final ITag.INamedTag<Block> MOD_WALLS = blockTag("walls");
+    public static final ITag.INamedTag<Block> MOD_LEVERS = blockTag("levers");
 
     private static ITag.INamedTag<Block> blockTag(String location) {
         return BlockTags.bind(MoreConcrete.MODID + ":" + location);
