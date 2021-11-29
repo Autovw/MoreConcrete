@@ -18,6 +18,45 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
+        // Slabs
+        tag(ModTags.MOD_SLABS)
+                .add(ModBlocks.WHITE_CONCRETE_SLAB.get())
+                .add(ModBlocks.ORANGE_CONCRETE_SLAB.get())
+                .add(ModBlocks.MAGENTA_CONCRETE_SLAB.get())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_SLAB.get())
+                .add(ModBlocks.YELLOW_CONCRETE_SLAB.get())
+                .add(ModBlocks.LIME_CONCRETE_SLAB.get())
+                .add(ModBlocks.PINK_CONCRETE_SLAB.get())
+                .add(ModBlocks.GRAY_CONCRETE_SLAB.get())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_SLAB.get())
+                .add(ModBlocks.CYAN_CONCRETE_WALL.get())
+                .add(ModBlocks.PURPLE_CONCRETE_SLAB.get())
+                .add(ModBlocks.BLUE_CONCRETE_SLAB.get())
+                .add(ModBlocks.BROWN_CONCRETE_SLAB.get())
+                .add(ModBlocks.GREEN_CONCRETE_SLAB.get())
+                .add(ModBlocks.RED_CONCRETE_SLAB.get())
+                .add(ModBlocks.BLACK_CONCRETE_SLAB.get());
+
+        // Stairs
+        tag(ModTags.MOD_STAIRS)
+                .add(ModBlocks.WHITE_CONCRETE_STAIRS.get())
+                .add(ModBlocks.ORANGE_CONCRETE_STAIRS.get())
+                .add(ModBlocks.MAGENTA_CONCRETE_STAIRS.get())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.get())
+                .add(ModBlocks.YELLOW_CONCRETE_STAIRS.get())
+                .add(ModBlocks.LIME_CONCRETE_STAIRS.get())
+                .add(ModBlocks.PINK_CONCRETE_STAIRS.get())
+                .add(ModBlocks.GRAY_CONCRETE_STAIRS.get())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS.get())
+                .add(ModBlocks.CYAN_CONCRETE_STAIRS.get())
+                .add(ModBlocks.PURPLE_CONCRETE_STAIRS.get())
+                .add(ModBlocks.BLUE_CONCRETE_STAIRS.get())
+                .add(ModBlocks.BROWN_CONCRETE_STAIRS.get())
+                .add(ModBlocks.GREEN_CONCRETE_STAIRS.get())
+                .add(ModBlocks.RED_CONCRETE_STAIRS.get())
+                .add(ModBlocks.BLACK_CONCRETE_STAIRS.get());
+
+        // Walls
         tag(ModTags.MOD_WALLS)
                 .add(ModBlocks.WHITE_CONCRETE_WALL.get())
                 .add(ModBlocks.ORANGE_CONCRETE_WALL.get())
@@ -35,8 +74,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_WALL.get())
                 .add(ModBlocks.RED_CONCRETE_WALL.get())
                 .add(ModBlocks.BLACK_CONCRETE_WALL.get());
+        // Walls are added to the vanilla walls tag
         tag(BlockTags.WALLS).addTag(ModTags.MOD_WALLS);
 
+        // Levers
         tag(ModTags.MOD_LEVERS)
                 .add(ModBlocks.WHITE_CONCRETE_LEVER.get())
                 .add(ModBlocks.ORANGE_CONCRETE_LEVER.get())

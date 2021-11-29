@@ -9,6 +9,8 @@ import net.minecraft.tags.ITag;
  * Author: Autovw
  */
 public class ModTags {
+    public static final ITag.INamedTag<Block> MOD_SLABS = blockTag("slabs");
+    public static final ITag.INamedTag<Block> MOD_STAIRS = blockTag("stairs");
     public static final ITag.INamedTag<Block> MOD_WALLS = blockTag("walls");
     public static final ITag.INamedTag<Block> MOD_LEVERS = blockTag("levers");
 
