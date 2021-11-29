@@ -90,6 +90,8 @@ public class ModLootTableProvider extends LootTableProvider {
             this.dropSelf(ModBlocks.GREEN_CONCRETE_WALL.get());
             this.dropSelf(ModBlocks.RED_CONCRETE_WALL.get());
             this.dropSelf(ModBlocks.BLACK_CONCRETE_WALL.get());
+
+            this.dropSelf(ModBlocks.WHITE_CONCRETE_LEVER.get());
         }
 
         @Override
