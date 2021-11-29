@@ -2,13 +2,17 @@ package com.autovw.moreconcrete.datagen.providers;
 
 import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.Objects;
 
 public class ModBlockStatesProvider extends BlockStateProvider {
     public ModBlockStatesProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
@@ -67,5 +71,49 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         wallBlock((WallBlock) ModBlocks.GREEN_CONCRETE_WALL.get(), new ResourceLocation("block/green_concrete"));
         wallBlock((WallBlock) ModBlocks.RED_CONCRETE_WALL.get(), new ResourceLocation("block/red_concrete"));
         wallBlock((WallBlock) ModBlocks.BLACK_CONCRETE_WALL.get(), new ResourceLocation("block/black_concrete"));
+
+        leverBlock(ModBlocks.WHITE_CONCRETE_LEVER.get(), "white");
+        leverBlock(ModBlocks.ORANGE_CONCRETE_LEVER.get(), "orange");
+        leverBlock(ModBlocks.MAGENTA_CONCRETE_LEVER.get(), "magenta");
+        leverBlock(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get(), "light_blue");
+        leverBlock(ModBlocks.YELLOW_CONCRETE_LEVER.get(), "yellow");
+        leverBlock(ModBlocks.LIME_CONCRETE_LEVER.get(), "lime");
+        leverBlock(ModBlocks.PINK_CONCRETE_LEVER.get(), "pink");
+        leverBlock(ModBlocks.GRAY_CONCRETE_LEVER.get(), "gray");
+        leverBlock(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get(), "light_gray");
+        leverBlock(ModBlocks.CYAN_CONCRETE_LEVER.get(), "cyan");
+        leverBlock(ModBlocks.PURPLE_CONCRETE_LEVER.get(), "purple");
+        leverBlock(ModBlocks.BLUE_CONCRETE_LEVER.get(), "blue");
+        leverBlock(ModBlocks.BROWN_CONCRETE_LEVER.get(), "brown");
+        leverBlock(ModBlocks.GREEN_CONCRETE_LEVER.get(), "green");
+        leverBlock(ModBlocks.RED_CONCRETE_LEVER.get(), "red");
+        leverBlock(ModBlocks.BLACK_CONCRETE_LEVER.get(), "black");
+    }
+
+    /**
+     * Helper method for registering blockstates/models for levers.
+     *
+     * @param lever Registered lever
+     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
+     */
+    public void leverBlock(Block lever, String concreteColor) {
+        ResourceLocation texture = mcLoc("block/" + concreteColor + "_concrete");
+
+        // Creates lever_model model file
+        BlockModelBuilder leverModel = models().withExistingParent(Objects.requireNonNull(lever.getRegistryName()).getPath(), new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("particle", texture).texture("base", texture);
+        // Creates lever_model_on model file
+        BlockModelBuilder leverModelOn = models().withExistingParent(lever.getRegistryName().getPath() + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("particle", texture).texture("base", texture);
+
+        getVariantBuilder(lever).forAllStates(blockState -> {
+            Direction facing = blockState.getValue(LeverBlock.FACING);
+            AttachFace face = blockState.getValue(LeverBlock.FACE);
+            boolean powered = blockState.getValue(LeverBlock.POWERED);
+
+            return ConfiguredModel.builder()
+                    .modelFile(powered ? leverModel : leverModelOn)
+                    .rotationX(face == AttachFace.FLOOR ? 0 : (face == AttachFace.WALL ? 90 : 180))
+                    .rotationY((int) (face == AttachFace.CEILING ? facing : facing.getOpposite()).toYRot())
+                    .build();
+        });
     }
 }

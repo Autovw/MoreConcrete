@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "type": "minecraft:block",
   "pools": [
@@ -19,3 +20,5 @@
     }
   ]
 }
+=======
+>>>>>>> parent of 6c91fe3 (🐛 Fixed gson errors when loading the mod on a server)

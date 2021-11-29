@@ -48,5 +48,22 @@
   "block.moreconcrete.brown_concrete_wall": "Brown Concrete Wall",
   "block.moreconcrete.green_concrete_wall": "Green Concrete Wall",
   "block.moreconcrete.red_concrete_wall": "Red Concrete Wall",
-  "block.moreconcrete.black_concrete_wall": "Black Concrete Wall"
+  "block.moreconcrete.black_concrete_wall": "Black Concrete Wall",
+
+  "block.moreconcrete.white_concrete_lever": "White Concrete Lever",
+  "block.moreconcrete.orange_concrete_lever": "Orange Concrete Lever",
+  "block.moreconcrete.magenta_concrete_lever": "Magenta Concrete Lever",
+  "block.moreconcrete.light_blue_concrete_lever": "Light Blue Concrete Lever",
+  "block.moreconcrete.yellow_concrete_lever": "Yellow Concrete Lever",
+  "block.moreconcrete.lime_concrete_lever": "Lime Concrete Lever",
+  "block.moreconcrete.pink_concrete_lever": "Pink Concrete Lever",
+  "block.moreconcrete.gray_concrete_lever": "Gray Concrete Lever",
+  "block.moreconcrete.light_gray_concrete_lever": "Light Gray Concrete Lever",
+  "block.moreconcrete.cyan_concrete_lever": "Cyan Concrete Lever",
+  "block.moreconcrete.purple_concrete_lever": "Purple Concrete Lever",
+  "block.moreconcrete.blue_concrete_lever": "Blue Concrete Lever",
+  "block.moreconcrete.brown_concrete_lever": "Brown Concrete Lever",
+  "block.moreconcrete.green_concrete_lever": "Green Concrete Lever",
+  "block.moreconcrete.red_concrete_lever": "Red Concrete Lever",
+  "block.moreconcrete.black_concrete_lever": "Black Concrete Lever"
 }

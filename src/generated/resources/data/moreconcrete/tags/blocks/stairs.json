@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_stairs",
+    "moreconcrete:orange_concrete_stairs",
+    "moreconcrete:magenta_concrete_stairs",
+    "moreconcrete:light_blue_concrete_stairs",
+    "moreconcrete:yellow_concrete_stairs",
+    "moreconcrete:lime_concrete_stairs",
+    "moreconcrete:pink_concrete_stairs",
+    "moreconcrete:gray_concrete_stairs",
+    "moreconcrete:light_gray_concrete_stairs",
+    "moreconcrete:cyan_concrete_stairs",
+    "moreconcrete:purple_concrete_stairs",
+    "moreconcrete:blue_concrete_stairs",
+    "moreconcrete:brown_concrete_stairs",
+    "moreconcrete:green_concrete_stairs",
+    "moreconcrete:red_concrete_stairs",
+    "moreconcrete:black_concrete_stairs"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+	"parent": "minecraft:block/lever",
+	"credit": "Made with Blockbench by Autovw",
+	"textures": {
+		"particle": "#particle",
+		"base": "#base",
+		"lever": "minecraft:block/lever"
+	},
+	"gui_light": "side",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [100, 0, 0],
+			"translation": [0, -0.75, 2.75],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [45, 0, 0],
+			"translation": [0, 3, 2],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"rotation": [90, 0, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [90, 0, -45],
+			"translation": [4, -3, 0],
+			"scale": [1.1, 1.1, 1.1]
+		},
+		"fixed": {
+			"rotation": [0, 90, 0],
+			"translation": [0.75, 2.25, -0.5]
+		}
+	}
+}

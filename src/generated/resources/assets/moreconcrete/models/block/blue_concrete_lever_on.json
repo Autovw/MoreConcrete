@@ -1,0 +1,7 @@
+{
+  "parent": "moreconcrete:block/lever_model_on",
+  "textures": {
+    "particle": "minecraft:block/blue_concrete",
+    "base": "minecraft:block/blue_concrete"
+  }
+}

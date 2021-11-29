@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_slab",
+    "moreconcrete:orange_concrete_slab",
+    "moreconcrete:magenta_concrete_slab",
+    "moreconcrete:light_blue_concrete_slab",
+    "moreconcrete:yellow_concrete_slab",
+    "moreconcrete:lime_concrete_slab",
+    "moreconcrete:pink_concrete_slab",
+    "moreconcrete:gray_concrete_slab",
+    "moreconcrete:light_gray_concrete_slab",
+    "moreconcrete:cyan_concrete_wall",
+    "moreconcrete:purple_concrete_slab",
+    "moreconcrete:blue_concrete_slab",
+    "moreconcrete:brown_concrete_slab",
+    "moreconcrete:green_concrete_slab",
+    "moreconcrete:red_concrete_slab",
+    "moreconcrete:black_concrete_slab"
+  ]
+}
