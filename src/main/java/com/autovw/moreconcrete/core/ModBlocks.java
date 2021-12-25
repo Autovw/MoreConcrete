@@ -108,6 +108,24 @@ public class ModBlocks {
     public static final RegistryObject<Block> RED_CONCRETE_PRESSURE_PLATE = registerPressurePlate("red_concrete_pressure_plate");
     public static final RegistryObject<Block> BLACK_CONCRETE_PRESSURE_PLATE = registerPressurePlate("black_concrete_pressure_plate");
 
+    // Fences
+    public static final RegistryObject<Block> WHITE_CONCRETE_FENCE = registerFence("white", Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_FENCE = registerFence("orange", Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_FENCE = registerFence("magenta", Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_FENCE = registerFence("light_blue", Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_FENCE = registerFence("yellow", Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_FENCE = registerFence("lime", Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_FENCE = registerFence("pink", Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_FENCE = registerFence("gray", Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_FENCE = registerFence("light_gray", Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_FENCE = registerFence("cyan", Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_FENCE = registerFence("purple", Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_FENCE = registerFence("blue", Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_FENCE = registerFence("brown", Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_FENCE = registerFence("green", Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_FENCE = registerFence("red", Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_FENCE = registerFence("black", Blocks.BLACK_CONCRETE);
+
     // Fence Gates
     public static final RegistryObject<Block> WHITE_CONCRETE_FENCE_GATE = registerFenceGate("white", Blocks.WHITE_CONCRETE);
     public static final RegistryObject<Block> ORANGE_CONCRETE_FENCE_GATE = registerFenceGate("orange", Blocks.ORANGE_CONCRETE);
@@ -149,6 +167,12 @@ public class ModBlocks {
     private static RegistryObject<Block> registerPressurePlate(String name) {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE)));
         ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+        return block;
+    }
+
+    private static RegistryObject<Block> registerFence(String color, Block parent) {
+        RegistryObject<Block> block = BLOCKS.register(color + "_concrete_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)));
+        ITEMS.register(color + "_concrete_fence", () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
         return block;
     }
 
