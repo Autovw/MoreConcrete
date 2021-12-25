@@ -262,6 +262,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("#")
                 .group("concrete_lever")
                 .unlockedBy("has_concrete", has(ingredient))
+                .unlockedBy("has_stick", has(Items.STICK))
                 .save(recipeConsumer);
     }
 
