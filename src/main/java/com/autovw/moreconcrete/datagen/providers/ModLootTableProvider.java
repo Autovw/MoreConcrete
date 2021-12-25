@@ -124,6 +124,23 @@ public class ModLootTableProvider extends LootTableProvider {
             this.dropSelf(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get());
             this.dropSelf(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get());
             this.dropSelf(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
+
+            this.dropSelf(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.LIME_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.PINK_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.GRAY_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.CYAN_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.BLUE_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.BROWN_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.RED_CONCRETE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
         }
 
         @Override
