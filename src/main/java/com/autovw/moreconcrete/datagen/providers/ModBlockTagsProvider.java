@@ -115,6 +115,27 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get())
                 .add(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
 
+        // Fences
+        tag(ModTags.MOD_FENCES)
+                .add(ModBlocks.WHITE_CONCRETE_FENCE.get())
+                .add(ModBlocks.ORANGE_CONCRETE_FENCE.get())
+                .add(ModBlocks.MAGENTA_CONCRETE_FENCE.get())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get())
+                .add(ModBlocks.YELLOW_CONCRETE_FENCE.get())
+                .add(ModBlocks.LIME_CONCRETE_FENCE.get())
+                .add(ModBlocks.PINK_CONCRETE_FENCE.get())
+                .add(ModBlocks.GRAY_CONCRETE_FENCE.get())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get())
+                .add(ModBlocks.CYAN_CONCRETE_FENCE.get())
+                .add(ModBlocks.PURPLE_CONCRETE_FENCE.get())
+                .add(ModBlocks.BLUE_CONCRETE_FENCE.get())
+                .add(ModBlocks.BROWN_CONCRETE_FENCE.get())
+                .add(ModBlocks.GREEN_CONCRETE_FENCE.get())
+                .add(ModBlocks.RED_CONCRETE_FENCE.get())
+                .add(ModBlocks.BLACK_CONCRETE_FENCE.get());
+        // Fences are added to the vanilla fences tag
+        tag(BlockTags.FENCES).addTag(ModTags.MOD_FENCES);
+
         // Fence Gates
         tag(ModTags.MOD_FENCE_GATES)
                 .add(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get())

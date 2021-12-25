@@ -119,6 +119,40 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/red_concrete_pressure_plate"));
         withExistingParent(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/black_concrete_pressure_plate"));
 
+        withExistingParent(ModBlocks.WHITE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/white_concrete_fence_post"));
+        withExistingParent(ModBlocks.ORANGE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/orange_concrete_fence_post"));
+        withExistingParent(ModBlocks.MAGENTA_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/magenta_concrete_fence_post"));
+        withExistingParent(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/light_blue_concrete_fence_post"));
+        withExistingParent(ModBlocks.YELLOW_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/yellow_concrete_fence_post"));
+        withExistingParent(ModBlocks.LIME_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/lime_concrete_fence_post"));
+        withExistingParent(ModBlocks.PINK_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/pink_concrete_fence_post"));
+        withExistingParent(ModBlocks.GRAY_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/gray_concrete_fence_post"));
+        withExistingParent(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/light_gray_concrete_fence_post"));
+        withExistingParent(ModBlocks.CYAN_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/cyan_concrete_fence_post"));
+        withExistingParent(ModBlocks.PURPLE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/purple_concrete_fence_post"));
+        withExistingParent(ModBlocks.BLUE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/blue_concrete_fence_post"));
+        withExistingParent(ModBlocks.BROWN_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/brown_concrete_fence_post"));
+        withExistingParent(ModBlocks.GREEN_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/green_concrete_fence_post"));
+        withExistingParent(ModBlocks.RED_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/red_concrete_fence_post"));
+        withExistingParent(ModBlocks.BLACK_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/black_concrete_fence_post"));
+
+        fenceInventory(ModBlocks.WHITE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/white_concrete"));
+        fenceInventory(ModBlocks.ORANGE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/orange_concrete"));
+        fenceInventory(ModBlocks.MAGENTA_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/magenta_concrete"));
+        fenceInventory(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/light_blue_concrete"));
+        fenceInventory(ModBlocks.YELLOW_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/yellow_concrete"));
+        fenceInventory(ModBlocks.LIME_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/lime_concrete"));
+        fenceInventory(ModBlocks.PINK_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/pink_concrete"));
+        fenceInventory(ModBlocks.GRAY_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/gray_concrete"));
+        fenceInventory(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/light_gray_concrete"));
+        fenceInventory(ModBlocks.CYAN_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/cyan_concrete"));
+        fenceInventory(ModBlocks.PURPLE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/purple_concrete"));
+        fenceInventory(ModBlocks.BLUE_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/blue_concrete"));
+        fenceInventory(ModBlocks.BROWN_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/brown_concrete"));
+        fenceInventory(ModBlocks.GREEN_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/green_concrete"));
+        fenceInventory(ModBlocks.RED_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/red_concrete"));
+        fenceInventory(ModBlocks.BLACK_CONCRETE_FENCE.get().getRegistryName().getPath(), new ResourceLocation("block/black_concrete"));
+
         withExistingParent(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/white_concrete_fence_gate"));
         withExistingParent(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/orange_concrete_fence_gate"));
         withExistingParent(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get().getRegistryName().getPath(), new ResourceLocation(MoreConcrete.MODID, "block/magenta_concrete_fence_gate"));
