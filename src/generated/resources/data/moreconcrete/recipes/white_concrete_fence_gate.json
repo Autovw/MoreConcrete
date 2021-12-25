@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "concrete_fence_gate",
+  "pattern": [
+    "X#X",
+    "X#X"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:white_concrete"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "moreconcrete:white_concrete_fence_gate"
+  }
+}

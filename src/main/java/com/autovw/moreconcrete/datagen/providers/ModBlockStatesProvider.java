@@ -105,6 +105,23 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         pressurePlateBlock(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get(), "green");
         pressurePlateBlock(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get(), "red");
         pressurePlateBlock(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get(), "black");
+
+        fenceGateBlock(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get(), "white");
+        fenceGateBlock(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get(), "orange");
+        fenceGateBlock(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get(), "magenta");
+        fenceGateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get(), "light_blue");
+        fenceGateBlock(ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get(), "yellow");
+        fenceGateBlock(ModBlocks.LIME_CONCRETE_FENCE_GATE.get(), "lime");
+        fenceGateBlock(ModBlocks.PINK_CONCRETE_FENCE_GATE.get(), "pink");
+        fenceGateBlock(ModBlocks.GRAY_CONCRETE_FENCE_GATE.get(), "gray");
+        fenceGateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get(), "light_gray");
+        fenceGateBlock(ModBlocks.CYAN_CONCRETE_FENCE_GATE.get(), "cyan");
+        fenceGateBlock(ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get(), "purple");
+        fenceGateBlock(ModBlocks.BLUE_CONCRETE_FENCE_GATE.get(), "blue");
+        fenceGateBlock(ModBlocks.BROWN_CONCRETE_FENCE_GATE.get(), "brown");
+        fenceGateBlock(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get(), "green");
+        fenceGateBlock(ModBlocks.RED_CONCRETE_FENCE_GATE.get(), "red");
+        fenceGateBlock(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get(), "black");
     }
 
     /**
@@ -151,5 +168,15 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         getVariantBuilder(pressurePlate)
                 .partialState().with(PressurePlateBlock.POWERED, true).addModels(new ConfiguredModel(pressurePlateModelDown))
                 .partialState().with(PressurePlateBlock.POWERED, false).addModels(new ConfiguredModel(pressurePlateModel));
+    }
+
+    /**
+     * Helper method for registering blockstates/models for fence gates.
+     *
+     * @param fenceGate Registered fence gate
+     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
+     */
+    public void fenceGateBlock(Block fenceGate, String concreteColor) {
+        fenceGateBlock((FenceGateBlock) fenceGate, mcLoc("block/" + concreteColor + "_concrete"));
     }
 }

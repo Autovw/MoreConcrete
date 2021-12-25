@@ -169,6 +169,25 @@ public class ModRecipeProvider extends RecipeProvider {
         concretePressurePlate(consumer, ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get(), Blocks.GREEN_CONCRETE);
         concretePressurePlate(consumer, ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get(), Blocks.RED_CONCRETE);
         concretePressurePlate(consumer, ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get(), Blocks.BLACK_CONCRETE);
+
+
+        // Fence Gates
+        concreteFenceGate(consumer, ModBlocks.WHITE_CONCRETE_FENCE_GATE.get(), Blocks.WHITE_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get(), Blocks.ORANGE_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get(), Blocks.MAGENTA_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get(), Blocks.LIGHT_BLUE_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get(), Blocks.YELLOW_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.LIME_CONCRETE_FENCE_GATE.get(), Blocks.LIME_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.PINK_CONCRETE_FENCE_GATE.get(), Blocks.PINK_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.GRAY_CONCRETE_FENCE_GATE.get(), Blocks.GRAY_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get(), Blocks.LIGHT_GRAY_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.CYAN_CONCRETE_FENCE_GATE.get(), Blocks.CYAN_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get(), Blocks.PURPLE_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.BLUE_CONCRETE_FENCE_GATE.get(), Blocks.BLUE_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.BROWN_CONCRETE_FENCE_GATE.get(), Blocks.BROWN_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.GREEN_CONCRETE_FENCE_GATE.get(), Blocks.GREEN_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.RED_CONCRETE_FENCE_GATE.get(), Blocks.RED_CONCRETE);
+        concreteFenceGate(consumer, ModBlocks.BLACK_CONCRETE_FENCE_GATE.get(), Blocks.BLACK_CONCRETE);
     }
 
     private static void concreteSlab(Consumer<FinishedRecipe> recipeConsumer, ItemLike slab, ItemLike ingredient) {
@@ -224,6 +243,18 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("#")
                 .group("concrete_lever")
                 .unlockedBy("has_concrete", has(ingredient))
+                .save(recipeConsumer);
+    }
+
+    private static void concreteFenceGate(Consumer<FinishedRecipe> recipeConsumer, ItemLike fenceGate, ItemLike ingredient) {
+        ShapedRecipeBuilder.shaped(fenceGate, 1)
+                .define('#', ingredient)
+                .define('X', Items.STICK)
+                .pattern("X#X")
+                .pattern("X#X")
+                .group("concrete_fence_gate")
+                .unlockedBy("has_concrete", has(ingredient))
+                .unlockedBy("has_stick", has(Items.STICK))
                 .save(recipeConsumer);
     }
 }

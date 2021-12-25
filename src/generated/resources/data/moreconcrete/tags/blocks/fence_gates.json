@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_fence_gate",
+    "moreconcrete:orange_concrete_fence_gate",
+    "moreconcrete:magenta_concrete_fence_gate",
+    "moreconcrete:light_blue_concrete_fence_gate",
+    "moreconcrete:yellow_concrete_fence_gate",
+    "moreconcrete:lime_concrete_fence_gate",
+    "moreconcrete:pink_concrete_fence_gate",
+    "moreconcrete:gray_concrete_fence_gate",
+    "moreconcrete:light_gray_concrete_fence_gate",
+    "moreconcrete:cyan_concrete_fence_gate",
+    "moreconcrete:purple_concrete_fence_gate",
+    "moreconcrete:blue_concrete_fence_gate",
+    "moreconcrete:brown_concrete_fence_gate",
+    "moreconcrete:green_concrete_fence_gate",
+    "moreconcrete:red_concrete_fence_gate",
+    "moreconcrete:black_concrete_fence_gate"
+  ]
+}
