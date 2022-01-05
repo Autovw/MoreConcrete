@@ -36,6 +36,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_SLAB.get())
                 .add(ModBlocks.RED_CONCRETE_SLAB.get())
                 .add(ModBlocks.BLACK_CONCRETE_SLAB.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_SLABS);
 
         // Stairs
         tag(ModTags.MOD_STAIRS)
@@ -55,6 +56,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_STAIRS.get())
                 .add(ModBlocks.RED_CONCRETE_STAIRS.get())
                 .add(ModBlocks.BLACK_CONCRETE_STAIRS.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_STAIRS);
 
         // Walls
         tag(ModTags.MOD_WALLS)
@@ -76,6 +78,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_CONCRETE_WALL.get());
         // Walls are added to the vanilla walls tag
         tag(BlockTags.WALLS).addTag(ModTags.MOD_WALLS);
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_WALLS);
 
         // Levers
         tag(ModTags.MOD_LEVERS)
@@ -114,6 +117,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get())
                 .add(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get())
                 .add(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_PRESSURE_PLATES);
 
         // Fences
         tag(ModTags.MOD_FENCES)
@@ -135,6 +139,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_CONCRETE_FENCE.get());
         // Fences are added to the vanilla fences tag
         tag(BlockTags.FENCES).addTag(ModTags.MOD_FENCES);
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_FENCES);
 
         // Fence Gates
         tag(ModTags.MOD_FENCE_GATES)
@@ -154,5 +159,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get())
                 .add(ModBlocks.RED_CONCRETE_FENCE_GATE.get())
                 .add(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_FENCE_GATES);
     }
 }

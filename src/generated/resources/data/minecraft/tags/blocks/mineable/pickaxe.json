@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#moreconcrete:slabs",
+    "#moreconcrete:stairs",
+    "#moreconcrete:walls",
+    "#moreconcrete:pressure_plates",
+    "#moreconcrete:fences",
+    "#moreconcrete:fence_gates"
+  ]
+}
