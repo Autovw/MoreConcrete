@@ -28,7 +28,6 @@ public class ModDataGenerator {
 
         if (event.includeClient()) {
             generator.addProvider(new ModBlockStatesProvider(generator, helper));
-            generator.addProvider(new ModItemModelProvider(generator, helper));
         }
     }
 }

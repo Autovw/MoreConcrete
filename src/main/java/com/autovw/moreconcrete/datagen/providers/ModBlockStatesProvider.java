@@ -3,20 +3,16 @@ package com.autovw.moreconcrete.datagen.providers;
 import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
 import net.minecraft.block.*;
-import net.minecraft.data.*;
-import net.minecraft.state.BooleanProperty;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.AttachFace;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.Objects;
-import java.util.function.Consumer;
 
 public class ModBlockStatesProvider extends BlockStateProvider {
     public ModBlockStatesProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
@@ -25,139 +21,165 @@ public class ModBlockStatesProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        slabBlock((SlabBlock) ModBlocks.WHITE_CONCRETE_SLAB.get(), new ResourceLocation("block/white_concrete"), new ResourceLocation("block/white_concrete"), new ResourceLocation("block/white_concrete"), new ResourceLocation("block/white_concrete"));
-        slabBlock((SlabBlock) ModBlocks.ORANGE_CONCRETE_SLAB.get(), new ResourceLocation("block/orange_concrete"), new ResourceLocation("block/orange_concrete"), new ResourceLocation("block/orange_concrete"), new ResourceLocation("block/orange_concrete"));
-        slabBlock((SlabBlock) ModBlocks.MAGENTA_CONCRETE_SLAB.get(), new ResourceLocation("block/magenta_concrete"), new ResourceLocation("block/magenta_concrete"), new ResourceLocation("block/magenta_concrete"), new ResourceLocation("block/magenta_concrete"));
-        slabBlock((SlabBlock) ModBlocks.LIGHT_BLUE_CONCRETE_SLAB.get(), new ResourceLocation("block/light_blue_concrete"), new ResourceLocation("block/light_blue_concrete"), new ResourceLocation("block/light_blue_concrete"), new ResourceLocation("block/light_blue_concrete"));
-        slabBlock((SlabBlock) ModBlocks.YELLOW_CONCRETE_SLAB.get(), new ResourceLocation("block/yellow_concrete"), new ResourceLocation("block/yellow_concrete"), new ResourceLocation("block/yellow_concrete"), new ResourceLocation("block/yellow_concrete"));
-        slabBlock((SlabBlock) ModBlocks.LIME_CONCRETE_SLAB.get(), new ResourceLocation("block/lime_concrete"), new ResourceLocation("block/lime_concrete"), new ResourceLocation("block/lime_concrete"), new ResourceLocation("block/lime_concrete"));
-        slabBlock((SlabBlock) ModBlocks.PINK_CONCRETE_SLAB.get(), new ResourceLocation("block/pink_concrete"), new ResourceLocation("block/pink_concrete"), new ResourceLocation("block/pink_concrete"), new ResourceLocation("block/pink_concrete"));
-        slabBlock((SlabBlock) ModBlocks.GRAY_CONCRETE_SLAB.get(), new ResourceLocation("block/gray_concrete"), new ResourceLocation("block/gray_concrete"), new ResourceLocation("block/gray_concrete"), new ResourceLocation("block/gray_concrete"));
-        slabBlock((SlabBlock) ModBlocks.LIGHT_GRAY_CONCRETE_SLAB.get(), new ResourceLocation("block/light_gray_concrete"), new ResourceLocation("block/light_gray_concrete"), new ResourceLocation("block/light_gray_concrete"), new ResourceLocation("block/light_gray_concrete"));
-        slabBlock((SlabBlock) ModBlocks.CYAN_CONCRETE_SLAB.get(), new ResourceLocation("block/cyan_concrete"), new ResourceLocation("block/cyan_concrete"), new ResourceLocation("block/cyan_concrete"), new ResourceLocation("block/cyan_concrete"));
-        slabBlock((SlabBlock) ModBlocks.PURPLE_CONCRETE_SLAB.get(), new ResourceLocation("block/purple_concrete"), new ResourceLocation("block/purple_concrete"), new ResourceLocation("block/purple_concrete"), new ResourceLocation("block/purple_concrete"));
-        slabBlock((SlabBlock) ModBlocks.BLUE_CONCRETE_SLAB.get(), new ResourceLocation("block/blue_concrete"), new ResourceLocation("block/blue_concrete"), new ResourceLocation("block/blue_concrete"), new ResourceLocation("block/blue_concrete"));
-        slabBlock((SlabBlock) ModBlocks.BROWN_CONCRETE_SLAB.get(), new ResourceLocation("block/brown_concrete"), new ResourceLocation("block/brown_concrete"), new ResourceLocation("block/brown_concrete"), new ResourceLocation("block/brown_concrete"));
-        slabBlock((SlabBlock) ModBlocks.GREEN_CONCRETE_SLAB.get(), new ResourceLocation("block/green_concrete"), new ResourceLocation("block/green_concrete"), new ResourceLocation("block/green_concrete"), new ResourceLocation("block/green_concrete"));
-        slabBlock((SlabBlock) ModBlocks.RED_CONCRETE_SLAB.get(), new ResourceLocation("block/red_concrete"), new ResourceLocation("block/red_concrete"), new ResourceLocation("block/red_concrete"), new ResourceLocation("block/red_concrete"));
-        slabBlock((SlabBlock) ModBlocks.BLACK_CONCRETE_SLAB.get(), new ResourceLocation("block/black_concrete"), new ResourceLocation("block/black_concrete"), new ResourceLocation("block/black_concrete"), new ResourceLocation("block/black_concrete"));
+        slabBlock(ModBlocks.WHITE_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.ORANGE_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.MAGENTA_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.LIGHT_BLUE_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.YELLOW_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.LIME_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.PINK_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.GRAY_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.LIGHT_GRAY_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.CYAN_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.PURPLE_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.BLUE_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.BROWN_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.GREEN_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.RED_CONCRETE_SLAB.get());
+        slabBlock(ModBlocks.BLACK_CONCRETE_SLAB.get());
 
-        stairsBlock((StairsBlock) ModBlocks.WHITE_CONCRETE_STAIRS.get(), new ResourceLocation("block/white_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.ORANGE_CONCRETE_STAIRS.get(), new ResourceLocation("block/orange_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.MAGENTA_CONCRETE_STAIRS.get(), new ResourceLocation("block/magenta_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.get(), new ResourceLocation("block/light_blue_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.YELLOW_CONCRETE_STAIRS.get(), new ResourceLocation("block/yellow_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.LIME_CONCRETE_STAIRS.get(), new ResourceLocation("block/lime_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.PINK_CONCRETE_STAIRS.get(), new ResourceLocation("block/pink_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.GRAY_CONCRETE_STAIRS.get(), new ResourceLocation("block/gray_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS.get(), new ResourceLocation("block/light_gray_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.CYAN_CONCRETE_STAIRS.get(), new ResourceLocation("block/cyan_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.PURPLE_CONCRETE_STAIRS.get(), new ResourceLocation("block/purple_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.BLUE_CONCRETE_STAIRS.get(), new ResourceLocation("block/blue_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.BROWN_CONCRETE_STAIRS.get(), new ResourceLocation("block/brown_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.GREEN_CONCRETE_STAIRS.get(), new ResourceLocation("block/green_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.RED_CONCRETE_STAIRS.get(), new ResourceLocation("block/red_concrete"));
-        stairsBlock((StairsBlock) ModBlocks.BLACK_CONCRETE_STAIRS.get(), new ResourceLocation("block/black_concrete"));
+        stairsBlock(ModBlocks.WHITE_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.ORANGE_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.MAGENTA_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.YELLOW_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.LIME_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.PINK_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.GRAY_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.CYAN_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.PURPLE_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.BLUE_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.BROWN_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.GREEN_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.RED_CONCRETE_STAIRS.get());
+        stairsBlock(ModBlocks.BLACK_CONCRETE_STAIRS.get());
 
-        wallBlock((WallBlock) ModBlocks.WHITE_CONCRETE_WALL.get(), new ResourceLocation("block/white_concrete"));
-        wallBlock((WallBlock) ModBlocks.ORANGE_CONCRETE_WALL.get(), new ResourceLocation("block/orange_concrete"));
-        wallBlock((WallBlock) ModBlocks.MAGENTA_CONCRETE_WALL.get(), new ResourceLocation("block/magenta_concrete"));
-        wallBlock((WallBlock) ModBlocks.LIGHT_BLUE_CONCRETE_WALL.get(), new ResourceLocation("block/light_blue_concrete"));
-        wallBlock((WallBlock) ModBlocks.YELLOW_CONCRETE_WALL.get(), new ResourceLocation("block/yellow_concrete"));
-        wallBlock((WallBlock) ModBlocks.LIME_CONCRETE_WALL.get(), new ResourceLocation("block/lime_concrete"));
-        wallBlock((WallBlock) ModBlocks.PINK_CONCRETE_WALL.get(), new ResourceLocation("block/pink_concrete"));
-        wallBlock((WallBlock) ModBlocks.GRAY_CONCRETE_WALL.get(), new ResourceLocation("block/gray_concrete"));
-        wallBlock((WallBlock) ModBlocks.LIGHT_GRAY_CONCRETE_WALL.get(), new ResourceLocation("block/light_gray_concrete"));
-        wallBlock((WallBlock) ModBlocks.CYAN_CONCRETE_WALL.get(), new ResourceLocation("block/cyan_concrete"));
-        wallBlock((WallBlock) ModBlocks.PURPLE_CONCRETE_WALL.get(), new ResourceLocation("block/purple_concrete"));
-        wallBlock((WallBlock) ModBlocks.BLUE_CONCRETE_WALL.get(), new ResourceLocation("block/blue_concrete"));
-        wallBlock((WallBlock) ModBlocks.BROWN_CONCRETE_WALL.get(), new ResourceLocation("block/brown_concrete"));
-        wallBlock((WallBlock) ModBlocks.GREEN_CONCRETE_WALL.get(), new ResourceLocation("block/green_concrete"));
-        wallBlock((WallBlock) ModBlocks.RED_CONCRETE_WALL.get(), new ResourceLocation("block/red_concrete"));
-        wallBlock((WallBlock) ModBlocks.BLACK_CONCRETE_WALL.get(), new ResourceLocation("block/black_concrete"));
+        wallBlock(ModBlocks.WHITE_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.ORANGE_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.MAGENTA_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.LIGHT_BLUE_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.YELLOW_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.LIME_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.PINK_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.GRAY_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.LIGHT_GRAY_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.CYAN_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.PURPLE_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.BLUE_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.BROWN_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.GREEN_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.RED_CONCRETE_WALL.get());
+        wallBlock(ModBlocks.BLACK_CONCRETE_WALL.get());
 
-        leverBlock(ModBlocks.WHITE_CONCRETE_LEVER.get(), "white");
-        leverBlock(ModBlocks.ORANGE_CONCRETE_LEVER.get(), "orange");
-        leverBlock(ModBlocks.MAGENTA_CONCRETE_LEVER.get(), "magenta");
-        leverBlock(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get(), "light_blue");
-        leverBlock(ModBlocks.YELLOW_CONCRETE_LEVER.get(), "yellow");
-        leverBlock(ModBlocks.LIME_CONCRETE_LEVER.get(), "lime");
-        leverBlock(ModBlocks.PINK_CONCRETE_LEVER.get(), "pink");
-        leverBlock(ModBlocks.GRAY_CONCRETE_LEVER.get(), "gray");
-        leverBlock(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get(), "light_gray");
-        leverBlock(ModBlocks.CYAN_CONCRETE_LEVER.get(), "cyan");
-        leverBlock(ModBlocks.PURPLE_CONCRETE_LEVER.get(), "purple");
-        leverBlock(ModBlocks.BLUE_CONCRETE_LEVER.get(), "blue");
-        leverBlock(ModBlocks.BROWN_CONCRETE_LEVER.get(), "brown");
-        leverBlock(ModBlocks.GREEN_CONCRETE_LEVER.get(), "green");
-        leverBlock(ModBlocks.RED_CONCRETE_LEVER.get(), "red");
-        leverBlock(ModBlocks.BLACK_CONCRETE_LEVER.get(), "black");
+        leverBlock(ModBlocks.WHITE_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.ORANGE_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.MAGENTA_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.YELLOW_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.LIME_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.PINK_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.GRAY_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.CYAN_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.PURPLE_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.BLUE_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.BROWN_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.GREEN_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.RED_CONCRETE_LEVER.get());
+        leverBlock(ModBlocks.BLACK_CONCRETE_LEVER.get());
 
-        pressurePlateBlock(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get(), "white");
-        pressurePlateBlock(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get(), "orange");
-        pressurePlateBlock(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get(), "magenta");
-        pressurePlateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get(), "light_blue");
-        pressurePlateBlock(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get(), "yellow");
-        pressurePlateBlock(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get(), "lime");
-        pressurePlateBlock(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get(), "pink");
-        pressurePlateBlock(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get(), "gray");
-        pressurePlateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get(), "light_gray");
-        pressurePlateBlock(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get(), "cyan");
-        pressurePlateBlock(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get(), "purple");
-        pressurePlateBlock(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get(), "blue");
-        pressurePlateBlock(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get(), "brown");
-        pressurePlateBlock(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get(), "green");
-        pressurePlateBlock(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get(), "red");
-        pressurePlateBlock(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get(), "black");
+        pressurePlateBlock(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get());
+        pressurePlateBlock(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
 
-        fenceBlock(ModBlocks.WHITE_CONCRETE_FENCE.get(), "white");
-        fenceBlock(ModBlocks.ORANGE_CONCRETE_FENCE.get(), "orange");
-        fenceBlock(ModBlocks.MAGENTA_CONCRETE_FENCE.get(), "magenta");
-        fenceBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get(), "light_blue");
-        fenceBlock(ModBlocks.YELLOW_CONCRETE_FENCE.get(), "yellow");
-        fenceBlock(ModBlocks.LIME_CONCRETE_FENCE.get(), "lime");
-        fenceBlock(ModBlocks.PINK_CONCRETE_FENCE.get(), "pink");
-        fenceBlock(ModBlocks.GRAY_CONCRETE_FENCE.get(), "gray");
-        fenceBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get(), "light_gray");
-        fenceBlock(ModBlocks.CYAN_CONCRETE_FENCE.get(), "cyan");
-        fenceBlock(ModBlocks.PURPLE_CONCRETE_FENCE.get(), "purple");
-        fenceBlock(ModBlocks.BLUE_CONCRETE_FENCE.get(), "blue");
-        fenceBlock(ModBlocks.BROWN_CONCRETE_FENCE.get(), "brown");
-        fenceBlock(ModBlocks.GREEN_CONCRETE_FENCE.get(), "green");
-        fenceBlock(ModBlocks.RED_CONCRETE_FENCE.get(), "red");
-        fenceBlock(ModBlocks.BLACK_CONCRETE_FENCE.get(), "black");
+        fenceBlock(ModBlocks.WHITE_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.ORANGE_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.MAGENTA_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.YELLOW_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.LIME_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.PINK_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.GRAY_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.CYAN_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.PURPLE_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.BLUE_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.BROWN_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.GREEN_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.RED_CONCRETE_FENCE.get());
+        fenceBlock(ModBlocks.BLACK_CONCRETE_FENCE.get());
 
-        fenceGateBlock(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get(), "white");
-        fenceGateBlock(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get(), "orange");
-        fenceGateBlock(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get(), "magenta");
-        fenceGateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get(), "light_blue");
-        fenceGateBlock(ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get(), "yellow");
-        fenceGateBlock(ModBlocks.LIME_CONCRETE_FENCE_GATE.get(), "lime");
-        fenceGateBlock(ModBlocks.PINK_CONCRETE_FENCE_GATE.get(), "pink");
-        fenceGateBlock(ModBlocks.GRAY_CONCRETE_FENCE_GATE.get(), "gray");
-        fenceGateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get(), "light_gray");
-        fenceGateBlock(ModBlocks.CYAN_CONCRETE_FENCE_GATE.get(), "cyan");
-        fenceGateBlock(ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get(), "purple");
-        fenceGateBlock(ModBlocks.BLUE_CONCRETE_FENCE_GATE.get(), "blue");
-        fenceGateBlock(ModBlocks.BROWN_CONCRETE_FENCE_GATE.get(), "brown");
-        fenceGateBlock(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get(), "green");
-        fenceGateBlock(ModBlocks.RED_CONCRETE_FENCE_GATE.get(), "red");
-        fenceGateBlock(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get(), "black");
+        fenceGateBlock(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.LIME_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.PINK_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.GRAY_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.CYAN_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.BLUE_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.BROWN_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.RED_CONCRETE_FENCE_GATE.get());
+        fenceGateBlock(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
+    }
+
+    public void slabBlock(Block slab) {
+        String slabPath = Objects.requireNonNull(slab.getRegistryName()).getPath();
+        String parent = slabPath.replace("_slab", "");
+        ResourceLocation txt = new ResourceLocation("block/" + parent);
+        slabBlock((SlabBlock) slab, txt, txt, txt, txt);
+        itemModels().withExistingParent(slabPath, new ResourceLocation(slab.getRegistryName().getNamespace(), "block/" + slabPath));
+    }
+
+    public void stairsBlock(Block stairs) {
+        String path = Objects.requireNonNull(stairs.getRegistryName()).getPath();
+        String parent = path.replace("_stairs", "");
+        ResourceLocation txt = new ResourceLocation("block/" + parent);
+        stairsBlock((StairsBlock) stairs, txt);
+        itemModels().withExistingParent(path, new ResourceLocation(stairs.getRegistryName().getNamespace(), "block/" + path));
+    }
+
+    public void wallBlock(Block wall) {
+        String path = Objects.requireNonNull(wall.getRegistryName()).getPath();
+        String parent = path.replace("_wall", "");
+        ResourceLocation txt = new ResourceLocation("block/" + parent);
+        wallBlock((WallBlock) wall, txt);
+        itemModels().withExistingParent(path, new ResourceLocation(wall.getRegistryName().getNamespace(), "block/" + path + "_post"));
+        itemModels().wallInventory(path, new ResourceLocation("block/" + parent));
     }
 
     /**
      * Helper method for registering blockstates/models for levers.
      *
-     * @param lever Registered lever
-     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
+     * @param lever Lever block
      */
-    public void leverBlock(Block lever, String concreteColor) {
-        ResourceLocation texture = mcLoc("block/" + concreteColor + "_concrete");
+    public void leverBlock(Block lever) {
+        String path = Objects.requireNonNull(lever.getRegistryName()).getPath();
+        String parent = path.replace("_lever", "");
+        ResourceLocation texture = mcLoc("block/" + parent);
 
         // Creates lever_model model file
-        BlockModelBuilder leverModel = models().withExistingParent(Objects.requireNonNull(lever.getRegistryName()).getPath(), new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("particle", texture).texture("base", texture);
+        BlockModelBuilder leverModel = models().withExistingParent(path, new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("particle", texture).texture("base", texture);
         // Creates lever_model_on model file
-        BlockModelBuilder leverModelOn = models().withExistingParent(lever.getRegistryName().getPath() + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("particle", texture).texture("base", texture);
+        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("particle", texture).texture("base", texture);
 
         getVariantBuilder(lever).forAllStates(blockState -> {
             Direction facing = blockState.getValue(LeverBlock.FACING);
@@ -170,44 +192,60 @@ public class ModBlockStatesProvider extends BlockStateProvider {
                     .rotationY((int) (face == AttachFace.CEILING ? facing : facing.getOpposite()).toYRot())
                     .build();
         });
+
+        // item model
+        itemModels().withExistingParent(path, new ResourceLocation(lever.getRegistryName().getNamespace(), "block/" + path));
     }
 
     /**
      * Helper method for registering blockstates/models for pressure plates.
      *
      * @param pressurePlate Registered pressure plate
-     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
      */
-    public void pressurePlateBlock(Block pressurePlate, String concreteColor) {
-        ResourceLocation texture = mcLoc("block/" + concreteColor + "_concrete");
+    public void pressurePlateBlock(Block pressurePlate) {
+        String path = Objects.requireNonNull(pressurePlate.getRegistryName()).getPath();
+        String parent = path.replace("_pressure_plate", "");
+        ResourceLocation texture = mcLoc("block/" + parent);
 
         // Creates pressure plate model file
-        BlockModelBuilder pressurePlateModel = models().withExistingParent(pressurePlate.getRegistryName().getPath(), mcLoc("block/pressure_plate_up")).texture("texture", texture);
+        BlockModelBuilder pressurePlateModel = models().withExistingParent(path, mcLoc("block/pressure_plate_up")).texture("texture", texture);
         // Creates pressure plate down model file
-        BlockModelBuilder pressurePlateModelDown = models().withExistingParent(pressurePlate.getRegistryName().getPath() + "_down", mcLoc("block/pressure_plate_down")).texture("texture", texture);
+        BlockModelBuilder pressurePlateModelDown = models().withExistingParent(path + "_down", mcLoc("block/pressure_plate_down")).texture("texture", texture);
 
         getVariantBuilder(pressurePlate)
                 .partialState().with(PressurePlateBlock.POWERED, true).addModels(new ConfiguredModel(pressurePlateModelDown))
                 .partialState().with(PressurePlateBlock.POWERED, false).addModels(new ConfiguredModel(pressurePlateModel));
+
+        // item model
+        itemModels().withExistingParent(path, new ResourceLocation(pressurePlate.getRegistryName().getNamespace(), "block/" + path));
     }
 
     /**
      * Helper method for registering blockstates/models for fences.
      *
      * @param fence Registered fence
-     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
      */
-    public void fenceBlock(Block fence, String concreteColor) {
-        fenceBlock((FenceBlock) fence, mcLoc("block/" + concreteColor + "_concrete"));
+    public void fenceBlock(Block fence) {
+        String path = Objects.requireNonNull(fence.getRegistryName()).getPath();
+        String parent = path.replace("_fence", "");
+        ResourceLocation txt = mcLoc("block/" + parent);
+        fenceBlock((FenceBlock) fence, txt);
+
+        itemModels().withExistingParent(path, new ResourceLocation(fence.getRegistryName().getNamespace(), "block/" + path + "_post"));
+        itemModels().fenceInventory(path, txt);
     }
 
     /**
      * Helper method for registering blockstates/models for fence gates.
      *
      * @param fenceGate Registered fence gate
-     * @param concreteColor Color of the concrete texture ("block/{color}_concrete")
      */
-    public void fenceGateBlock(Block fenceGate, String concreteColor) {
-        fenceGateBlock((FenceGateBlock) fenceGate, mcLoc("block/" + concreteColor + "_concrete"));
+    public void fenceGateBlock(Block fenceGate) {
+        String path = Objects.requireNonNull(fenceGate.getRegistryName()).getPath();
+        String parent = path.replace("_fence_gate", "");
+        ResourceLocation txt = mcLoc("block/" + parent);
+        fenceGateBlock((FenceGateBlock) fenceGate, txt);
+
+        itemModels().withExistingParent(path, new ResourceLocation(fenceGate.getRegistryName().getNamespace(), "block/" + path));
     }
 }
