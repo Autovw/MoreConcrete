@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 public class ModDataGenerator {
     private ModDataGenerator() { }
 
+    @SuppressWarnings("unused")
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
