@@ -36,6 +36,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_SLAB.get())
                 .add(ModBlocks.RED_CONCRETE_SLAB.get())
                 .add(ModBlocks.BLACK_CONCRETE_SLAB.get());
+        tag(BlockTags.SLABS).addTag(ModTags.MOD_SLABS);
 
         // Stairs
         tag(ModTags.MOD_STAIRS)
@@ -55,6 +56,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_STAIRS.get())
                 .add(ModBlocks.RED_CONCRETE_STAIRS.get())
                 .add(ModBlocks.BLACK_CONCRETE_STAIRS.get());
+        tag(BlockTags.STAIRS).addTag(ModTags.MOD_STAIRS);
 
         // Walls
         tag(ModTags.MOD_WALLS)
@@ -114,6 +116,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get())
                 .add(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get())
                 .add(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
+        tag(BlockTags.PRESSURE_PLATES).addTag(ModTags.MOD_PRESSURE_PLATES);
 
         // Fences
         tag(ModTags.MOD_FENCES)
@@ -154,5 +157,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get())
                 .add(ModBlocks.RED_CONCRETE_FENCE_GATE.get())
                 .add(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
+        tag(BlockTags.FENCE_GATES).addTag(ModTags.MOD_FENCE_GATES);
     }
 }
