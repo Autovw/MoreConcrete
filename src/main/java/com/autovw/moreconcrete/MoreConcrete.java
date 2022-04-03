@@ -19,7 +19,7 @@ public class MoreConcrete {
 
     public MoreConcrete() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(this::setup);
+        bus.addListener(this::commonSetup);
 
         ModBlocks.BLOCKS.register(bus);
         ModBlocks.ITEMS.register(bus);
@@ -28,5 +28,6 @@ public class MoreConcrete {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) { }
+    private void commonSetup(final FMLCommonSetupEvent event) {
+    }
 }
