@@ -10,6 +10,9 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
+import java.util.function.Supplier;
+
 /**
  * Author: Autovw
  */
@@ -18,166 +21,175 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MoreConcrete.MODID);
 
     // Slabs
-    public static final RegistryObject<Block> WHITE_CONCRETE_SLAB = register("white_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.WHITE_CONCRETE)));
-    public static final RegistryObject<Block> ORANGE_CONCRETE_SLAB = register("orange_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.ORANGE_CONCRETE)));
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_SLAB = register("magenta_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.MAGENTA_CONCRETE)));
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_SLAB = register("light_blue_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
-    public static final RegistryObject<Block> YELLOW_CONCRETE_SLAB = register("yellow_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.YELLOW_CONCRETE)));
-    public static final RegistryObject<Block> LIME_CONCRETE_SLAB = register("lime_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.LIME_CONCRETE)));
-    public static final RegistryObject<Block> PINK_CONCRETE_SLAB = register("pink_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.PINK_CONCRETE)));
-    public static final RegistryObject<Block> GRAY_CONCRETE_SLAB = register("gray_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.GRAY_CONCRETE)));
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_SLAB = register("light_gray_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
-    public static final RegistryObject<Block> CYAN_CONCRETE_SLAB = register("cyan_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.CYAN_CONCRETE)));
-    public static final RegistryObject<Block> PURPLE_CONCRETE_SLAB = register("purple_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.PURPLE_CONCRETE)));
-    public static final RegistryObject<Block> BLUE_CONCRETE_SLAB = register("blue_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.BLUE_CONCRETE)));
-    public static final RegistryObject<Block> BROWN_CONCRETE_SLAB = register("brown_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.BROWN_CONCRETE)));
-    public static final RegistryObject<Block> GREEN_CONCRETE_SLAB = register("green_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.GREEN_CONCRETE)));
-    public static final RegistryObject<Block> RED_CONCRETE_SLAB = register("red_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.RED_CONCRETE)));
-    public static final RegistryObject<Block> BLACK_CONCRETE_SLAB = register("black_concrete_slab", new SlabBlock(AbstractBlock.Properties.copy(Blocks.BLACK_CONCRETE)));
+    public static final RegistryObject<Block> WHITE_CONCRETE_SLAB = registerSlab(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_SLAB = registerSlab(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_SLAB = registerSlab(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_SLAB = registerSlab(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_SLAB = registerSlab(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_SLAB = registerSlab(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_SLAB = registerSlab(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_SLAB = registerSlab(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_SLAB = registerSlab(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_SLAB = registerSlab(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_SLAB = registerSlab(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_SLAB = registerSlab(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_SLAB = registerSlab(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_SLAB = registerSlab(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_SLAB = registerSlab(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_SLAB = registerSlab(Blocks.BLACK_CONCRETE);
 
     // Stairs
-    public static final RegistryObject<Block> WHITE_CONCRETE_STAIRS = register("white_concrete_stairs", new StairsBlock(Blocks.WHITE_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.WHITE_CONCRETE)));
-    public static final RegistryObject<Block> ORANGE_CONCRETE_STAIRS = register("orange_concrete_stairs", new StairsBlock(Blocks.ORANGE_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.ORANGE_CONCRETE)));
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_STAIRS = register("magenta_concrete_stairs", new StairsBlock(Blocks.MAGENTA_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.MAGENTA_CONCRETE)));
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_STAIRS = register("light_blue_concrete_stairs", new StairsBlock(Blocks.LIGHT_BLUE_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
-    public static final RegistryObject<Block> YELLOW_CONCRETE_STAIRS = register("yellow_concrete_stairs", new StairsBlock(Blocks.YELLOW_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.YELLOW_CONCRETE)));
-    public static final RegistryObject<Block> LIME_CONCRETE_STAIRS = register("lime_concrete_stairs", new StairsBlock(Blocks.LIME_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.LIME_CONCRETE)));
-    public static final RegistryObject<Block> PINK_CONCRETE_STAIRS = register("pink_concrete_stairs", new StairsBlock(Blocks.PINK_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.PINK_CONCRETE)));
-    public static final RegistryObject<Block> GRAY_CONCRETE_STAIRS = register("gray_concrete_stairs", new StairsBlock(Blocks.GRAY_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.GRAY_CONCRETE)));
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_STAIRS = register("light_gray_concrete_stairs", new StairsBlock(Blocks.LIGHT_GRAY_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
-    public static final RegistryObject<Block> CYAN_CONCRETE_STAIRS = register("cyan_concrete_stairs", new StairsBlock(Blocks.CYAN_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.CYAN_CONCRETE)));
-    public static final RegistryObject<Block> PURPLE_CONCRETE_STAIRS = register("purple_concrete_stairs", new StairsBlock(Blocks.PURPLE_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.PURPLE_CONCRETE)));
-    public static final RegistryObject<Block> BLUE_CONCRETE_STAIRS = register("blue_concrete_stairs", new StairsBlock(Blocks.BLUE_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.BLUE_CONCRETE)));
-    public static final RegistryObject<Block> BROWN_CONCRETE_STAIRS = register("brown_concrete_stairs", new StairsBlock(Blocks.BROWN_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.BROWN_CONCRETE)));
-    public static final RegistryObject<Block> GREEN_CONCRETE_STAIRS = register("green_concrete_stairs", new StairsBlock(Blocks.GREEN_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.GREEN_CONCRETE)));
-    public static final RegistryObject<Block> RED_CONCRETE_STAIRS = register("red_concrete_stairs", new StairsBlock(Blocks.RED_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.RED_CONCRETE)));
-    public static final RegistryObject<Block> BLACK_CONCRETE_STAIRS = register("black_concrete_stairs", new StairsBlock(Blocks.BLACK_CONCRETE::defaultBlockState, AbstractBlock.Properties.copy(Blocks.BLACK_CONCRETE)));
+    public static final RegistryObject<Block> WHITE_CONCRETE_STAIRS = registerStair(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_STAIRS = registerStair(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_STAIRS = registerStair(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_STAIRS = registerStair(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_STAIRS = registerStair(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_STAIRS = registerStair(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_STAIRS = registerStair(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_STAIRS = registerStair(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_STAIRS = registerStair(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_STAIRS = registerStair(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_STAIRS = registerStair(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_STAIRS = registerStair(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_STAIRS = registerStair(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_STAIRS = registerStair(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_STAIRS = registerStair(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_STAIRS = registerStair(Blocks.BLACK_CONCRETE);
 
     // Walls
-    public static final RegistryObject<Block> WHITE_CONCRETE_WALL = registerWall("white_concrete_wall", Blocks.WHITE_CONCRETE);
-    public static final RegistryObject<Block> ORANGE_CONCRETE_WALL = registerWall("orange_concrete_wall", Blocks.ORANGE_CONCRETE);
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_WALL = registerWall("magenta_concrete_wall", Blocks.MAGENTA_CONCRETE);
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_WALL = registerWall("light_blue_concrete_wall", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final RegistryObject<Block> YELLOW_CONCRETE_WALL = registerWall("yellow_concrete_wall", Blocks.YELLOW_CONCRETE);
-    public static final RegistryObject<Block> LIME_CONCRETE_WALL = registerWall("lime_concrete_wall", Blocks.LIME_CONCRETE);
-    public static final RegistryObject<Block> PINK_CONCRETE_WALL = registerWall("pink_concrete_wall", Blocks.PINK_CONCRETE);
-    public static final RegistryObject<Block> GRAY_CONCRETE_WALL = registerWall("gray_concrete_wall", Blocks.GRAY_CONCRETE);
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_WALL = registerWall("light_gray_concrete_wall", Blocks.LIGHT_GRAY_CONCRETE);
-    public static final RegistryObject<Block> CYAN_CONCRETE_WALL = registerWall("cyan_concrete_wall", Blocks.CYAN_CONCRETE);
-    public static final RegistryObject<Block> PURPLE_CONCRETE_WALL = registerWall("purple_concrete_wall", Blocks.PURPLE_CONCRETE);
-    public static final RegistryObject<Block> BLUE_CONCRETE_WALL = registerWall("blue_concrete_wall", Blocks.BLUE_CONCRETE);
-    public static final RegistryObject<Block> BROWN_CONCRETE_WALL = registerWall("brown_concrete_wall", Blocks.BROWN_CONCRETE);
-    public static final RegistryObject<Block> GREEN_CONCRETE_WALL = registerWall("green_concrete_wall", Blocks.GREEN_CONCRETE);
-    public static final RegistryObject<Block> RED_CONCRETE_WALL = registerWall("red_concrete_wall", Blocks.RED_CONCRETE);
-    public static final RegistryObject<Block> BLACK_CONCRETE_WALL = registerWall("black_concrete_wall", Blocks.BLACK_CONCRETE);
+    public static final RegistryObject<Block> WHITE_CONCRETE_WALL = registerWall(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_WALL = registerWall(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_WALL = registerWall(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_WALL = registerWall(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_WALL = registerWall(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_WALL = registerWall(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_WALL = registerWall(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_WALL = registerWall(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_WALL = registerWall(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_WALL = registerWall(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_WALL = registerWall(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_WALL = registerWall(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_WALL = registerWall(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_WALL = registerWall(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_WALL = registerWall(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_WALL = registerWall(Blocks.BLACK_CONCRETE);
 
     // Levers
-    public static final RegistryObject<Block> WHITE_CONCRETE_LEVER = registerLever("white_concrete_lever");
-    public static final RegistryObject<Block> ORANGE_CONCRETE_LEVER = registerLever("orange_concrete_lever");
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_LEVER = registerLever("magenta_concrete_lever");
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_LEVER = registerLever("light_blue_concrete_lever");
-    public static final RegistryObject<Block> YELLOW_CONCRETE_LEVER = registerLever("yellow_concrete_lever");
-    public static final RegistryObject<Block> LIME_CONCRETE_LEVER = registerLever("lime_concrete_lever");
-    public static final RegistryObject<Block> PINK_CONCRETE_LEVER = registerLever("pink_concrete_lever");
-    public static final RegistryObject<Block> GRAY_CONCRETE_LEVER = registerLever("gray_concrete_lever");
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_LEVER = registerLever("light_gray_concrete_lever");
-    public static final RegistryObject<Block> CYAN_CONCRETE_LEVER = registerLever("cyan_concrete_lever");
-    public static final RegistryObject<Block> PURPLE_CONCRETE_LEVER = registerLever("purple_concrete_lever");
-    public static final RegistryObject<Block> BLUE_CONCRETE_LEVER = registerLever("blue_concrete_lever");
-    public static final RegistryObject<Block> BROWN_CONCRETE_LEVER = registerLever("brown_concrete_lever");
-    public static final RegistryObject<Block> GREEN_CONCRETE_LEVER = registerLever("green_concrete_lever");
-    public static final RegistryObject<Block> RED_CONCRETE_LEVER = registerLever("red_concrete_lever");
-    public static final RegistryObject<Block> BLACK_CONCRETE_LEVER = registerLever("black_concrete_lever");
+    public static final RegistryObject<Block> WHITE_CONCRETE_LEVER = registerLever(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_LEVER = registerLever(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_LEVER = registerLever(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_LEVER = registerLever(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_LEVER = registerLever(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_LEVER = registerLever(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_LEVER = registerLever(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_LEVER = registerLever(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_LEVER = registerLever(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_LEVER = registerLever(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_LEVER = registerLever(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_LEVER = registerLever(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_LEVER = registerLever(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_LEVER = registerLever(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_LEVER = registerLever(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_LEVER = registerLever(Blocks.BLACK_CONCRETE);
 
     // Pressure Plates
-    public static final RegistryObject<Block> WHITE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("white_concrete_pressure_plate");
-    public static final RegistryObject<Block> ORANGE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("orange_concrete_pressure_plate");
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_PRESSURE_PLATE = registerPressurePlate("magenta_concrete_pressure_plate");
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("light_blue_concrete_pressure_plate");
-    public static final RegistryObject<Block> YELLOW_CONCRETE_PRESSURE_PLATE = registerPressurePlate("yellow_concrete_pressure_plate");
-    public static final RegistryObject<Block> LIME_CONCRETE_PRESSURE_PLATE = registerPressurePlate("lime_concrete_pressure_plate");
-    public static final RegistryObject<Block> PINK_CONCRETE_PRESSURE_PLATE = registerPressurePlate("pink_concrete_pressure_plate");
-    public static final RegistryObject<Block> GRAY_CONCRETE_PRESSURE_PLATE = registerPressurePlate("gray_concrete_pressure_plate");
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_PRESSURE_PLATE = registerPressurePlate("light_gray_concrete_pressure_plate");
-    public static final RegistryObject<Block> CYAN_CONCRETE_PRESSURE_PLATE = registerPressurePlate("cyan_concrete_pressure_plate");
-    public static final RegistryObject<Block> PURPLE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("purple_concrete_pressure_plate");
-    public static final RegistryObject<Block> BLUE_CONCRETE_PRESSURE_PLATE = registerPressurePlate("blue_concrete_pressure_plate");
-    public static final RegistryObject<Block> BROWN_CONCRETE_PRESSURE_PLATE = registerPressurePlate("brown_concrete_pressure_plate");
-    public static final RegistryObject<Block> GREEN_CONCRETE_PRESSURE_PLATE = registerPressurePlate("green_concrete_pressure_plate");
-    public static final RegistryObject<Block> RED_CONCRETE_PRESSURE_PLATE = registerPressurePlate("red_concrete_pressure_plate");
-    public static final RegistryObject<Block> BLACK_CONCRETE_PRESSURE_PLATE = registerPressurePlate("black_concrete_pressure_plate");
+    public static final RegistryObject<Block> WHITE_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_PRESSURE_PLATE = registerPressurePlate(Blocks.BLACK_CONCRETE);
 
     // Fences
-    public static final RegistryObject<Block> WHITE_CONCRETE_FENCE = registerFence("white", Blocks.WHITE_CONCRETE);
-    public static final RegistryObject<Block> ORANGE_CONCRETE_FENCE = registerFence("orange", Blocks.ORANGE_CONCRETE);
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_FENCE = registerFence("magenta", Blocks.MAGENTA_CONCRETE);
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_FENCE = registerFence("light_blue", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final RegistryObject<Block> YELLOW_CONCRETE_FENCE = registerFence("yellow", Blocks.YELLOW_CONCRETE);
-    public static final RegistryObject<Block> LIME_CONCRETE_FENCE = registerFence("lime", Blocks.LIME_CONCRETE);
-    public static final RegistryObject<Block> PINK_CONCRETE_FENCE = registerFence("pink", Blocks.PINK_CONCRETE);
-    public static final RegistryObject<Block> GRAY_CONCRETE_FENCE = registerFence("gray", Blocks.GRAY_CONCRETE);
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_FENCE = registerFence("light_gray", Blocks.LIGHT_GRAY_CONCRETE);
-    public static final RegistryObject<Block> CYAN_CONCRETE_FENCE = registerFence("cyan", Blocks.CYAN_CONCRETE);
-    public static final RegistryObject<Block> PURPLE_CONCRETE_FENCE = registerFence("purple", Blocks.PURPLE_CONCRETE);
-    public static final RegistryObject<Block> BLUE_CONCRETE_FENCE = registerFence("blue", Blocks.BLUE_CONCRETE);
-    public static final RegistryObject<Block> BROWN_CONCRETE_FENCE = registerFence("brown", Blocks.BROWN_CONCRETE);
-    public static final RegistryObject<Block> GREEN_CONCRETE_FENCE = registerFence("green", Blocks.GREEN_CONCRETE);
-    public static final RegistryObject<Block> RED_CONCRETE_FENCE = registerFence("red", Blocks.RED_CONCRETE);
-    public static final RegistryObject<Block> BLACK_CONCRETE_FENCE = registerFence("black", Blocks.BLACK_CONCRETE);
+    public static final RegistryObject<Block> WHITE_CONCRETE_FENCE = registerFence(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_FENCE = registerFence(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_FENCE = registerFence(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_FENCE = registerFence(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_FENCE = registerFence(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_FENCE = registerFence(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_FENCE = registerFence(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_FENCE = registerFence(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_FENCE = registerFence(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_FENCE = registerFence(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_FENCE = registerFence(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_FENCE = registerFence(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_FENCE = registerFence(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_FENCE = registerFence(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_FENCE = registerFence(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_FENCE = registerFence(Blocks.BLACK_CONCRETE);
 
     // Fence Gates
-    public static final RegistryObject<Block> WHITE_CONCRETE_FENCE_GATE = registerFenceGate("white", Blocks.WHITE_CONCRETE);
-    public static final RegistryObject<Block> ORANGE_CONCRETE_FENCE_GATE = registerFenceGate("orange", Blocks.ORANGE_CONCRETE);
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_FENCE_GATE = registerFenceGate("magenta", Blocks.MAGENTA_CONCRETE);
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_FENCE_GATE = registerFenceGate("light_blue", Blocks.LIGHT_BLUE_CONCRETE);
-    public static final RegistryObject<Block> YELLOW_CONCRETE_FENCE_GATE = registerFenceGate("yellow", Blocks.YELLOW_CONCRETE);
-    public static final RegistryObject<Block> LIME_CONCRETE_FENCE_GATE = registerFenceGate("lime", Blocks.LIME_CONCRETE);
-    public static final RegistryObject<Block> PINK_CONCRETE_FENCE_GATE = registerFenceGate("pink", Blocks.PINK_CONCRETE);
-    public static final RegistryObject<Block> GRAY_CONCRETE_FENCE_GATE = registerFenceGate("gray", Blocks.GRAY_CONCRETE);
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_FENCE_GATE = registerFenceGate("light_gray", Blocks.LIGHT_GRAY_CONCRETE);
-    public static final RegistryObject<Block> CYAN_CONCRETE_FENCE_GATE = registerFenceGate("cyan", Blocks.CYAN_CONCRETE);
-    public static final RegistryObject<Block> PURPLE_CONCRETE_FENCE_GATE = registerFenceGate("purple", Blocks.PURPLE_CONCRETE);
-    public static final RegistryObject<Block> BLUE_CONCRETE_FENCE_GATE = registerFenceGate("blue", Blocks.BLUE_CONCRETE);
-    public static final RegistryObject<Block> BROWN_CONCRETE_FENCE_GATE = registerFenceGate("brown", Blocks.BROWN_CONCRETE);
-    public static final RegistryObject<Block> GREEN_CONCRETE_FENCE_GATE = registerFenceGate("green", Blocks.GREEN_CONCRETE);
-    public static final RegistryObject<Block> RED_CONCRETE_FENCE_GATE = registerFenceGate("red", Blocks.RED_CONCRETE);
-    public static final RegistryObject<Block> BLACK_CONCRETE_FENCE_GATE = registerFenceGate("black", Blocks.BLACK_CONCRETE);
+    public static final RegistryObject<Block> WHITE_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_FENCE_GATE = registerFenceGate( Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.BLACK_CONCRETE);
 
 
-    private static RegistryObject<Block> register(String name, Block blockType) {
-        RegistryObject<Block> block = BLOCKS.register(name, () -> blockType);
-        ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS)));
+    /* ================== Registry helper methods ================== */
+
+
+    /**
+     * Template for block + item registries, used internally by the mod
+     * @param parent Parent of the block
+     * @param blockSupplier Block class + properties
+     * @param itemProperties Item properties
+     * @return registered {@link Block} + {@link BlockItem}
+     */
+    private static RegistryObject<Block> createRegistry(Block parent, String type, Supplier<Block> blockSupplier, Item.Properties itemProperties) {
+        String name = Objects.requireNonNull(parent.getRegistryName()).getPath() + "_" + type;
+        RegistryObject<Block> block = BLOCKS.register(name, blockSupplier);
+        ITEMS.register(name, () -> new BlockItem(block.get(), itemProperties));
         return block;
     }
 
-    private static RegistryObject<Block> registerWall(String name, AbstractBlock parentBlock) {
-        RegistryObject<Block> block = BLOCKS.register(name, () -> new WallBlock(AbstractBlock.Properties.copy(parentBlock)));
-        ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
-        return block;
+    private static RegistryObject<Block> registerSlab(Block parent) {
+        return createRegistry(parent, "slab", () -> new SlabBlock(AbstractBlock.Properties.copy(parent)), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS));
     }
 
-    private static RegistryObject<Block> registerLever(String name) {
-        RegistryObject<Block> block = BLOCKS.register(name, () -> new LeverBlock(AbstractBlock.Properties.copy(Blocks.LEVER)));
-        ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ItemGroup.TAB_REDSTONE)));
-        return block;
+    private static RegistryObject<Block> registerStair(Block parent) {
+        return createRegistry(parent, "stairs", () ->  new StairsBlock(parent::defaultBlockState, AbstractBlock.Properties.copy(parent)), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS));
+    }
+
+    private static RegistryObject<Block> registerWall(Block parent) {
+        return createRegistry(parent, "wall", () -> new WallBlock(AbstractBlock.Properties.copy(parent)), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS));
+    }
+
+    private static RegistryObject<Block> registerLever(Block parent) {
+        return createRegistry(parent, "lever", () -> new LeverBlock(AbstractBlock.Properties.copy(Blocks.LEVER)), new Item.Properties().tab(ItemGroup.TAB_REDSTONE));
     }
 
     // Concrete Pressure Plates are similar to vanilla Stone Pressure Plates
-    private static RegistryObject<Block> registerPressurePlate(String name) {
-        RegistryObject<Block> block = BLOCKS.register(name, () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, AbstractBlock.Properties.copy(Blocks.STONE_PRESSURE_PLATE)));
-        ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ItemGroup.TAB_REDSTONE)));
-        return block;
+    private static RegistryObject<Block> registerPressurePlate(Block parent) {
+        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, AbstractBlock.Properties.copy(Blocks.STONE_PRESSURE_PLATE)), new Item.Properties().tab(ItemGroup.TAB_REDSTONE));
     }
 
-    private static RegistryObject<Block> registerFence(String color, Block parent) {
-        RegistryObject<Block> block = BLOCKS.register(color + "_concrete_fence", () -> new FenceBlock(AbstractBlock.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)));
-        ITEMS.register(color + "_concrete_fence", () -> new BlockItem(block.get(), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS)));
-        return block;
+    private static RegistryObject<Block> registerFence(Block parent) {
+        return createRegistry(parent, "fence", () -> new FenceBlock(AbstractBlock.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)), new Item.Properties().tab(ItemGroup.TAB_DECORATIONS));
     }
 
-    private static RegistryObject<Block> registerFenceGate(String color, Block parent) {
-        RegistryObject<Block> block = BLOCKS.register(color + "_concrete_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)));
-        ITEMS.register(color + "_concrete_fence_gate", () -> new BlockItem(block.get(), new Item.Properties().tab(ItemGroup.TAB_REDSTONE)));
-        return block;
+    private static RegistryObject<Block> registerFenceGate(Block parent) {
+        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)), new Item.Properties().tab(ItemGroup.TAB_REDSTONE));
     }
 }
