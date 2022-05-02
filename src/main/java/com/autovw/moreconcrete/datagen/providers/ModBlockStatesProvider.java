@@ -177,9 +177,9 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         ResourceLocation texture = mcLoc("block/" + parent);
 
         // Creates lever_model model file
-        BlockModelBuilder leverModel = models().withExistingParent(path, new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("particle", texture).texture("base", texture);
+        BlockModelBuilder leverModel = models().withExistingParent(path, new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("base", texture);
         // Creates lever_model_on model file
-        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("particle", texture).texture("base", texture);
+        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("base", texture);
 
         getVariantBuilder(lever).forAllStates(blockState -> {
             Direction facing = blockState.getValue(LeverBlock.FACING);
