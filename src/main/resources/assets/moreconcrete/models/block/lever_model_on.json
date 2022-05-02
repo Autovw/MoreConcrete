@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/lever_on",
   "textures": {
-    "particle": "#particle",
+    "particle": "#base",
     "base": "#base",
     "lever": "minecraft:block/lever"
   }

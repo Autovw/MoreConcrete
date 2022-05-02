@@ -2,7 +2,7 @@
 	"parent": "minecraft:block/lever",
 	"credit": "Made with Blockbench by Autovw",
 	"textures": {
-		"particle": "#particle",
+		"particle": "#base",
 		"base": "#base",
 		"lever": "minecraft:block/lever"
 	},
