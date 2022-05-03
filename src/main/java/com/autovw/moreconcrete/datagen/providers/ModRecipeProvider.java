@@ -203,6 +203,25 @@ public class ModRecipeProvider extends RecipeProvider {
         concreteFenceGate(consumer, ModBlocks.GREEN_CONCRETE_FENCE_GATE.get(), Blocks.GREEN_CONCRETE);
         concreteFenceGate(consumer, ModBlocks.RED_CONCRETE_FENCE_GATE.get(), Blocks.RED_CONCRETE);
         concreteFenceGate(consumer, ModBlocks.BLACK_CONCRETE_FENCE_GATE.get(), Blocks.BLACK_CONCRETE);
+
+
+        // Buttons
+        concreteButton(consumer, ModBlocks.WHITE_CONCRETE_BUTTON.get(), Blocks.WHITE_CONCRETE);
+        concreteButton(consumer, ModBlocks.ORANGE_CONCRETE_BUTTON.get(), Blocks.ORANGE_CONCRETE);
+        concreteButton(consumer, ModBlocks.MAGENTA_CONCRETE_BUTTON.get(), Blocks.MAGENTA_CONCRETE);
+        concreteButton(consumer, ModBlocks.LIGHT_BLUE_CONCRETE_BUTTON.get(), Blocks.LIGHT_BLUE_CONCRETE);
+        concreteButton(consumer, ModBlocks.YELLOW_CONCRETE_BUTTON.get(), Blocks.YELLOW_CONCRETE);
+        concreteButton(consumer, ModBlocks.LIME_CONCRETE_BUTTON.get(), Blocks.LIME_CONCRETE);
+        concreteButton(consumer, ModBlocks.PINK_CONCRETE_BUTTON.get(), Blocks.PINK_CONCRETE);
+        concreteButton(consumer, ModBlocks.GRAY_CONCRETE_BUTTON.get(), Blocks.GRAY_CONCRETE);
+        concreteButton(consumer, ModBlocks.LIGHT_GRAY_CONCRETE_BUTTON.get(), Blocks.LIGHT_GRAY_CONCRETE);
+        concreteButton(consumer, ModBlocks.CYAN_CONCRETE_BUTTON.get(), Blocks.CYAN_CONCRETE);
+        concreteButton(consumer, ModBlocks.PURPLE_CONCRETE_BUTTON.get(), Blocks.PURPLE_CONCRETE);
+        concreteButton(consumer, ModBlocks.BLUE_CONCRETE_BUTTON.get(), Blocks.BLUE_CONCRETE);
+        concreteButton(consumer, ModBlocks.BROWN_CONCRETE_BUTTON.get(), Blocks.BROWN_CONCRETE);
+        concreteButton(consumer, ModBlocks.GREEN_CONCRETE_BUTTON.get(), Blocks.GREEN_CONCRETE);
+        concreteButton(consumer, ModBlocks.RED_CONCRETE_BUTTON.get(), Blocks.RED_CONCRETE);
+        concreteButton(consumer, ModBlocks.BLACK_CONCRETE_BUTTON.get(), Blocks.BLACK_CONCRETE);
     }
 
     private static void concreteSlab(Consumer<IFinishedRecipe> recipeConsumer, IItemProvider slab, IItemProvider ingredient) {
@@ -284,5 +303,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_concrete", has(ingredient))
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(recipeConsumer);
+    }
+
+    private static void concreteButton(Consumer<IFinishedRecipe> recipeConsumer, IItemProvider button, IItemProvider ingredient) {
+        ShapelessRecipeBuilder.shapeless(button, 1)
+                .requires(ingredient)
+                .group("concrete_button")
+                .unlockedBy("has_concrete", has(ingredient))
+                .save(recipeConsumer);
+
+        stonecutting(recipeConsumer, button, Ingredient.of(ingredient), 1, ingredient);
     }
 }
