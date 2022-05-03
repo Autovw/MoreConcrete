@@ -6,6 +6,7 @@
     "#moreconcrete:walls",
     "#moreconcrete:pressure_plates",
     "#moreconcrete:fences",
-    "#moreconcrete:fence_gates"
+    "#moreconcrete:fence_gates",
+    "#moreconcrete:buttons"
   ]
 }

@@ -17,6 +17,7 @@ public class ModTags {
     public static final TagKey<Block> MOD_PRESSURE_PLATES = blockTag("pressure_plates");
     public static final TagKey<Block> MOD_FENCES = blockTag("fences");
     public static final TagKey<Block> MOD_FENCE_GATES = blockTag("fence_gates");
+    public static final TagKey<Block> MOD_BUTTONS = blockTag("buttons");
 
     private static TagKey<Block> blockTag(String location) {
         return BlockTags.create(new ResourceLocation(MoreConcrete.MODID, location));
