@@ -16,6 +16,7 @@ public class ModTags {
     public static final ITag.INamedTag<Block> MOD_PRESSURE_PLATES = blockTag("pressure_plates");
     public static final ITag.INamedTag<Block> MOD_FENCES = blockTag("fences");
     public static final ITag.INamedTag<Block> MOD_FENCE_GATES = blockTag("fence_gates");
+    public static final ITag.INamedTag<Block> MOD_BUTTONS = blockTag("buttons");
 
     private static ITag.INamedTag<Block> blockTag(String location) {
         return BlockTags.bind(MoreConcrete.MODID + ":" + location);

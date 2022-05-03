@@ -158,5 +158,25 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.RED_CONCRETE_FENCE_GATE.get())
                 .add(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
         tag(BlockTags.FENCE_GATES).addTag(ModTags.MOD_FENCE_GATES);
+
+        // Buttons
+        tag(ModTags.MOD_BUTTONS)
+                .add(ModBlocks.WHITE_CONCRETE_BUTTON.get())
+                .add(ModBlocks.ORANGE_CONCRETE_BUTTON.get())
+                .add(ModBlocks.MAGENTA_CONCRETE_BUTTON.get())
+                .add(ModBlocks.LIGHT_BLUE_CONCRETE_BUTTON.get())
+                .add(ModBlocks.YELLOW_CONCRETE_BUTTON.get())
+                .add(ModBlocks.LIME_CONCRETE_BUTTON.get())
+                .add(ModBlocks.PINK_CONCRETE_BUTTON.get())
+                .add(ModBlocks.GRAY_CONCRETE_BUTTON.get())
+                .add(ModBlocks.LIGHT_GRAY_CONCRETE_BUTTON.get())
+                .add(ModBlocks.CYAN_CONCRETE_BUTTON.get())
+                .add(ModBlocks.PURPLE_CONCRETE_BUTTON.get())
+                .add(ModBlocks.BLUE_CONCRETE_BUTTON.get())
+                .add(ModBlocks.BROWN_CONCRETE_BUTTON.get())
+                .add(ModBlocks.GREEN_CONCRETE_BUTTON.get())
+                .add(ModBlocks.RED_CONCRETE_BUTTON.get())
+                .add(ModBlocks.BLACK_CONCRETE_BUTTON.get());
+        tag(BlockTags.BUTTONS).addTag(ModTags.MOD_BUTTONS);
     }
 }

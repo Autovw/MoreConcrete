@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreconcrete:white_concrete_button",
+    "moreconcrete:orange_concrete_button",
+    "moreconcrete:magenta_concrete_button",
+    "moreconcrete:light_blue_concrete_button",
+    "moreconcrete:yellow_concrete_button",
+    "moreconcrete:lime_concrete_button",
+    "moreconcrete:pink_concrete_button",
+    "moreconcrete:gray_concrete_button",
+    "moreconcrete:light_gray_concrete_button",
+    "moreconcrete:cyan_concrete_button",
+    "moreconcrete:purple_concrete_button",
+    "moreconcrete:blue_concrete_button",
+    "moreconcrete:brown_concrete_button",
+    "moreconcrete:green_concrete_button",
+    "moreconcrete:red_concrete_button",
+    "moreconcrete:black_concrete_button"
+  ]
+}
