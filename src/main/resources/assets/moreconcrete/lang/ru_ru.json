@@ -116,5 +116,22 @@
   "block.moreconcrete.brown_concrete_fence_gate": "Калитка из коричневого бетона",
   "block.moreconcrete.green_concrete_fence_gate": "Калитка из зелёного бетона",
   "block.moreconcrete.red_concrete_fence_gate": "Калитка из красного бетона",
-  "block.moreconcrete.black_concrete_fence_gate": "Калитка из чёрного бетона"
+  "block.moreconcrete.black_concrete_fence_gate": "Калитка из чёрного бетона",
+
+  "block.moreconcrete.white_concrete_button": "White Concrete Button",
+  "block.moreconcrete.orange_concrete_button": "Orange Concrete Button",
+  "block.moreconcrete.magenta_concrete_button": "Magenta Concrete Button",
+  "block.moreconcrete.light_blue_concrete_button": "Light Blue Concrete Button",
+  "block.moreconcrete.yellow_concrete_button": "Yellow Concrete Button",
+  "block.moreconcrete.lime_concrete_button": "Lime Concrete Button",
+  "block.moreconcrete.pink_concrete_button": "Pink Concrete Button",
+  "block.moreconcrete.gray_concrete_button": "Gray Concrete Button",
+  "block.moreconcrete.light_gray_concrete_button": "Light Gray Concrete Button",
+  "block.moreconcrete.cyan_concrete_button": "Cyan Concrete Button",
+  "block.moreconcrete.purple_concrete_button": "Purple Concrete Button",
+  "block.moreconcrete.blue_concrete_button": "Blue Concrete Button",
+  "block.moreconcrete.brown_concrete_button": "Brown Concrete Button",
+  "block.moreconcrete.green_concrete_button": "Green Concrete Button",
+  "block.moreconcrete.red_concrete_button": "Red Concrete Button",
+  "block.moreconcrete.black_concrete_button": "Black Concrete Button"
 }
