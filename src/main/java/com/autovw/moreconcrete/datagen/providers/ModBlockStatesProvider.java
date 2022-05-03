@@ -139,6 +139,23 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         fenceGateBlock(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get());
         fenceGateBlock(ModBlocks.RED_CONCRETE_FENCE_GATE.get());
         fenceGateBlock(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
+
+        buttonBlock(ModBlocks.WHITE_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.ORANGE_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.MAGENTA_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.LIGHT_BLUE_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.YELLOW_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.LIME_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.PINK_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.GRAY_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.LIGHT_GRAY_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.CYAN_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.PURPLE_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.BLUE_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.BROWN_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.GREEN_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.RED_CONCRETE_BUTTON.get());
+        buttonBlock(ModBlocks.BLACK_CONCRETE_BUTTON.get());
     }
 
     public void slabBlock(Block slab) {
@@ -247,5 +264,34 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         fenceGateBlock((FenceGateBlock) fenceGate, txt);
 
         itemModels().withExistingParent(path, new ResourceLocation(fenceGate.getRegistryName().getNamespace(), "block/" + path));
+    }
+
+    /**
+     * Helper method for creating blockstates and models for buttons
+     *
+     * @param button Registered button block
+     */
+    public void buttonBlock(Block button) {
+        String path = Objects.requireNonNull(button.getRegistryName()).getPath();
+        String parent = path.replace("_button", "");
+        ResourceLocation txt = mcLoc("block/" + parent);
+
+        BlockModelBuilder buttonModel = models().withExistingParent(path, mcLoc("block/button")).texture("texture", txt);
+        BlockModelBuilder buttonModelPressed = models().withExistingParent(path + "_pressed", mcLoc("block/button_pressed")).texture("texture", txt);
+        BlockModelBuilder buttonModelInventory = models().withExistingParent(path + "_inventory", mcLoc("block/button_inventory")).texture("texture", txt);
+
+        getVariantBuilder(button).forAllStates((blockState -> {
+            Direction facing = blockState.getValue(ButtonBlock.FACING);
+            AttachFace face = blockState.getValue(ButtonBlock.FACE);
+            boolean powered = blockState.getValue(ButtonBlock.POWERED);
+
+            return ConfiguredModel.builder()
+                    .modelFile(powered ? buttonModelPressed : buttonModel)
+                    .rotationX(face == AttachFace.FLOOR ? 0 : (face == AttachFace.WALL ? 90 : 180))
+                    .rotationY((int) (face == AttachFace.CEILING ? facing : facing.getOpposite()).toYRot())
+                    .uvLock(face == AttachFace.WALL).build();
+        }));
+
+        itemModels().withExistingParent(path, buttonModelInventory.getLocation()); // item model
     }
 }

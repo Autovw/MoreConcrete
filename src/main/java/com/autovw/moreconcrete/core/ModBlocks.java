@@ -148,6 +148,25 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLACK_CONCRETE_FENCE_GATE = registerFenceGate(Blocks.BLACK_CONCRETE);
 
 
+    // Buttons
+    public static final RegistryObject<Block> WHITE_CONCRETE_BUTTON = registerButton(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_BUTTON = registerButton(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_BUTTON = registerButton(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_BUTTON = registerButton(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_BUTTON = registerButton(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_BUTTON = registerButton(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_BUTTON = registerButton(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_BUTTON = registerButton(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_BUTTON = registerButton(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_BUTTON = registerButton(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_BUTTON = registerButton(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_BUTTON = registerButton(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_BUTTON = registerButton(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_BUTTON = registerButton(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_BUTTON = registerButton(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_BUTTON = registerButton(Blocks.BLACK_CONCRETE);
+
+
     /* ================== Registry helper methods ================== */
 
 
@@ -192,5 +211,9 @@ public class ModBlocks {
 
     private static RegistryObject<Block> registerFenceGate(Block parent) {
         return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE));
+    }
+
+    private static RegistryObject<Block> registerButton(Block parent) {
+        return createRegistry(parent, "button", () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5f)), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE));
     }
 }
