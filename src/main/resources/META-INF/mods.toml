@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/Autovw/MoreConcrete/issues"
 
 [[mods]]
 modId="moreconcrete"
-version="1.4.0"
+version="1.4.1"
 displayName="More Concrete"
 updateJSONURL="https://raw.githubusercontent.com/Autovw/ModUpdates/main/moreconcrete/update.json"
 displayURL="https://github.com/Autovw/MoreConcrete/wiki"

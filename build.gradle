@@ -14,7 +14,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 
-version = '1.4.0-1.19'
+version = '1.4.1-1.19'
 group = 'com.autovw.moreconcrete'
 archivesBaseName = 'moreconcrete'
 
