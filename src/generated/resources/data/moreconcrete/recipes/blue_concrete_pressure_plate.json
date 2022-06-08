@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "concrete_pressure_plate",
-  "pattern": [
-    "##"
-  ],
   "key": {
     "#": {
       "item": "minecraft:blue_concrete"
     }
   },
+  "pattern": [
+    "##"
+  ],
   "result": {
     "item": "moreconcrete:blue_concrete_pressure_plate"
   }

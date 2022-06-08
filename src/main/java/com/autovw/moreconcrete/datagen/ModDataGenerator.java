@@ -21,14 +21,12 @@ public class ModDataGenerator {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper helper = event.getExistingFileHelper();
 
-        if (event.includeServer()) {
-            generator.addProvider(new ModBlockTagsProvider(generator, helper));
-            generator.addProvider(new ModRecipeProvider(generator));
-            generator.addProvider(new ModLootTableProvider(generator));
-        }
+        // server
+        generator.addProvider(event.includeServer(), new ModBlockTagsProvider(generator, helper));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new ModLootTableProvider(generator));
 
-        if (event.includeClient()) {
-            generator.addProvider(new ModBlockStatesProvider(generator, helper));
-        }
+        // client
+        generator.addProvider(event.includeClient(), new ModBlockStatesProvider(generator, helper));
     }
 }

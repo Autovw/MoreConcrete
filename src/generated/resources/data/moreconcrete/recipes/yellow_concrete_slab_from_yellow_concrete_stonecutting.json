@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "minecraft:yellow_concrete"
   },
-  "result": "moreconcrete:yellow_concrete_slab",
-  "count": 2
+  "result": "moreconcrete:yellow_concrete_slab"
 }

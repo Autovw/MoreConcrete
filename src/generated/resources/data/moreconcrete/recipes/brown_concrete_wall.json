@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "concrete_wall",
-  "pattern": [
-    "###",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "minecraft:brown_concrete"
     }
   },
+  "pattern": [
+    "###",
+    "###"
+  ],
   "result": {
-    "item": "moreconcrete:brown_concrete_wall",
-    "count": 6
+    "count": 6,
+    "item": "moreconcrete:brown_concrete_wall"
   }
 }

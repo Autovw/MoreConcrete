@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:black_concrete"
   },
-  "result": "moreconcrete:black_concrete_button",
-  "count": 1
+  "result": "moreconcrete:black_concrete_button"
 }

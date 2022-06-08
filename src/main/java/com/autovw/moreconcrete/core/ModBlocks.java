@@ -178,7 +178,7 @@ public class ModBlocks {
      * @return registered {@link Block} + {@link BlockItem}
      */
     private static RegistryObject<Block> createRegistry(Block parent, String type, Supplier<Block> blockSupplier, Item.Properties itemProperties) {
-        String name = Objects.requireNonNull(parent.getRegistryName()).getPath() + "_" + type;
+        String name = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(parent)).getPath() + "_" + type;
         RegistryObject<Block> block = BLOCKS.register(name, blockSupplier);
         ITEMS.register(name, () -> new BlockItem(block.get(), itemProperties));
         return block;

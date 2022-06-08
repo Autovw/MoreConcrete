@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "concrete_slab",
-  "pattern": [
-    "###"
-  ],
   "key": {
     "#": {
       "item": "minecraft:white_concrete"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "moreconcrete:white_concrete_slab",
-    "count": 6
+    "count": 6,
+    "item": "moreconcrete:white_concrete_slab"
   }
 }

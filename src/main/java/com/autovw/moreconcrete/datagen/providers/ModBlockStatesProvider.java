@@ -11,6 +11,7 @@ import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
@@ -159,27 +160,27 @@ public class ModBlockStatesProvider extends BlockStateProvider {
     }
 
     public void slabBlock(Block slab) {
-        String slabPath = Objects.requireNonNull(slab.getRegistryName()).getPath();
+        String slabPath = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(slab)).getPath();
         String parent = slabPath.replace("_slab", "");
         ResourceLocation txt = new ResourceLocation("block/" + parent);
         slabBlock((SlabBlock) slab, txt, txt, txt, txt);
-        itemModels().withExistingParent(slabPath, new ResourceLocation(slab.getRegistryName().getNamespace(), "block/" + slabPath));
+        itemModels().withExistingParent(slabPath, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(slab).getNamespace(), "block/" + slabPath));
     }
 
     public void stairsBlock(Block stairs) {
-        String path = Objects.requireNonNull(stairs.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(stairs)).getPath();
         String parent = path.replace("_stairs", "");
         ResourceLocation txt = new ResourceLocation("block/" + parent);
         stairsBlock((StairBlock) stairs, txt);
-        itemModels().withExistingParent(path, new ResourceLocation(stairs.getRegistryName().getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(stairs).getNamespace(), "block/" + path));
     }
 
     public void wallBlock(Block wall) {
-        String path = Objects.requireNonNull(wall.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(wall)).getPath();
         String parent = path.replace("_wall", "");
         ResourceLocation txt = new ResourceLocation("block/" + parent);
         wallBlock((WallBlock) wall, txt);
-        itemModels().withExistingParent(path, new ResourceLocation(wall.getRegistryName().getNamespace(), "block/" + path + "_post"));
+        itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(wall).getNamespace(), "block/" + path + "_post"));
         itemModels().wallInventory(path, new ResourceLocation("block/" + parent));
     }
 
@@ -189,7 +190,7 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      * @param lever Lever block
      */
     public void leverBlock(Block lever) {
-        String path = Objects.requireNonNull(lever.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(lever)).getPath();
         String parent = path.replace("_lever", "");
         ResourceLocation texture = mcLoc("block/" + parent);
 
@@ -211,7 +212,7 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         });
 
         // item model
-        itemModels().withExistingParent(path, new ResourceLocation(lever.getRegistryName().getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(lever).getNamespace(), "block/" + path));
     }
 
     /**
@@ -220,7 +221,7 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      * @param pressurePlate Registered pressure plate
      */
     public void pressurePlateBlock(Block pressurePlate) {
-        String path = Objects.requireNonNull(pressurePlate.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(pressurePlate)).getPath();
         String parent = path.replace("_pressure_plate", "");
         ResourceLocation texture = mcLoc("block/" + parent);
 
@@ -234,7 +235,7 @@ public class ModBlockStatesProvider extends BlockStateProvider {
                 .partialState().with(PressurePlateBlock.POWERED, false).addModels(new ConfiguredModel(pressurePlateModel));
 
         // item model
-        itemModels().withExistingParent(path, new ResourceLocation(pressurePlate.getRegistryName().getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(pressurePlate).getNamespace(), "block/" + path));
     }
 
     /**
@@ -243,12 +244,12 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      * @param fence Registered fence
      */
     public void fenceBlock(Block fence) {
-        String path = Objects.requireNonNull(fence.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(fence)).getPath();
         String parent = path.replace("_fence", "");
         ResourceLocation txt = mcLoc("block/" + parent);
         fenceBlock((FenceBlock) fence, txt);
 
-        itemModels().withExistingParent(path, new ResourceLocation(fence.getRegistryName().getNamespace(), "block/" + path + "_post"));
+        itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(fence).getNamespace(), "block/" + path + "_post"));
         itemModels().fenceInventory(path, txt);
     }
 
@@ -258,12 +259,12 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      * @param fenceGate Registered fence gate
      */
     public void fenceGateBlock(Block fenceGate) {
-        String path = Objects.requireNonNull(fenceGate.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(fenceGate)).getPath();
         String parent = path.replace("_fence_gate", "");
         ResourceLocation txt = mcLoc("block/" + parent);
         fenceGateBlock((FenceGateBlock) fenceGate, txt);
 
-        itemModels().withExistingParent(path, new ResourceLocation(fenceGate.getRegistryName().getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(fenceGate).getNamespace(), "block/" + path));
     }
 
     /**
@@ -272,7 +273,7 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      * @param button Registered button block
      */
     public void buttonBlock(Block button) {
-        String path = Objects.requireNonNull(button.getRegistryName()).getPath();
+        String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(button)).getPath();
         String parent = path.replace("_button", "");
         ResourceLocation txt = mcLoc("block/" + parent);
 

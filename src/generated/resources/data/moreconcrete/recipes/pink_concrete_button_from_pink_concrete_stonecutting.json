@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:pink_concrete"
   },
-  "result": "moreconcrete:pink_concrete_button",
-  "count": 1
+  "result": "moreconcrete:pink_concrete_button"
 }

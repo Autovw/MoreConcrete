@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "moreconcrete:block/light_gray_concrete_slab_top"
-    },
     "type=bottom": {
       "model": "moreconcrete:block/light_gray_concrete_slab"
     },
     "type=double": {
       "model": "minecraft:block/light_gray_concrete"
+    },
+    "type=top": {
+      "model": "moreconcrete:block/light_gray_concrete_slab_top"
     }
   }
 }

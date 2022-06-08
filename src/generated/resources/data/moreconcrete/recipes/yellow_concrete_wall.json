@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "concrete_wall",
-  "pattern": [
-    "###",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "minecraft:yellow_concrete"
     }
   },
+  "pattern": [
+    "###",
+    "###"
+  ],
   "result": {
-    "item": "moreconcrete:yellow_concrete_wall",
-    "count": 6
+    "count": 6,
+    "item": "moreconcrete:yellow_concrete_wall"
   }
 }

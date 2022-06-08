@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "moreconcrete:block/green_concrete_slab_top"
-    },
     "type=bottom": {
       "model": "moreconcrete:block/green_concrete_slab"
     },
     "type=double": {
       "model": "minecraft:block/green_concrete"
+    },
+    "type=top": {
+      "model": "moreconcrete:block/green_concrete_slab_top"
     }
   }
 }
