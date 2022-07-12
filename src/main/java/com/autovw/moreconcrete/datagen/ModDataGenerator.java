@@ -4,16 +4,17 @@ import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.datagen.providers.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 /**
  * Author: Autovw
  */
 @Mod.EventBusSubscriber(modid = MoreConcrete.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModDataGenerator {
-    private ModDataGenerator() { }
+    private ModDataGenerator() {
+    }
 
     @SuppressWarnings("unused")
     @SubscribeEvent
