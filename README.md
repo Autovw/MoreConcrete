@@ -27,7 +27,6 @@ Install [Just Enough Items (JEI)](https://www.curseforge.com/minecraft/mc-mods/j
 
 ### ℹ More information
 * Please report issues and bugs to the [issue tracker on GitHub](https://github.com/Autovw/MoreConcrete/issues)!
-* May I feature your mod in my modpack? Yes, absolutely!
 * Is it possible to submit translations? Yes, please create a [Pull Request on GitHub](https://github.com/Autovw/MoreConcrete/pulls)!
 * Visit the [More Concrete Wiki](https://github.com/Autovw/MoreConcrete/wiki) for more information on everything this mod does.
 
@@ -39,7 +38,7 @@ Install [Just Enough Items (JEI)](https://www.curseforge.com/minecraft/mc-mods/j
 ![Break](https://i.postimg.cc/VN4fyWBR/More-Concrete-Break.png)
 
 #### ⚠️ Disclaimer
-This mod is only distributed through [this](https://www.curseforge.com/minecraft/mc-mods/more-concrete) CurseForge page and the [official GitHub repository](https://github.com/Autovw/MoreConcrete/releases).
+This mod is only distributed through [CurseForge](https://www.curseforge.com/minecraft/mc-mods/more-concrete), [Modrinth](https://modrinth.com/mod/more-concrete) and the [official GitHub repository](https://github.com/Autovw/MoreConcrete/releases).
 Please do not redistribute this mod *or* download this mod from any other download source.
 
 For more detail on mod reposts, and how to stay protected against them, visit: [stopmodreposts.org](https://stopmodreposts.org).
