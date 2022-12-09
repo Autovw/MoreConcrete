@@ -1,8 +1,8 @@
 package com.autovw.moreconcrete.core;
 
 import com.autovw.moreconcrete.MoreConcrete;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * Author: Autovw
+ * @author Autovw
  */
 public class ModBlocks {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MoreConcrete.MODID);
@@ -185,35 +185,39 @@ public class ModBlocks {
     }
 
     private static RegistryObject<Block> registerSlab(Block parent) {
-        return createRegistry(parent, "slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(parent)), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
+        return createRegistry(parent, "slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(parent)), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerStair(Block parent) {
-        return createRegistry(parent, "stairs", () ->  new StairBlock(parent::defaultBlockState, BlockBehaviour.Properties.copy(parent)), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS));
+        return createRegistry(parent, "stairs", () ->  new StairBlock(parent::defaultBlockState, BlockBehaviour.Properties.copy(parent)), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerWall(Block parent) {
-        return createRegistry(parent, "wall", () -> new WallBlock(BlockBehaviour.Properties.copy(parent)), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS));
+        return createRegistry(parent, "wall", () -> new WallBlock(BlockBehaviour.Properties.copy(parent)), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerLever(Block parent) {
-        return createRegistry(parent, "lever", () -> new LeverBlock(BlockBehaviour.Properties.copy(Blocks.LEVER)), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE));
+        return createRegistry(parent, "lever", () -> new LeverBlock(BlockBehaviour.Properties.copy(Blocks.LEVER)), new Item.Properties());
     }
 
     // Concrete Pressure Plates are similar to vanilla Stone Pressure Plates
     private static RegistryObject<Block> registerPressurePlate(Block parent) {
-        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE)), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE));
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE);
+        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, properties, SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerFence(Block parent) {
-        return createRegistry(parent, "fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS));
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
+        return createRegistry(parent, "fence", () -> new FenceBlock(properties), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerFenceGate(Block parent) {
-        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE)), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE));
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
+        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(properties, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerButton(Block parent) {
-        return createRegistry(parent, "button", () -> new StoneButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5f)), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE));
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5f).sound(SoundType.STONE);
+        return createRegistry(parent, "button", () -> new ButtonBlock(properties, 20, false, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundEvents.STONE_BUTTON_CLICK_ON), new Item.Properties());
     }
 }

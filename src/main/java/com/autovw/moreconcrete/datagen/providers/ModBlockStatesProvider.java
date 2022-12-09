@@ -15,6 +15,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
+/**
+ * @author Autovw
+ */
 public class ModBlockStatesProvider extends BlockStateProvider {
     public ModBlockStatesProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, MoreConcrete.MODID, exFileHelper);

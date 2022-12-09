@@ -1,31 +1,38 @@
 package com.autovw.moreconcrete.datagen;
 
-import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.datagen.providers.*;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.concurrent.CompletableFuture;
+
+import static com.autovw.moreconcrete.MoreConcrete.MODID;
+
 /**
- * Author: Autovw
+ * @author Autovw
  */
-@Mod.EventBusSubscriber(modid = MoreConcrete.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModDataGenerator {
     private ModDataGenerator() {
     }
 
     @SuppressWarnings("unused")
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void onGatherData(final GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         // server
-        generator.addProvider(event.includeServer(), new ModBlockTagsProvider(generator, helper));
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(generator));
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(generator));
+        generator.addProvider(event.includeServer(), new ModBlockTagsProvider(packOutput, lookupProvider, MODID, helper));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+        generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput));
 
         // client
         generator.addProvider(event.includeClient(), new ModBlockStatesProvider(generator, helper));

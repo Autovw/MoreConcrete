@@ -2,7 +2,7 @@ package com.autovw.moreconcrete.datagen.providers;
 
 import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -13,15 +13,15 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.function.Consumer;
 
 /**
- * Author: Autovw
+ * @author Autovw
  */
 public class ModRecipeProvider extends RecipeProvider {
-    public ModRecipeProvider(DataGenerator generator) {
-        super(generator);
+    public ModRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // Slabs
         concreteSlab(consumer, ModBlocks.WHITE_CONCRETE_SLAB.get(), Blocks.WHITE_CONCRETE);
         concreteSlab(consumer, ModBlocks.ORANGE_CONCRETE_SLAB.get(), Blocks.ORANGE_CONCRETE);
@@ -226,7 +226,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteSlab(Consumer<FinishedRecipe> recipeConsumer, ItemLike slab, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(slab, 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slab, 6)
                 .define('#', ingredient)
                 .pattern("###")
                 .group("concrete_slab")
@@ -235,7 +235,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteStairs(Consumer<FinishedRecipe> recipeConsumer, ItemLike stairs, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(stairs, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
                 .define('#', ingredient)
                 .pattern("#  ")
                 .pattern("## ")
@@ -246,7 +246,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteWall(Consumer<FinishedRecipe> recipeConsumer, ItemLike wall, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(wall, 6)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, wall, 6)
                 .define('#', ingredient)
                 .pattern("###")
                 .pattern("###")
@@ -256,13 +256,13 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void stonecutting(Consumer<FinishedRecipe> recipeConsumer, ItemLike result, Ingredient ingredient, int amount, ItemLike type) {
-        SingleItemRecipeBuilder.stonecutting(ingredient, result, amount)
+        SingleItemRecipeBuilder.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, result, amount)
                 .unlockedBy("has_concrete", has(type))
                 .save(recipeConsumer, new ResourceLocation(MoreConcrete.MODID, result.asItem() + "_from_" + type.asItem() + "_stonecutting"));
     }
 
     private static void concretePressurePlate(Consumer<FinishedRecipe> recipeConsumer, ItemLike pressurePlate, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(pressurePlate, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, pressurePlate, 1)
                 .define('#', ingredient)
                 .pattern("##")
                 .group("concrete_pressure_plate")
@@ -271,7 +271,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteLever(Consumer<FinishedRecipe> recipeConsumer, ItemLike lever, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(lever, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, lever, 1)
                 .define('#', ingredient)
                 .define('X', Items.STICK)
                 .pattern("X")
@@ -283,7 +283,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteFence(Consumer<FinishedRecipe> recipeConsumer, ItemLike fence, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(fence, 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fence, 3)
                 .define('#', ingredient)
                 .define('X', Items.STICK)
                 .pattern("#X#")
@@ -295,7 +295,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteFenceGate(Consumer<FinishedRecipe> recipeConsumer, ItemLike fenceGate, ItemLike ingredient) {
-        ShapedRecipeBuilder.shaped(fenceGate, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fenceGate, 1)
                 .define('#', ingredient)
                 .define('X', Items.STICK)
                 .pattern("X#X")
@@ -307,7 +307,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void concreteButton(Consumer<FinishedRecipe> recipeConsumer, ItemLike button, ItemLike ingredient) {
-        ShapelessRecipeBuilder.shapeless(button, 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, button, 1)
                 .requires(ingredient)
                 .group("concrete_button")
                 .unlockedBy("has_concrete", has(ingredient))
