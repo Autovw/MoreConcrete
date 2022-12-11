@@ -19,7 +19,7 @@ A simple mod that adds more concrete variants into Minecraft!
 [[dependencies.moreconcrete]]
     modId="forge"
     mandatory=true
-    versionRange="[44.0.1,)"
+    versionRange="[44.0.6,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.moreconcrete]]
