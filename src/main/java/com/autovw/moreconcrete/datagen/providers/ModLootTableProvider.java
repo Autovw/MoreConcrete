@@ -8,6 +8,7 @@ import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -43,141 +44,15 @@ public class ModLootTableProvider extends LootTableProvider {
 
         @Override
         protected void generate() {
-            this.add(ModBlocks.WHITE_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.ORANGE_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.MAGENTA_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.LIGHT_BLUE_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.YELLOW_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.LIME_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.PINK_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.GRAY_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.LIGHT_GRAY_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.CYAN_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.PURPLE_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.BLUE_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.BROWN_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.GREEN_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.RED_CONCRETE_SLAB.get(), this::createSlabItemTable);
-            this.add(ModBlocks.BLACK_CONCRETE_SLAB.get(), this::createSlabItemTable);
+            // Generate loot tables for slabs
+            ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                    .filter(predicate -> predicate instanceof SlabBlock)
+                    .forEach(block -> this.add(block, this::createSlabItemTable));
 
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_STAIRS.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_STAIRS.get());
-
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_WALL.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_WALL.get());
-
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_LEVER.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_LEVER.get());
-
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
-
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_FENCE.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_FENCE.get());
-
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_FENCE_GATE.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
-
-            this.dropSelf(ModBlocks.WHITE_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.ORANGE_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.MAGENTA_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.LIGHT_BLUE_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.YELLOW_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.LIME_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.PINK_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.GRAY_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.LIGHT_GRAY_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.CYAN_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.PURPLE_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.BLUE_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.BROWN_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.GREEN_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.RED_CONCRETE_BUTTON.get());
-            this.dropSelf(ModBlocks.BLACK_CONCRETE_BUTTON.get());
+            // Generate loot tables for everything else
+            ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                    .filter(predicate -> !(predicate instanceof SlabBlock))
+                    .forEach(this::dropSelf);
         }
 
         @Override

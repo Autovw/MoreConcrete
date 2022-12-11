@@ -12,6 +12,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Objects;
 
@@ -25,141 +26,37 @@ public class ModBlockStatesProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        slabBlock(ModBlocks.WHITE_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.ORANGE_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.MAGENTA_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.LIGHT_BLUE_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.YELLOW_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.LIME_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.PINK_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.GRAY_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.LIGHT_GRAY_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.CYAN_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.PURPLE_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.BLUE_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.BROWN_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.GREEN_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.RED_CONCRETE_SLAB.get());
-        slabBlock(ModBlocks.BLACK_CONCRETE_SLAB.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof SlabBlock)
+                .forEach(this::slabBlock);
 
-        stairsBlock(ModBlocks.WHITE_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.ORANGE_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.MAGENTA_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.YELLOW_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.LIME_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.PINK_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.GRAY_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.LIGHT_GRAY_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.CYAN_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.PURPLE_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.BLUE_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.BROWN_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.GREEN_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.RED_CONCRETE_STAIRS.get());
-        stairsBlock(ModBlocks.BLACK_CONCRETE_STAIRS.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof StairBlock)
+                .forEach(this::stairsBlock);
 
-        wallBlock(ModBlocks.WHITE_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.ORANGE_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.MAGENTA_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.LIGHT_BLUE_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.YELLOW_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.LIME_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.PINK_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.GRAY_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.LIGHT_GRAY_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.CYAN_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.PURPLE_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.BLUE_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.BROWN_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.GREEN_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.RED_CONCRETE_WALL.get());
-        wallBlock(ModBlocks.BLACK_CONCRETE_WALL.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof WallBlock)
+                .forEach(this::wallBlock);
 
-        leverBlock(ModBlocks.WHITE_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.ORANGE_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.MAGENTA_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.LIGHT_BLUE_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.YELLOW_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.LIME_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.PINK_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.GRAY_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.LIGHT_GRAY_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.CYAN_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.PURPLE_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.BLUE_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.BROWN_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.GREEN_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.RED_CONCRETE_LEVER.get());
-        leverBlock(ModBlocks.BLACK_CONCRETE_LEVER.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof LeverBlock)
+                .forEach(this::leverBlock);
 
-        pressurePlateBlock(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.YELLOW_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.LIME_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.PINK_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.GRAY_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.CYAN_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.PURPLE_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.BLUE_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.BROWN_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.RED_CONCRETE_PRESSURE_PLATE.get());
-        pressurePlateBlock(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof PressurePlateBlock)
+                .forEach(this::pressurePlateBlock);
 
-        fenceBlock(ModBlocks.WHITE_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.ORANGE_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.MAGENTA_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.YELLOW_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.LIME_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.PINK_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.GRAY_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.CYAN_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.PURPLE_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.BLUE_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.BROWN_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.GREEN_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.RED_CONCRETE_FENCE.get());
-        fenceBlock(ModBlocks.BLACK_CONCRETE_FENCE.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof FenceBlock)
+                .forEach(this::fenceBlock);
 
-        fenceGateBlock(ModBlocks.WHITE_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.ORANGE_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.LIGHT_BLUE_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.YELLOW_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.LIME_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.PINK_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.GRAY_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.LIGHT_GRAY_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.CYAN_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.PURPLE_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.BLUE_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.BROWN_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.GREEN_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.RED_CONCRETE_FENCE_GATE.get());
-        fenceGateBlock(ModBlocks.BLACK_CONCRETE_FENCE_GATE.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof FenceGateBlock)
+                .forEach(this::fenceGateBlock);
 
-        buttonBlock(ModBlocks.WHITE_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.ORANGE_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.MAGENTA_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.LIGHT_BLUE_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.YELLOW_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.LIME_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.PINK_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.GRAY_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.LIGHT_GRAY_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.CYAN_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.PURPLE_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.BLUE_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.BROWN_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.GREEN_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.RED_CONCRETE_BUTTON.get());
-        buttonBlock(ModBlocks.BLACK_CONCRETE_BUTTON.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
+                .filter(predicate -> predicate instanceof ButtonBlock)
+                .forEach(this::buttonBlock);
     }
 
     public void slabBlock(Block slab) {
