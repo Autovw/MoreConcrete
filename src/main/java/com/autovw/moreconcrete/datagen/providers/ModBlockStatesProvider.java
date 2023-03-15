@@ -3,7 +3,7 @@ package com.autovw.moreconcrete.datagen.providers;
 import com.autovw.moreconcrete.MoreConcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
 import net.minecraft.core.Direction;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -20,8 +20,8 @@ import java.util.Objects;
  * @author Autovw
  */
 public class ModBlockStatesProvider extends BlockStateProvider {
-    public ModBlockStatesProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, MoreConcrete.MODID, exFileHelper);
+    public ModBlockStatesProvider(PackOutput packOutput, ExistingFileHelper exFileHelper) {
+        super(packOutput, MoreConcrete.MODID, exFileHelper);
     }
 
     @Override

@@ -35,6 +35,6 @@ public class ModDataGenerator {
         generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput));
 
         // client
-        generator.addProvider(event.includeClient(), new ModBlockStatesProvider(generator, helper));
+        generator.addProvider(event.includeClient(), new ModBlockStatesProvider(packOutput, helper));
     }
 }
