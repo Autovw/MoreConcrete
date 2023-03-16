@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "moreconcrete:light_gray_concrete_lever"
-  }
+  },
+  "show_notification": true
 }

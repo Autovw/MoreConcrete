@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "moreconcrete:lime_concrete_fence_gate"
-  }
+  },
+  "show_notification": true
 }

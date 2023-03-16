@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "moreconcrete:cyan_concrete_lever"
-  }
+  },
+  "show_notification": true
 }

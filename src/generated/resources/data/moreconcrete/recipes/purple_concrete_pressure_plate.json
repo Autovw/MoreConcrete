@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "moreconcrete:purple_concrete_pressure_plate"
-  }
+  },
+  "show_notification": true
 }

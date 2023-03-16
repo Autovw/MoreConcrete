@@ -1,11 +1,12 @@
 package com.autovw.moreconcrete.core;
 
 import com.autovw.moreconcrete.MoreConcrete;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -202,7 +203,7 @@ public class ModBlocks {
     // Concrete Pressure Plates are similar to vanilla Stone Pressure Plates
     private static RegistryObject<Block> registerPressurePlate(Block parent) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE);
-        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, properties, SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON), new Item.Properties());
+        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, properties, BlockSetType.STONE), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerFence(Block parent) {
@@ -212,11 +213,11 @@ public class ModBlocks {
 
     private static RegistryObject<Block> registerFenceGate(Block parent) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
-        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(properties, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN), new Item.Properties());
+        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(properties, WoodType.WARPED), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerButton(Block parent) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5f).sound(SoundType.STONE);
-        return createRegistry(parent, "button", () -> new ButtonBlock(properties, 20, false, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundEvents.STONE_BUTTON_CLICK_ON), new Item.Properties());
+        return createRegistry(parent, "button", () -> new ButtonBlock(properties, BlockSetType.STONE, 20, false), new Item.Properties());
     }
 }

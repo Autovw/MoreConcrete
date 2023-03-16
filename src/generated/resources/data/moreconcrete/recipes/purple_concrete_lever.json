@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "moreconcrete:purple_concrete_lever"
-  }
+  },
+  "show_notification": true
 }

@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "moreconcrete:cyan_concrete_pressure_plate"
-  }
+  },
+  "show_notification": true
 }

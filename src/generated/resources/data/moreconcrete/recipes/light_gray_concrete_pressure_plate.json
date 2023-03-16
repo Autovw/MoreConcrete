@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "moreconcrete:light_gray_concrete_pressure_plate"
-  }
+  },
+  "show_notification": true
 }

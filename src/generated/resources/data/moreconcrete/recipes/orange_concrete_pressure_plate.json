@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "moreconcrete:orange_concrete_pressure_plate"
-  }
+  },
+  "show_notification": true
 }
