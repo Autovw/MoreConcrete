@@ -43,5 +43,6 @@
     "recipes": [
       "moreconcrete:orange_concrete_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

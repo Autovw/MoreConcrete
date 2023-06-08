@@ -10,7 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 /**
- * Author: Autovw
+ * @author Autovw
  */
 @Mod(MoreConcrete.MODID)
 public class MoreConcrete {

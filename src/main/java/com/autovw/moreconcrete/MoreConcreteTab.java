@@ -3,7 +3,7 @@ package com.autovw.moreconcrete;
 import com.autovw.moreconcrete.core.ModBlocks;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.*;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
@@ -19,7 +19,7 @@ public class MoreConcreteTab {
     }
 
     @SubscribeEvent
-    public static void onCreativeModeTabEvent(final CreativeModeTabEvent.BuildContents event) {
+    public static void onCreativeModeTabEvent(final BuildCreativeModeTabContentsEvent event) {
         if (event.getTab().equals(CreativeModeTabs.COLORED_BLOCKS)) {
             ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).filter(predicate -> {
                 return predicate instanceof SlabBlock || predicate instanceof StairBlock ||

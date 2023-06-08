@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -207,17 +206,17 @@ public class ModBlocks {
     }
 
     private static RegistryObject<Block> registerFence(Block parent) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().mapColor(parent.defaultMapColor()).forceSolidOn().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
         return createRegistry(parent, "fence", () -> new FenceBlock(properties), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerFenceGate(Block parent) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.STONE, parent.defaultMaterialColor()).requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().mapColor(parent.defaultMapColor()).forceSolidOn().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
         return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(properties, WoodType.WARPED), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerButton(Block parent) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5f).sound(SoundType.STONE);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().noCollission().strength(0.5f).sound(SoundType.STONE);
         return createRegistry(parent, "button", () -> new ButtonBlock(properties, BlockSetType.STONE, 20, false), new Item.Properties());
     }
 }

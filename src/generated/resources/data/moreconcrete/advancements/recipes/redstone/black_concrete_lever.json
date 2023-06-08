@@ -43,5 +43,6 @@
     "recipes": [
       "moreconcrete:black_concrete_lever"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

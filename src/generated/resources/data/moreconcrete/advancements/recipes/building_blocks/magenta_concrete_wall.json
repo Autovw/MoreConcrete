@@ -30,5 +30,6 @@
     "recipes": [
       "moreconcrete:magenta_concrete_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

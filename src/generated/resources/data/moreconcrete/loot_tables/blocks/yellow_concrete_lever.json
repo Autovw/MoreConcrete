@@ -16,5 +16,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "moreconcrete:blocks/yellow_concrete_lever"
 }

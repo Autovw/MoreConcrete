@@ -30,5 +30,6 @@
     "recipes": [
       "moreconcrete:cyan_concrete_button_from_cyan_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
