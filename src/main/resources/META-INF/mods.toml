@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[48,)"
+loaderVersion="[49,)"
 license="GNU General Public License v3.0"
 issueTrackerURL="https://github.com/Autovw/MoreConcrete/issues"
 
@@ -19,13 +19,13 @@ A simple mod that adds more concrete variants into Minecraft!
 [[dependencies.moreconcrete]]
     modId="forge"
     mandatory=true
-    versionRange="[48.0.0,)"
+    versionRange="[49.0.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.moreconcrete]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.2]"
+    versionRange="[1.20.3,1.20.4]"
     ordering="NONE"
     side="BOTH"
 

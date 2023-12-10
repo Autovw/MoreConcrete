@@ -184,25 +184,25 @@ public class ModBlocks {
     }
 
     private static RegistryObject<Block> registerSlab(Block parent) {
-        return createRegistry(parent, "slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(parent)), new Item.Properties());
+        return createRegistry(parent, "slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(parent)), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerStair(Block parent) {
-        return createRegistry(parent, "stairs", () ->  new StairBlock(parent::defaultBlockState, BlockBehaviour.Properties.copy(parent)), new Item.Properties());
+        return createRegistry(parent, "stairs", () ->  new StairBlock(parent.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(parent)), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerWall(Block parent) {
-        return createRegistry(parent, "wall", () -> new WallBlock(BlockBehaviour.Properties.copy(parent)), new Item.Properties());
+        return createRegistry(parent, "wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(parent)), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerLever(Block parent) {
-        return createRegistry(parent, "lever", () -> new LeverBlock(BlockBehaviour.Properties.copy(Blocks.LEVER)), new Item.Properties());
+        return createRegistry(parent, "lever", () -> new LeverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LEVER)), new Item.Properties());
     }
 
     // Concrete Pressure Plates are similar to vanilla Stone Pressure Plates
     private static RegistryObject<Block> registerPressurePlate(Block parent) {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE);
-        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, properties, BlockSetType.STONE), new Item.Properties());
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_PRESSURE_PLATE);
+        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, properties), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerFence(Block parent) {
@@ -212,11 +212,11 @@ public class ModBlocks {
 
     private static RegistryObject<Block> registerFenceGate(Block parent) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().mapColor(parent.defaultMapColor()).forceSolidOn().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
-        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(properties, WoodType.WARPED), new Item.Properties());
+        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(WoodType.WARPED, properties), new Item.Properties());
     }
 
     private static RegistryObject<Block> registerButton(Block parent) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().noCollission().strength(0.5f).sound(SoundType.STONE);
-        return createRegistry(parent, "button", () -> new ButtonBlock(properties, BlockSetType.STONE, 20, false), new Item.Properties());
+        return createRegistry(parent, "button", () -> new ButtonBlock(BlockSetType.STONE, 20, properties), new Item.Properties());
     }
 }
