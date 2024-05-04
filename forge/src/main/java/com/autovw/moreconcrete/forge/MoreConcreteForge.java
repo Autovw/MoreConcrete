@@ -1,6 +1,7 @@
-package com.autovw.moreconcrete;
+package com.autovw.moreconcrete.forge;
 
-import com.autovw.moreconcrete.core.ModBlocks;
+import com.autovw.moreconcrete.common.MoreConcrete;
+import com.autovw.moreconcrete.forge.core.ModBlocks;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,22 +13,25 @@ import org.slf4j.Logger;
 /**
  * @author Autovw
  */
-@Mod(MoreConcrete.MODID)
-public class MoreConcrete {
+@Mod(MoreConcrete.MOD_ID)
+public class MoreConcreteForge
+{
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static final String MODID = "moreconcrete";
 
-    public MoreConcrete() {
+    public MoreConcreteForge()
+    {
+        MoreConcrete.init(ForgePlatformHelper.getInstance());
+
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::commonSetup);
 
         ModBlocks.BLOCKS.register(bus);
         ModBlocks.ITEMS.register(bus);
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(final FMLCommonSetupEvent event)
+    {
     }
 }

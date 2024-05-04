@@ -1,0 +1,16 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'org.spongepowered.gradle.vanilla' version '0.2.1-SNAPSHOT'
+}
+
+group = 'com.autovw.moreconcrete'
+version = "${mod_version}-${minecraft_version}"
+archivesBaseName = 'moreconcrete-common'
+
+minecraft {
+    version(minecraft_version)
+}
+
+dependencies {
+}

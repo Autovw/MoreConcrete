@@ -1,7 +1,7 @@
-package com.autovw.moreconcrete.datagen.providers;
+package com.autovw.moreconcrete.forge.datagen.providers;
 
-import com.autovw.moreconcrete.core.ModBlocks;
-import com.autovw.moreconcrete.core.ModTags;
+import com.autovw.moreconcrete.forge.core.ModBlocks;
+import com.autovw.moreconcrete.forge.core.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -14,13 +14,16 @@ import java.util.concurrent.CompletableFuture;
 /**
  * @author Autovw
  */
-public class ModBlockTagsProvider extends BlockTagsProvider {
-    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+public class ModBlockTagsProvider extends BlockTagsProvider
+{
+    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modId, @Nullable ExistingFileHelper existingFileHelper)
+    {
         super(output, registries, modId, existingFileHelper);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider registries) {
+    protected void addTags(HolderLookup.Provider registries)
+    {
         // Slabs
         tag(ModTags.MOD_SLABS)
                 .add(ModBlocks.WHITE_CONCRETE_SLAB.get())

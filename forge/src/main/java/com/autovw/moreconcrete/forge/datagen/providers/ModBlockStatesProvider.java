@@ -1,7 +1,7 @@
-package com.autovw.moreconcrete.datagen.providers;
+package com.autovw.moreconcrete.forge.datagen.providers;
 
-import com.autovw.moreconcrete.MoreConcrete;
-import com.autovw.moreconcrete.core.ModBlocks;
+import com.autovw.moreconcrete.common.MoreConcrete;
+import com.autovw.moreconcrete.forge.core.ModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -19,13 +19,16 @@ import java.util.Objects;
 /**
  * @author Autovw
  */
-public class ModBlockStatesProvider extends BlockStateProvider {
-    public ModBlockStatesProvider(PackOutput packOutput, ExistingFileHelper exFileHelper) {
-        super(packOutput, MoreConcrete.MODID, exFileHelper);
+public class ModBlockStatesProvider extends BlockStateProvider
+{
+    public ModBlockStatesProvider(PackOutput packOutput, ExistingFileHelper exFileHelper)
+    {
+        super(packOutput, MoreConcrete.MOD_ID, exFileHelper);
     }
 
     @Override
-    protected void registerStatesAndModels() {
+    protected void registerStatesAndModels()
+    {
         ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)
                 .filter(predicate -> predicate instanceof SlabBlock)
                 .forEach(this::slabBlock);
@@ -59,7 +62,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
                 .forEach(this::buttonBlock);
     }
 
-    public void slabBlock(Block slab) {
+    public void slabBlock(Block slab)
+    {
         String slabPath = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(slab)).getPath();
         String parent = slabPath.replace("_slab", "");
         ResourceLocation txt = new ResourceLocation("block/" + parent);
@@ -67,7 +71,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         itemModels().withExistingParent(slabPath, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(slab).getNamespace(), "block/" + slabPath));
     }
 
-    public void stairsBlock(Block stairs) {
+    public void stairsBlock(Block stairs)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(stairs)).getPath();
         String parent = path.replace("_stairs", "");
         ResourceLocation txt = new ResourceLocation("block/" + parent);
@@ -75,7 +80,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
         itemModels().withExistingParent(path, new ResourceLocation(ForgeRegistries.BLOCKS.getKey(stairs).getNamespace(), "block/" + path));
     }
 
-    public void wallBlock(Block wall) {
+    public void wallBlock(Block wall)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(wall)).getPath();
         String parent = path.replace("_wall", "");
         ResourceLocation txt = new ResourceLocation("block/" + parent);
@@ -89,15 +95,16 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      *
      * @param lever Lever block
      */
-    public void leverBlock(Block lever) {
+    public void leverBlock(Block lever)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(lever)).getPath();
         String parent = path.replace("_lever", "");
         ResourceLocation texture = mcLoc("block/" + parent);
 
         // Creates lever_model model file
-        BlockModelBuilder leverModel = models().withExistingParent(path, new ResourceLocation(MoreConcrete.MODID, "block/lever_model")).texture("base", texture);
+        BlockModelBuilder leverModel = models().withExistingParent(path, new ResourceLocation(MoreConcrete.MOD_ID, "block/lever_model")).texture("base", texture);
         // Creates lever_model_on model file
-        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", new ResourceLocation(MoreConcrete.MODID, "block/lever_model_on")).texture("base", texture);
+        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", new ResourceLocation(MoreConcrete.MOD_ID, "block/lever_model_on")).texture("base", texture);
 
         getVariantBuilder(lever).forAllStates(blockState -> {
             Direction facing = blockState.getValue(LeverBlock.FACING);
@@ -120,7 +127,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      *
      * @param pressurePlate Registered pressure plate
      */
-    public void pressurePlateBlock(Block pressurePlate) {
+    public void pressurePlateBlock(Block pressurePlate)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(pressurePlate)).getPath();
         String parent = path.replace("_pressure_plate", "");
         ResourceLocation texture = mcLoc("block/" + parent);
@@ -143,7 +151,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      *
      * @param fence Registered fence
      */
-    public void fenceBlock(Block fence) {
+    public void fenceBlock(Block fence)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(fence)).getPath();
         String parent = path.replace("_fence", "");
         ResourceLocation txt = mcLoc("block/" + parent);
@@ -158,7 +167,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      *
      * @param fenceGate Registered fence gate
      */
-    public void fenceGateBlock(Block fenceGate) {
+    public void fenceGateBlock(Block fenceGate)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(fenceGate)).getPath();
         String parent = path.replace("_fence_gate", "");
         ResourceLocation txt = mcLoc("block/" + parent);
@@ -172,7 +182,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
      *
      * @param button Registered button block
      */
-    public void buttonBlock(Block button) {
+    public void buttonBlock(Block button)
+    {
         String path = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(button)).getPath();
         String parent = path.replace("_button", "");
         ResourceLocation txt = mcLoc("block/" + parent);

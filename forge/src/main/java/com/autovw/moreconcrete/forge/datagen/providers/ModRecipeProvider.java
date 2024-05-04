@@ -1,7 +1,7 @@
-package com.autovw.moreconcrete.datagen.providers;
+package com.autovw.moreconcrete.forge.datagen.providers;
 
-import com.autovw.moreconcrete.MoreConcrete;
-import com.autovw.moreconcrete.core.ModBlocks;
+import com.autovw.moreconcrete.common.MoreConcrete;
+import com.autovw.moreconcrete.forge.core.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -10,18 +10,19 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
-import java.util.function.Consumer;
-
 /**
  * @author Autovw
  */
-public class ModRecipeProvider extends RecipeProvider {
-    public ModRecipeProvider(PackOutput packOutput) {
+public class ModRecipeProvider extends RecipeProvider
+{
+    public ModRecipeProvider(PackOutput packOutput)
+    {
         super(packOutput);
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput output) {
+    protected void buildRecipes(RecipeOutput output)
+    {
         // Slabs
         concreteSlab(output, ModBlocks.WHITE_CONCRETE_SLAB.get(), Blocks.WHITE_CONCRETE);
         concreteSlab(output, ModBlocks.ORANGE_CONCRETE_SLAB.get(), Blocks.ORANGE_CONCRETE);
@@ -225,7 +226,8 @@ public class ModRecipeProvider extends RecipeProvider {
         concreteButton(output, ModBlocks.BLACK_CONCRETE_BUTTON.get(), Blocks.BLACK_CONCRETE);
     }
 
-    private static void concreteSlab(RecipeOutput output, ItemLike slab, ItemLike ingredient) {
+    private static void concreteSlab(RecipeOutput output, ItemLike slab, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slab, 6)
                 .define('#', ingredient)
                 .pattern("###")
@@ -234,7 +236,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void concreteStairs(RecipeOutput output, ItemLike stairs, ItemLike ingredient) {
+    private static void concreteStairs(RecipeOutput output, ItemLike stairs, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
                 .define('#', ingredient)
                 .pattern("#  ")
@@ -245,7 +248,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void concreteWall(RecipeOutput output, ItemLike wall, ItemLike ingredient) {
+    private static void concreteWall(RecipeOutput output, ItemLike wall, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, wall, 6)
                 .define('#', ingredient)
                 .pattern("###")
@@ -255,13 +259,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void stonecutting(RecipeOutput output, ItemLike result, Ingredient ingredient, int amount, ItemLike type) {
+    private static void stonecutting(RecipeOutput output, ItemLike result, Ingredient ingredient, int amount, ItemLike type)
+    {
         SingleItemRecipeBuilder.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, result, amount)
                 .unlockedBy("has_concrete", has(type))
-                .save(output, new ResourceLocation(MoreConcrete.MODID, result.asItem() + "_from_" + type.asItem() + "_stonecutting"));
+                .save(output, new ResourceLocation(MoreConcrete.MOD_ID, result.asItem() + "_from_" + type.asItem() + "_stonecutting"));
     }
 
-    private static void concretePressurePlate(RecipeOutput output, ItemLike pressurePlate, ItemLike ingredient) {
+    private static void concretePressurePlate(RecipeOutput output, ItemLike pressurePlate, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, pressurePlate, 1)
                 .define('#', ingredient)
                 .pattern("##")
@@ -270,7 +276,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void concreteLever(RecipeOutput output, ItemLike lever, ItemLike ingredient) {
+    private static void concreteLever(RecipeOutput output, ItemLike lever, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, lever, 1)
                 .define('#', ingredient)
                 .define('X', Items.STICK)
@@ -282,7 +289,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void concreteFence(RecipeOutput output, ItemLike fence, ItemLike ingredient) {
+    private static void concreteFence(RecipeOutput output, ItemLike fence, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fence, 3)
                 .define('#', ingredient)
                 .define('X', Items.STICK)
@@ -294,7 +302,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void concreteFenceGate(RecipeOutput output, ItemLike fenceGate, ItemLike ingredient) {
+    private static void concreteFenceGate(RecipeOutput output, ItemLike fenceGate, ItemLike ingredient)
+    {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, fenceGate, 1)
                 .define('#', ingredient)
                 .define('X', Items.STICK)
@@ -306,7 +315,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private static void concreteButton(RecipeOutput output, ItemLike button, ItemLike ingredient) {
+    private static void concreteButton(RecipeOutput output, ItemLike button, ItemLike ingredient)
+    {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, button, 1)
                 .requires(ingredient)
                 .group("concrete_button")
