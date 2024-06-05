@@ -101,6 +101,17 @@ processResources {
     from project(":common").sourceSets.main.resources
 }
 
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            mod_version: mod_version
+    ]
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties
+    }
+    inputs.properties replaceProperties
+}
+
+
 jar.finalizedBy('reobfJar')
 
 sourceSets.each {
