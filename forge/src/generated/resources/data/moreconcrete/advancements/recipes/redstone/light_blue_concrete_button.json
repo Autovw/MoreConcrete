@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:light_blue_concrete_button"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

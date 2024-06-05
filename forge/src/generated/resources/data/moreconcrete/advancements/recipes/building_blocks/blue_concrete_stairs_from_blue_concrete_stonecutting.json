@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:blue_concrete_stairs_from_blue_concrete_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

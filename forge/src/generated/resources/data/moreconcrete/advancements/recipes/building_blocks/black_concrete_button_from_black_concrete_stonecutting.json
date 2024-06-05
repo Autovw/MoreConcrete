@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:black_concrete_button_from_black_concrete_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,7 +1,7 @@
 package com.autovw.moreconcrete.forge.datagen.providers;
 
 import com.autovw.moreconcrete.forge.core.ModBlocks;
-import com.autovw.moreconcrete.forge.core.ModTags;
+import com.autovw.moreconcrete.common.core.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;

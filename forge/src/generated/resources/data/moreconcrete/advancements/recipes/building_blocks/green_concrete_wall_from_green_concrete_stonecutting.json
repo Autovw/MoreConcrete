@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:green_concrete_wall_from_green_concrete_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

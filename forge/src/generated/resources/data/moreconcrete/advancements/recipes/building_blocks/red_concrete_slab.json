@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:red_concrete_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:lime_concrete_wall_from_lime_concrete_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

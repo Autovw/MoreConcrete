@@ -43,6 +43,5 @@
     "recipes": [
       "moreconcrete:light_gray_concrete_fence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:red_concrete_pressure_plate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

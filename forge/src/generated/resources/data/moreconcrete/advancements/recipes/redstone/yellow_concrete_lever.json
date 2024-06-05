@@ -43,6 +43,5 @@
     "recipes": [
       "moreconcrete:yellow_concrete_lever"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

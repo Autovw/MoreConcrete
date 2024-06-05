@@ -30,6 +30,5 @@
     "recipes": [
       "moreconcrete:white_concrete_wall_from_white_concrete_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
