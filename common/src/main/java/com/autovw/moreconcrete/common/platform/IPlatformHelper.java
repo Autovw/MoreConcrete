@@ -24,6 +24,7 @@ public interface IPlatformHelper
 
     enum Platform
     {
-        FORGE;
+        FORGE,
+        NEOFORGE;
     }
 }

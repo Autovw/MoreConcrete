@@ -25,7 +25,7 @@ A simple mod that adds more concrete variants into Minecraft!
 [[dependencies.moreconcrete]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.3,1.20.4]"
+    versionRange="[1.20.4]"
     ordering="NONE"
     side="BOTH"
 

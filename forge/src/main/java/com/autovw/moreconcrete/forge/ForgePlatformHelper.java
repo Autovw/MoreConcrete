@@ -7,7 +7,7 @@ import net.minecraftforge.fml.loading.FMLLoader;
 /**
  * @author Autovw
  */
-public class ForgePlatformHelper implements IPlatformHelper
+public final class ForgePlatformHelper implements IPlatformHelper
 {
     private static IPlatformHelper instance;
 

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "concrete_fence",
+  "key": {
+    "#": {
+      "item": "minecraft:light_gray_concrete"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#X#",
+    "#X#"
+  ],
+  "result": {
+    "count": 3,
+    "item": "moreconcrete:light_gray_concrete_fence"
+  }
+}
