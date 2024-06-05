@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "concrete_fence_gate",
+  "key": {
+    "#": {
+      "item": "minecraft:pink_concrete"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "X#X"
+  ],
+  "result": {
+    "item": "moreconcrete:pink_concrete_fence_gate"
+  }
+}

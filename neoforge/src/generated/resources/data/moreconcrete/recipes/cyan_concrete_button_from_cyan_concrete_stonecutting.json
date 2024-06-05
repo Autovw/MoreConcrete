@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:cyan_concrete"
+  },
+  "result": "moreconcrete:cyan_concrete_button"
+}
