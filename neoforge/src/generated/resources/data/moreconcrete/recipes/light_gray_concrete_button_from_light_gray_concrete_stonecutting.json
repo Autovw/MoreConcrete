@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:light_gray_concrete"
   },
-  "result": "moreconcrete:light_gray_concrete_button"
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:light_gray_concrete_button"
+  }
 }

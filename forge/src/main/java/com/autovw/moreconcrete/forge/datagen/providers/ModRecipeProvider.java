@@ -2,6 +2,7 @@ package com.autovw.moreconcrete.forge.datagen.providers;
 
 import com.autovw.moreconcrete.common.MoreConcrete;
 import com.autovw.moreconcrete.forge.core.ModBlocks;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -10,14 +11,16 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * @author Autovw
  */
 public class ModRecipeProvider extends RecipeProvider
 {
-    public ModRecipeProvider(PackOutput packOutput)
+    public ModRecipeProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries)
     {
-        super(packOutput);
+        super(packOutput, registries);
     }
 
     @Override

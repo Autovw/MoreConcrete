@@ -8,7 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -19,7 +19,7 @@ import static com.autovw.moreconcrete.common.MoreConcrete.MOD_ID;
 /**
  * @author Autovw
  */
-@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ModDataGenerator
 {
     private ModDataGenerator()
@@ -37,8 +37,8 @@ public class ModDataGenerator
 
         // server
         generator.addProvider(event.includeServer(), new ModBlockTagsProvider(packOutput, lookupProvider, MOD_ID, helper));
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput, lookupProvider));
 
         // client
         generator.addProvider(event.includeClient(), new ModBlockStatesProvider(packOutput, helper));

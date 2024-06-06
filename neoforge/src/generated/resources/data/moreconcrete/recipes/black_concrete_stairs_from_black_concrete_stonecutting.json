@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:black_concrete"
   },
-  "result": "moreconcrete:black_concrete_stairs"
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:black_concrete_stairs"
+  }
 }
