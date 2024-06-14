@@ -22,6 +22,6 @@ public class ModTags
 
     private static TagKey<Block> blockTag(String location)
     {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(MoreConcrete.MOD_ID, location));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, location));
     }
 }

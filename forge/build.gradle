@@ -28,7 +28,7 @@ minecraft {
             mods {
                 moreconcrete {
                     source sourceSets.main
-                    source project(":common").sourceSets.main
+                    //source project(":common").sourceSets.main
                 }
             }
         }
@@ -42,7 +42,7 @@ minecraft {
             mods {
                 moreconcrete {
                     source sourceSets.main
-                    source project(":common").sourceSets.main
+                    //source project(":common").sourceSets.main
                 }
             }
         }
@@ -57,7 +57,7 @@ minecraft {
             mods {
                 moreconcrete {
                     source sourceSets.main
-                    source project(":common").sourceSets.main
+                    //source project(":common").sourceSets.main
                 }
             }
         }

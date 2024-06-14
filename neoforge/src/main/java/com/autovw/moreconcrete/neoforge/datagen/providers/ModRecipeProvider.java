@@ -268,7 +268,7 @@ public class ModRecipeProvider extends RecipeProvider
         ResourceLocation typeId = BuiltInRegistries.ITEM.getKey(type.asItem());
         SingleItemRecipeBuilder.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, result, amount)
                 .unlockedBy("has_concrete", has(type))
-                .save(output, new ResourceLocation(resultId.getNamespace(), resultId.getPath() + "_from_" + typeId.getPath() + "_stonecutting"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(resultId.getNamespace(), resultId.getPath() + "_from_" + typeId.getPath() + "_stonecutting"));
     }
 
     private static void concretePressurePlate(RecipeOutput output, ItemLike pressurePlate, ItemLike ingredient)

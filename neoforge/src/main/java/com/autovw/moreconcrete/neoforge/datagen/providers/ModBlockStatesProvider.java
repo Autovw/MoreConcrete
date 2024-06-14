@@ -66,28 +66,28 @@ public class ModBlockStatesProvider extends BlockStateProvider
     {
         String slabPath = Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(slab)).getPath();
         String parent = slabPath.replace("_slab", "");
-        ResourceLocation txt = new ResourceLocation("block/" + parent);
+        ResourceLocation txt = ResourceLocation.withDefaultNamespace("block/" + parent);
         slabBlock((SlabBlock) slab, txt, txt, txt, txt);
-        itemModels().withExistingParent(slabPath, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(slab).getNamespace(), "block/" + slabPath));
+        itemModels().withExistingParent(slabPath, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(slab).getNamespace(), "block/" + slabPath));
     }
 
     public void stairsBlock(Block stairs)
     {
         String path = Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(stairs)).getPath();
         String parent = path.replace("_stairs", "");
-        ResourceLocation txt = new ResourceLocation("block/" + parent);
+        ResourceLocation txt = ResourceLocation.withDefaultNamespace("block/" + parent);
         stairsBlock((StairBlock) stairs, txt);
-        itemModels().withExistingParent(path, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(stairs).getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(stairs).getNamespace(), "block/" + path));
     }
 
     public void wallBlock(Block wall)
     {
         String path = Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(wall)).getPath();
         String parent = path.replace("_wall", "");
-        ResourceLocation txt = new ResourceLocation("block/" + parent);
+        ResourceLocation txt = ResourceLocation.withDefaultNamespace("block/" + parent);
         wallBlock((WallBlock) wall, txt);
-        itemModels().withExistingParent(path, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(wall).getNamespace(), "block/" + path + "_post"));
-        itemModels().wallInventory(path, new ResourceLocation("block/" + parent));
+        itemModels().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(wall).getNamespace(), "block/" + path + "_post"));
+        itemModels().wallInventory(path, ResourceLocation.withDefaultNamespace("block/" + parent));
     }
 
     /**
@@ -102,9 +102,9 @@ public class ModBlockStatesProvider extends BlockStateProvider
         ResourceLocation texture = mcLoc("block/" + parent);
 
         // Creates lever_model model file
-        BlockModelBuilder leverModel = models().withExistingParent(path, new ResourceLocation(MoreConcrete.MOD_ID, "block/lever_model")).texture("base", texture);
+        BlockModelBuilder leverModel = models().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, "block/lever_model")).texture("base", texture);
         // Creates lever_model_on model file
-        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", new ResourceLocation(MoreConcrete.MOD_ID, "block/lever_model_on")).texture("base", texture);
+        BlockModelBuilder leverModelOn = models().withExistingParent(path + "_on", ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, "block/lever_model_on")).texture("base", texture);
 
         getVariantBuilder(lever).forAllStates(blockState -> {
             Direction facing = blockState.getValue(LeverBlock.FACING);
@@ -119,7 +119,7 @@ public class ModBlockStatesProvider extends BlockStateProvider
         });
 
         // item model
-        itemModels().withExistingParent(path, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(lever).getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(lever).getNamespace(), "block/" + path));
     }
 
     /**
@@ -143,7 +143,7 @@ public class ModBlockStatesProvider extends BlockStateProvider
                 .partialState().with(PressurePlateBlock.POWERED, false).addModels(new ConfiguredModel(pressurePlateModel));
 
         // item model
-        itemModels().withExistingParent(path, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(pressurePlate).getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(pressurePlate).getNamespace(), "block/" + path));
     }
 
     /**
@@ -158,7 +158,7 @@ public class ModBlockStatesProvider extends BlockStateProvider
         ResourceLocation txt = mcLoc("block/" + parent);
         fenceBlock((FenceBlock) fence, txt);
 
-        itemModels().withExistingParent(path, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(fence).getNamespace(), "block/" + path + "_post"));
+        itemModels().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(fence).getNamespace(), "block/" + path + "_post"));
         itemModels().fenceInventory(path, txt);
     }
 
@@ -174,7 +174,7 @@ public class ModBlockStatesProvider extends BlockStateProvider
         ResourceLocation txt = mcLoc("block/" + parent);
         fenceGateBlock((FenceGateBlock) fenceGate, txt);
 
-        itemModels().withExistingParent(path, new ResourceLocation(BuiltInRegistries.BLOCK.getKey(fenceGate).getNamespace(), "block/" + path));
+        itemModels().withExistingParent(path, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.BLOCK.getKey(fenceGate).getNamespace(), "block/" + path));
     }
 
     /**

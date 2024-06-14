@@ -14,7 +14,7 @@ import static com.autovw.moreconcrete.common.MoreConcrete.MOD_ID;
  * @author Autovw
  */
 @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class MoreConcreteTab
+public final class MoreConcreteTab
 {
     private MoreConcreteTab()
     {
