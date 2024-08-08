@@ -236,7 +236,7 @@ public class ModRecipeProvider extends RecipeProvider
                 .pattern("###")
                 .group("concrete_slab")
                 .unlockedBy("has_concrete", has(ingredient))
-                .save(output);
+                .save(output, ResourceLocation.parse(slab.asItem().toString()));
     }
 
     private static void concreteStairs(RecipeOutput output, ItemLike stairs, ItemLike ingredient)
@@ -264,9 +264,11 @@ public class ModRecipeProvider extends RecipeProvider
 
     private static void stonecutting(RecipeOutput output, ItemLike result, Ingredient ingredient, int amount, ItemLike type)
     {
+        ResourceLocation resultId = ResourceLocation.parse(result.asItem().toString());
+        ResourceLocation typeId = ResourceLocation.parse(type.asItem().toString());
         SingleItemRecipeBuilder.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, result, amount)
                 .unlockedBy("has_concrete", has(type))
-                .save(output, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, result.asItem() + "_from_" + type.asItem() + "_stonecutting"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, resultId.getPath() + "_from_" + typeId.getPath() + "_stonecutting"));
     }
 
     private static void concretePressurePlate(RecipeOutput output, ItemLike pressurePlate, ItemLike ingredient)
