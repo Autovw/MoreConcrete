@@ -18,11 +18,11 @@ public class MoreConcreteForge
 {
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public MoreConcreteForge()
+    public MoreConcreteForge(FMLJavaModLoadingContext context)
     {
         MoreConcrete.init(ForgePlatformHelper.getInstance());
 
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus bus = context.getModEventBus();
         bus.addListener(this::commonSetup);
 
         ModBlocks.BLOCKS.register(bus);

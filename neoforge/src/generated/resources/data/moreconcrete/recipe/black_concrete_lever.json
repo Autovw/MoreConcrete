@@ -3,12 +3,8 @@
   "category": "redstone",
   "group": "concrete_lever",
   "key": {
-    "#": {
-      "item": "minecraft:black_concrete"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "minecraft:black_concrete",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "X",

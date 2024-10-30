@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "concrete_fence",
   "key": {
-    "#": {
-      "item": "minecraft:green_concrete"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "minecraft:green_concrete",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "#X#",

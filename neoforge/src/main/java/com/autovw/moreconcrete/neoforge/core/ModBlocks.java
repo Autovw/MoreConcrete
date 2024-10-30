@@ -2,6 +2,9 @@ package com.autovw.moreconcrete.neoforge.core;
 
 import com.autovw.moreconcrete.common.MoreConcrete;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -177,9 +180,13 @@ public final class ModBlocks
      * @param itemProperties Item properties
      * @return registered {@link Block} + {@link BlockItem}
      */
-    private static DeferredBlock<Block> createRegistry(Block parent, String type, Supplier<Block> blockSupplier, Item.Properties itemProperties)
+    private static DeferredBlock<Block> createRegistry(Block parent, String type, Supplier<Block> blockSupplier, BlockBehaviour.Properties blockProperties, Item.Properties itemProperties)
     {
         String name = Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(parent)).getPath() + "_" + type;
+        ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, name));
+        blockProperties.setId(blockKey);
+        ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, name));
+        itemProperties.useBlockDescriptionPrefix().setId(itemKey);
         DeferredBlock<Block> block = BLOCKS.register(name, blockSupplier);
         ITEMS.register(name, () -> new BlockItem(block.get(), itemProperties));
         return block;
@@ -187,46 +194,50 @@ public final class ModBlocks
 
     private static DeferredBlock<Block> registerSlab(Block parent)
     {
-        return createRegistry(parent, "slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(parent)), new Item.Properties());
+        BlockBehaviour.Properties blockProperties = BlockBehaviour.Properties.ofFullCopy(parent);
+        return createRegistry(parent, "slab", () -> new SlabBlock(blockProperties), blockProperties, new Item.Properties());
     }
 
     private static DeferredBlock<Block> registerStair(Block parent)
     {
-        return createRegistry(parent, "stairs", () ->  new StairBlock(parent.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(parent)), new Item.Properties());
+        BlockBehaviour.Properties blockProperties = BlockBehaviour.Properties.ofFullCopy(parent);
+        return createRegistry(parent, "stairs", () ->  new StairBlock(parent.defaultBlockState(), blockProperties), blockProperties, new Item.Properties());
     }
 
     private static DeferredBlock<Block> registerWall(Block parent)
     {
-        return createRegistry(parent, "wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(parent)), new Item.Properties());
+        BlockBehaviour.Properties blockProperties = BlockBehaviour.Properties.ofFullCopy(parent);
+        return createRegistry(parent, "wall", () -> new WallBlock(blockProperties), blockProperties, new Item.Properties());
     }
 
     private static DeferredBlock<Block> registerLever(Block parent)
     {
-        return createRegistry(parent, "lever", () -> new LeverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LEVER)), new Item.Properties());
+        BlockBehaviour.Properties blockProperties = BlockBehaviour.Properties.ofFullCopy(Blocks.LEVER);
+        return createRegistry(parent, "lever", () -> new LeverBlock(blockProperties), blockProperties, new Item.Properties());
     }
 
     // Concrete Pressure Plates are similar to vanilla Stone Pressure Plates
     private static DeferredBlock<Block> registerPressurePlate(Block parent)
     {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_PRESSURE_PLATE);
-        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, properties), new Item.Properties());
+        return createRegistry(parent, "pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE, properties), properties, new Item.Properties());
     }
 
     private static DeferredBlock<Block> registerFence(Block parent)
     {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().mapColor(parent.defaultMapColor()).forceSolidOn().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
-        return createRegistry(parent, "fence", () -> new FenceBlock(properties), new Item.Properties());
+        return createRegistry(parent, "fence", () -> new FenceBlock(properties), properties, new Item.Properties());
     }
 
     private static DeferredBlock<Block> registerFenceGate(Block parent)
     {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().mapColor(parent.defaultMapColor()).forceSolidOn().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.STONE);
-        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(WoodType.WARPED, properties), new Item.Properties());
+        return createRegistry(parent, "fence_gate", () -> new FenceGateBlock(WoodType.WARPED, properties), properties, new Item.Properties());
     }
 
     private static DeferredBlock<Block> registerButton(Block parent)
     {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().noCollission().strength(0.5f).sound(SoundType.STONE);
-        return createRegistry(parent, "button", () -> new ButtonBlock(BlockSetType.STONE, 20, properties), new Item.Properties());
+        return createRegistry(parent, "button", () -> new ButtonBlock(BlockSetType.STONE, 20, properties), properties, new Item.Properties());
     }
 }

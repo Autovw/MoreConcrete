@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "concrete_fence_gate",
   "key": {
-    "#": {
-      "item": "minecraft:gray_concrete"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "minecraft:gray_concrete",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "X#X",

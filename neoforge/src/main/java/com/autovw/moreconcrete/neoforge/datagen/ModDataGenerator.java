@@ -37,7 +37,7 @@ public class ModDataGenerator
 
         // server
         generator.addProvider(event.includeServer(), new ModBlockTagsProvider(packOutput, lookupProvider, MOD_ID, helper));
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider.Runner(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput, lookupProvider));
 
         // client
