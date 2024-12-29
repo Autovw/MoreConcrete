@@ -38,6 +38,6 @@ public class ModDataGenerator
         generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput, lookupProvider));
 
         // client
-        generator.addProvider(event.includeClient(), new ModBlockStatesProvider(packOutput, helper));
+        generator.addProvider(event.includeClient(), new ModModelProvider(packOutput, MOD_ID));
     }
 }

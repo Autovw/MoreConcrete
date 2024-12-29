@@ -6,8 +6,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,9 +14,9 @@ import java.util.concurrent.CompletableFuture;
  */
 public class ModBlockTagsProvider extends BlockTagsProvider
 {
-    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modId, @Nullable ExistingFileHelper existingFileHelper)
+    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modId)
     {
-        super(output, registries, modId, existingFileHelper);
+        super(output, registries, modId);
     }
 
     @Override
