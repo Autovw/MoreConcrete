@@ -64,4 +64,8 @@ subprojects {
     tasks.withType(Jar).configureEach {
         duplicatesStrategy DuplicatesStrategy.INHERIT
     }
+
+    // IntelliJ no longer downloads javadocs and sources by default.
+    // This tells Gradle to force IDEA to do it.
+    idea.module { downloadJavadoc = downloadSources = true }
 }

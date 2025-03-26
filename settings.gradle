@@ -17,7 +17,11 @@ pluginManagement {
     }
 }
 
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.9.0'
+}
+
 rootProject.name = 'MoreConcrete'
-include "common"
-include "forge"
-include "neoforge"
+include "Common"
+include "Forge"
+include "NeoForge"
