@@ -61,7 +61,7 @@ configurations {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
-    compileOnly project(path: ':common')
+    compileOnly project(path: ':Common')
 
     // runtime dependencies
     //runtimeOnly "curse.maven:catalogue-459701:${catalogue_neoforge_version}"
@@ -73,11 +73,11 @@ dependencies {
 Spec<Task> notNeoTask = { Task it -> !it.name.startsWith("neo") } as Spec<Task>
 
 tasks.withType(JavaCompile).matching(notNeoTask).configureEach {
-    source(project(":common").sourceSets.main.allSource)
+    source(project(":Common").sourceSets.main.allSource)
 }
 
 processResources {
-    from project(":common").sourceSets.main.resources
+    from project(":Common").sourceSets.main.resources
 }
 
 tasks.withType(ProcessResources).configureEach {

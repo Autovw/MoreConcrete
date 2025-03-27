@@ -75,7 +75,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    compileOnly project(path: ':common')
+    compileOnly project(path: ':Common')
 
     //runtimeOnly fg.deobf("curse.maven:catalogue-459701:${catalogue_forge_version}")
     //runtimeOnly fg.deobf("curse.maven:configured-457570:${configured_forge_version}")
@@ -86,11 +86,11 @@ dependencies {
 }
 
 tasks.withType(JavaCompile) {
-    source(project(":common").sourceSets.main.allSource)
+    source(project(":Common").sourceSets.main.allSource)
 }
 
 processResources {
-    from project(":common").sourceSets.main.resources
+    from project(":Common").sourceSets.main.resources
 }
 
 tasks.withType(ProcessResources).configureEach {
