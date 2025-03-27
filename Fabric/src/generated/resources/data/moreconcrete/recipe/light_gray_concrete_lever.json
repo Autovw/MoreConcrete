@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "concrete_lever",
+  "key": {
+    "#": {
+      "item": "minecraft:light_gray_concrete"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:light_gray_concrete_lever"
+  }
+}
