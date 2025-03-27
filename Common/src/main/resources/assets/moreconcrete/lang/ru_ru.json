@@ -133,5 +133,7 @@
   "block.moreconcrete.brown_concrete_button": "Кнопка из коричневого бетона",
   "block.moreconcrete.green_concrete_button": "Кнопка из зелёного бетона",
   "block.moreconcrete.red_concrete_button": "Кнопка из красного бетона",
-  "block.moreconcrete.black_concrete_button": "Кнопка из чёрного бетона"
+  "block.moreconcrete.black_concrete_button": "Кнопка из чёрного бетона",
+
+  "itemGroup.moreconcrete.tab": "Concrete Blocks"
 }
