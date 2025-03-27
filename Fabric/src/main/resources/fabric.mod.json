@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "moreconcrete",
+  "version": "${version}",
+
+  "name": "More Concrete",
+  "description": "A simple mod that adds more concrete variants into Minecraft!",
+  "authors": [
+    "Autovw"
+  ],
+  "contributors": [
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/more-concrete",
+    "issues": "https://github.com/Autovw/MoreConcrete/issues",
+    "sources": "https://github.com/Autovw/MoreConcrete"
+  },
+
+  "license": "GNU General Public License v3.0",
+  "icon": "more_concrete_banner.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.autovw.moreconcrete.fabric.MoreConcreteFabric"
+    ],
+    "fabric-datagen": [
+      "com.autovw.moreconcrete.fabric.datagen.ModDataGenerator"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "fabric-api": "*",
+    "minecraft": "1.21.4",
+    "java": ">=21"
+  },
+  "custom": {
+    "catalogue": {
+      "banner": "more_concrete_banner.png"
+    },
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/KP3BBatuw5",
+        "modmenu.wiki": "https://github.com/Autovw/MoreConcrete/wiki"
+      }
+    }
+  }
+}

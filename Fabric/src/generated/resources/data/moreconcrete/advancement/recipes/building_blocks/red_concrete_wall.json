@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_concrete": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:red_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moreconcrete:red_concrete_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_concrete"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moreconcrete:red_concrete_wall"
+    ]
+  }
+}

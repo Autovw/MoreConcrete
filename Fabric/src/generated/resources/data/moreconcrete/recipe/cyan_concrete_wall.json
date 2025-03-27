@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "concrete_wall",
+  "key": {
+    "#": "minecraft:cyan_concrete"
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "moreconcrete:cyan_concrete_wall"
+  }
+}

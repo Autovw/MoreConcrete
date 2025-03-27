@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:purple_concrete",
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:purple_concrete_button"
+  }
+}

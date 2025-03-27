@@ -1,0 +1,6 @@
+{
+  "parent": "moreconcrete:block/lever_model",
+  "textures": {
+    "base": "minecraft:block/purple_concrete"
+  }
+}

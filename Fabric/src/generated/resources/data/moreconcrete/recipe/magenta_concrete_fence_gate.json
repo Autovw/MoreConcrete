@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "concrete_fence_gate",
+  "key": {
+    "#": "minecraft:magenta_concrete",
+    "X": "minecraft:stick"
+  },
+  "pattern": [
+    "X#X",
+    "X#X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:magenta_concrete_fence_gate"
+  }
+}

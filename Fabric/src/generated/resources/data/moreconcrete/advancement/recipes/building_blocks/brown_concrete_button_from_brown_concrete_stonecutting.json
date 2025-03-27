@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_concrete": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:brown_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moreconcrete:brown_concrete_button_from_brown_concrete_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_concrete"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moreconcrete:brown_concrete_button_from_brown_concrete_stonecutting"
+    ]
+  }
+}

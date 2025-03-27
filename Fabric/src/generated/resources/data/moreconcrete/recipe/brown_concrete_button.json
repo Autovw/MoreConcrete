@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "concrete_button",
+  "ingredients": [
+    "minecraft:brown_concrete"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:brown_concrete_button"
+  }
+}

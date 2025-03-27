@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "concrete_fence",
+  "key": {
+    "#": "minecraft:orange_concrete",
+    "X": "minecraft:stick"
+  },
+  "pattern": [
+    "#X#",
+    "#X#"
+  ],
+  "result": {
+    "count": 3,
+    "id": "moreconcrete:orange_concrete_fence"
+  }
+}

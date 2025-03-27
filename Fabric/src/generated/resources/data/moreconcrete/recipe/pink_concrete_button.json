@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "concrete_button",
+  "ingredients": [
+    "minecraft:pink_concrete"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:pink_concrete_button"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "concrete_pressure_plate",
+  "key": {
+    "#": "minecraft:magenta_concrete"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moreconcrete:magenta_concrete_pressure_plate"
+  }
+}
