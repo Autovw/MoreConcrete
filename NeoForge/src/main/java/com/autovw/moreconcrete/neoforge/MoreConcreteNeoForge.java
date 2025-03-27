@@ -24,6 +24,7 @@ public class MoreConcreteNeoForge
 
         ModBlocks.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+        MoreConcreteTab.TABS.register(bus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

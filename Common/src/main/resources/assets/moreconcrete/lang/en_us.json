@@ -133,5 +133,7 @@
   "block.moreconcrete.brown_concrete_button": "Brown Concrete Button",
   "block.moreconcrete.green_concrete_button": "Green Concrete Button",
   "block.moreconcrete.red_concrete_button": "Red Concrete Button",
-  "block.moreconcrete.black_concrete_button": "Black Concrete Button"
+  "block.moreconcrete.black_concrete_button": "Black Concrete Button",
+
+  "itemGroup.moreconcrete.tab": "Concrete Blocks"
 }

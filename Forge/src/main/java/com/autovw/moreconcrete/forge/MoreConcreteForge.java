@@ -27,6 +27,7 @@ public class MoreConcreteForge
 
         ModBlocks.BLOCKS.register(bus);
         ModBlocks.ITEMS.register(bus);
+        MoreConcreteTab.TABS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
