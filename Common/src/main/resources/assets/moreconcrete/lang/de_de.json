@@ -133,5 +133,7 @@
   "block.moreconcrete.brown_concrete_button": "Brauner Betonknopf",
   "block.moreconcrete.green_concrete_button": "Grüner Betonknopf",
   "block.moreconcrete.red_concrete_button": "Roter Betonknopf",
-  "block.moreconcrete.black_concrete_button": "Schwarzer Betonknopf"
+  "block.moreconcrete.black_concrete_button": "Schwarzer Betonknopf",
+
+  "itemGroup.moreconcrete.tab": "Concrete Blocks"
 }

@@ -133,5 +133,7 @@
   "block.moreconcrete.brown_concrete_button": "棕色混凝土按钮",
   "block.moreconcrete.green_concrete_button": "绿色混凝土按钮",
   "block.moreconcrete.red_concrete_button": "红色混凝土按钮",
-  "block.moreconcrete.black_concrete_button": "黑色混凝土按钮"
+  "block.moreconcrete.black_concrete_button": "黑色混凝土按钮",
+
+  "itemGroup.moreconcrete.tab": "Concrete Blocks"
 }
