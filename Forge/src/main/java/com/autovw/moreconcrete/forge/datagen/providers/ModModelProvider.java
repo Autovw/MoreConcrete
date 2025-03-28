@@ -5,6 +5,7 @@ import com.autovw.moreconcrete.forge.core.ModBlocks;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
@@ -89,9 +90,9 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM, parentTexture).put(TextureSlot.TOP, parentTexture).put(TextureSlot.SIDE, parentTexture);
-        ResourceLocation slabBottomModel = ModelTemplates.SLAB_BOTTOM.create(slab, textureMapping, blockModels.modelOutput);
-        ResourceLocation slabTopModel = ModelTemplates.SLAB_TOP.create(slab, textureMapping, blockModels.modelOutput);
-        blockModels.blockStateOutput.accept(BlockModelGenerators.createSlab(slab, slabBottomModel, slabTopModel, parentTexture));
+        MultiVariant slabBottomModel = BlockModelGenerators.plainVariant(ModelTemplates.SLAB_BOTTOM.create(slab, textureMapping, blockModels.modelOutput));
+        MultiVariant slabTopModel = BlockModelGenerators.plainVariant(ModelTemplates.SLAB_TOP.create(slab, textureMapping, blockModels.modelOutput));
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSlab(slab, slabBottomModel, slabTopModel, BlockModelGenerators.plainVariant(parentTexture)));
 
         blockModels.itemModelOutput.accept(slab.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
     }
@@ -103,12 +104,13 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM, parentTexture).put(TextureSlot.SIDE, parentTexture).put(TextureSlot.TOP, parentTexture);
-        ResourceLocation stairsInnerModel = ModelTemplates.STAIRS_INNER.create(stairs, textureMapping, blockModels.modelOutput);
-        ResourceLocation stairsStraightModel = ModelTemplates.STAIRS_STRAIGHT.create(stairs, textureMapping, blockModels.modelOutput);
-        ResourceLocation stairsOuterModel = ModelTemplates.STAIRS_OUTER.create(stairs, textureMapping, blockModels.modelOutput);
+        MultiVariant stairsInnerModel = BlockModelGenerators.plainVariant(ModelTemplates.STAIRS_INNER.create(stairs, textureMapping, blockModels.modelOutput));
+        ResourceLocation stairsStraightModelLoc = ModelTemplates.STAIRS_STRAIGHT.create(stairs, textureMapping, blockModels.modelOutput);
+        MultiVariant stairsStraightModel = BlockModelGenerators.plainVariant(stairsStraightModelLoc);
+        MultiVariant stairsOuterModel = BlockModelGenerators.plainVariant(ModelTemplates.STAIRS_OUTER.create(stairs, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createStairs(stairs, stairsInnerModel, stairsStraightModel, stairsOuterModel));
 
-        blockModels.itemModelOutput.accept(stairs.asItem(), new BlockModelWrapper.Unbaked(stairsStraightModel, Collections.emptyList()));
+        blockModels.itemModelOutput.accept(stairs.asItem(), new BlockModelWrapper.Unbaked(stairsStraightModelLoc, Collections.emptyList()));
     }
 
     public void wallBlock(BlockModelGenerators blockModels, Block wall)
@@ -118,9 +120,9 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.WALL, parentTexture);
-        ResourceLocation wallPostModel = ModelTemplates.WALL_POST.create(wall, textureMapping, blockModels.modelOutput);
-        ResourceLocation wallLowSideModel = ModelTemplates.WALL_LOW_SIDE.create(wall, textureMapping, blockModels.modelOutput);
-        ResourceLocation wallTallSideModel = ModelTemplates.WALL_TALL_SIDE.create(wall, textureMapping, blockModels.modelOutput);
+        MultiVariant wallPostModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_POST.create(wall, textureMapping, blockModels.modelOutput));
+        MultiVariant wallLowSideModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_LOW_SIDE.create(wall, textureMapping, blockModels.modelOutput));
+        MultiVariant wallTallSideModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_TALL_SIDE.create(wall, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createWall(wall, wallPostModel, wallLowSideModel, wallTallSideModel));
 
         ResourceLocation wallInventoryModel = ModelTemplates.WALL_INVENTORY.create(wall, textureMapping, blockModels.modelOutput);
@@ -137,67 +139,31 @@ public class ModModelProvider extends ModelProvider
         TextureMapping textureMapping = new TextureMapping().put(base, parentTexture);
         ResourceLocation leverModelLoc = ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, "lever_model");
         ResourceLocation leverModelOnLoc = ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, "lever_model_on");
-        ResourceLocation leverModel = this.createModel(leverModelLoc, base).create(lever, textureMapping, blockModels.modelOutput);
-        ResourceLocation leverModelOn = this.createModel(leverModelOnLoc, "_on", base).create(lever, textureMapping, blockModels.modelOutput);
+        MultiVariant leverModel = BlockModelGenerators.plainVariant(this.createModel(leverModelLoc, base).create(lever, textureMapping, blockModels.modelOutput));
+        MultiVariant leverModelOn = BlockModelGenerators.plainVariant(this.createModel(leverModelOnLoc, "_on", base).create(lever, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(this.createLever(lever, leverModel, leverModelOn));
 
         blockModels.itemModelOutput.accept(lever.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
     }
 
-    private BlockStateGenerator createLever(Block lever, ResourceLocation leverModelLoc, ResourceLocation leverModelOnLoc)
+    private MultiVariantGenerator createLever(Block lever, MultiVariant leverModel, MultiVariant leverModelOn)
     {
-        return MultiVariantGenerator.multiVariant(lever)
-                .with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.POWERED, leverModelLoc, leverModelOnLoc))
+        return MultiVariantGenerator.dispatch(lever)
+                .with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.POWERED, leverModel, leverModelOn))
                 .with(
-                        PropertyDispatch.properties(BlockStateProperties.ATTACH_FACE, BlockStateProperties.HORIZONTAL_FACING)
-                                .select(
-                                        AttachFace.CEILING,
-                                        Direction.NORTH,
-                                        Variant.variant()
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R180)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)
-                                )
-                                .select(
-                                        AttachFace.CEILING,
-                                        Direction.EAST,
-                                        Variant.variant()
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R180)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)
-                                )
-                                .select(AttachFace.CEILING, Direction.SOUTH, Variant.variant().with(VariantProperties.X_ROT, VariantProperties.Rotation.R180))
-                                .select(
-                                        AttachFace.CEILING,
-                                        Direction.WEST,
-                                        Variant.variant()
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R180)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)
-                                )
-                                .select(AttachFace.FLOOR, Direction.NORTH, Variant.variant())
-                                .select(AttachFace.FLOOR, Direction.EAST, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
-                                .select(AttachFace.FLOOR, Direction.SOUTH, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180))
-                                .select(AttachFace.FLOOR, Direction.WEST, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270))
-                                .select(AttachFace.WALL, Direction.NORTH, Variant.variant().with(VariantProperties.X_ROT, VariantProperties.Rotation.R90))
-                                .select(
-                                        AttachFace.WALL,
-                                        Direction.EAST,
-                                        Variant.variant()
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)
-                                )
-                                .select(
-                                        AttachFace.WALL,
-                                        Direction.SOUTH,
-                                        Variant.variant()
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)
-                                )
-                                .select(
-                                        AttachFace.WALL,
-                                        Direction.WEST,
-                                        Variant.variant()
-                                                .with(VariantProperties.X_ROT, VariantProperties.Rotation.R90)
-                                                .with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)
-                                )
+                        PropertyDispatch.modify(BlockStateProperties.ATTACH_FACE, BlockStateProperties.HORIZONTAL_FACING)
+                                .select(AttachFace.CEILING, Direction.NORTH, BlockModelGenerators.X_ROT_180.then(BlockModelGenerators.Y_ROT_180))
+                                .select(AttachFace.CEILING, Direction.EAST, BlockModelGenerators.X_ROT_180.then(BlockModelGenerators.Y_ROT_270))
+                                .select(AttachFace.CEILING, Direction.SOUTH, BlockModelGenerators.X_ROT_180)
+                                .select(AttachFace.CEILING, Direction.WEST, BlockModelGenerators.X_ROT_180.then(BlockModelGenerators.Y_ROT_90))
+                                .select(AttachFace.FLOOR, Direction.NORTH, BlockModelGenerators.NOP)
+                                .select(AttachFace.FLOOR, Direction.EAST, BlockModelGenerators.Y_ROT_90)
+                                .select(AttachFace.FLOOR, Direction.SOUTH, BlockModelGenerators.Y_ROT_180)
+                                .select(AttachFace.FLOOR, Direction.WEST, BlockModelGenerators.Y_ROT_270)
+                                .select(AttachFace.WALL, Direction.NORTH, BlockModelGenerators.X_ROT_90)
+                                .select(AttachFace.WALL, Direction.EAST, BlockModelGenerators.X_ROT_90.then(BlockModelGenerators.Y_ROT_90))
+                                .select(AttachFace.WALL, Direction.SOUTH, BlockModelGenerators.X_ROT_90.then(BlockModelGenerators.Y_ROT_180))
+                                .select(AttachFace.WALL, Direction.WEST, BlockModelGenerators.X_ROT_90.then(BlockModelGenerators.Y_ROT_270))
                 );
     }
 
@@ -208,8 +174,8 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
-        ResourceLocation plateModelUp = ModelTemplates.PRESSURE_PLATE_UP.create(pressurePlate, textureMapping, blockModels.modelOutput);
-        ResourceLocation plateModelDown = ModelTemplates.PRESSURE_PLATE_DOWN.create(pressurePlate, textureMapping, blockModels.modelOutput);
+        MultiVariant plateModelUp = BlockModelGenerators.plainVariant(ModelTemplates.PRESSURE_PLATE_UP.create(pressurePlate, textureMapping, blockModels.modelOutput));
+        MultiVariant plateModelDown = BlockModelGenerators.plainVariant(ModelTemplates.PRESSURE_PLATE_DOWN.create(pressurePlate, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createPressurePlate(pressurePlate, plateModelUp, plateModelDown));
 
         blockModels.itemModelOutput.accept(pressurePlate.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
@@ -222,8 +188,8 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
-        ResourceLocation fencePostModel = ModelTemplates.FENCE_POST.create(fence, textureMapping, blockModels.modelOutput);
-        ResourceLocation fenceSideModel = ModelTemplates.FENCE_SIDE.create(fence, textureMapping, blockModels.modelOutput);
+        MultiVariant fencePostModel = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_POST.create(fence, textureMapping, blockModels.modelOutput));
+        MultiVariant fenceSideModel = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_SIDE.create(fence, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createFence(fence, fencePostModel, fenceSideModel));
 
         ResourceLocation fenceInventoryModel = ModelTemplates.FENCE_INVENTORY.create(fence, textureMapping, blockModels.modelOutput);
@@ -237,10 +203,10 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
-        ResourceLocation fenceGateModelOpen = ModelTemplates.FENCE_GATE_OPEN.create(fenceGate, textureMapping, blockModels.modelOutput);
-        ResourceLocation fenceGateModelClosed = ModelTemplates.FENCE_GATE_CLOSED.create(fenceGate, textureMapping, blockModels.modelOutput);
-        ResourceLocation fenceGateWallModelOpen = ModelTemplates.FENCE_GATE_WALL_OPEN.create(fenceGate, textureMapping, blockModels.modelOutput);
-        ResourceLocation fenceGateWallModelClosed = ModelTemplates.FENCE_GATE_WALL_CLOSED.create(fenceGate, textureMapping, blockModels.modelOutput);
+        MultiVariant fenceGateModelOpen = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_OPEN.create(fenceGate, textureMapping, blockModels.modelOutput));
+        MultiVariant fenceGateModelClosed = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_CLOSED.create(fenceGate, textureMapping, blockModels.modelOutput));
+        MultiVariant fenceGateWallModelOpen = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_WALL_OPEN.create(fenceGate, textureMapping, blockModels.modelOutput));
+        MultiVariant fenceGateWallModelClosed = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_WALL_CLOSED.create(fenceGate, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createFenceGate(fenceGate, fenceGateModelOpen, fenceGateModelClosed, fenceGateWallModelOpen, fenceGateWallModelClosed, true));
 
         blockModels.itemModelOutput.accept(fenceGate.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
@@ -253,8 +219,8 @@ public class ModModelProvider extends ModelProvider
         ResourceLocation parentTexture = ResourceLocation.withDefaultNamespace("block/" + parent);
 
         TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
-        ResourceLocation buttonModel = ModelTemplates.BUTTON.create(button, textureMapping, blockModels.modelOutput);
-        ResourceLocation buttonPressedModel = ModelTemplates.BUTTON_PRESSED.create(button, textureMapping, blockModels.modelOutput);
+        MultiVariant buttonModel = BlockModelGenerators.plainVariant(ModelTemplates.BUTTON.create(button, textureMapping, blockModels.modelOutput));
+        MultiVariant buttonPressedModel = BlockModelGenerators.plainVariant(ModelTemplates.BUTTON_PRESSED.create(button, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createButton(button, buttonModel, buttonPressedModel));
 
         ResourceLocation buttonInventoryModel = ModelTemplates.BUTTON_INVENTORY.create(button, textureMapping, blockModels.modelOutput);
