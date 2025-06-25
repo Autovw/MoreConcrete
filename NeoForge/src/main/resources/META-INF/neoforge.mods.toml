@@ -19,13 +19,13 @@ A simple mod that adds more concrete variants into Minecraft!
 [[dependencies.moreconcrete]]
     modId="neoforge"
     type="required"
-    versionRange="[21.5.0-beta,)"
+    versionRange="[21.6.6-beta,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.moreconcrete]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21.5]"
+    versionRange="[1.21.6]"
     ordering="NONE"
     side="BOTH"
 

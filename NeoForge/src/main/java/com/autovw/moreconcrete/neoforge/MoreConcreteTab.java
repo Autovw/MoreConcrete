@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 /**
  * @author Autovw
  */
-@EventBusSubscriber(modid = MoreConcrete.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MoreConcrete.MOD_ID)
 public final class MoreConcreteTab
 {
     static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MoreConcrete.MOD_ID);

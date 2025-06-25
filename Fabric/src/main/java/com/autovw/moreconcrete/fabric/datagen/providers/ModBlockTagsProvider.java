@@ -23,7 +23,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
     protected void addTags(HolderLookup.Provider provider)
     {
         // Slabs
-        getOrCreateTagBuilder(ModTags.MOD_SLABS)
+        valueLookupBuilder(ModTags.MOD_SLABS)
                 .add(ModBlocks.WHITE_CONCRETE_SLAB)
                 .add(ModBlocks.ORANGE_CONCRETE_SLAB)
                 .add(ModBlocks.MAGENTA_CONCRETE_SLAB)
@@ -40,11 +40,11 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_SLAB)
                 .add(ModBlocks.RED_CONCRETE_SLAB)
                 .add(ModBlocks.BLACK_CONCRETE_SLAB);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_SLABS);
-        getOrCreateTagBuilder(BlockTags.SLABS).addTag(ModTags.MOD_SLABS);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_SLABS);
+        valueLookupBuilder(BlockTags.SLABS).addTag(ModTags.MOD_SLABS);
 
         // Stairs
-        getOrCreateTagBuilder(ModTags.MOD_STAIRS)
+        valueLookupBuilder(ModTags.MOD_STAIRS)
                 .add(ModBlocks.WHITE_CONCRETE_STAIRS)
                 .add(ModBlocks.ORANGE_CONCRETE_STAIRS)
                 .add(ModBlocks.MAGENTA_CONCRETE_STAIRS)
@@ -61,11 +61,11 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_STAIRS)
                 .add(ModBlocks.RED_CONCRETE_STAIRS)
                 .add(ModBlocks.BLACK_CONCRETE_STAIRS);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_STAIRS);
-        getOrCreateTagBuilder(BlockTags.STAIRS).addTag(ModTags.MOD_STAIRS);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_STAIRS);
+        valueLookupBuilder(BlockTags.STAIRS).addTag(ModTags.MOD_STAIRS);
 
         // Walls
-        getOrCreateTagBuilder(ModTags.MOD_WALLS)
+        valueLookupBuilder(ModTags.MOD_WALLS)
                 .add(ModBlocks.WHITE_CONCRETE_WALL)
                 .add(ModBlocks.ORANGE_CONCRETE_WALL)
                 .add(ModBlocks.MAGENTA_CONCRETE_WALL)
@@ -82,12 +82,12 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_WALL)
                 .add(ModBlocks.RED_CONCRETE_WALL)
                 .add(ModBlocks.BLACK_CONCRETE_WALL);
-        // Walls are added to the vanilla walls getOrCreateTagBuilder
-        getOrCreateTagBuilder(BlockTags.WALLS).addTag(ModTags.MOD_WALLS);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_WALLS);
+        // Walls are added to the vanilla walls valueLookupBuilder
+        valueLookupBuilder(BlockTags.WALLS).addTag(ModTags.MOD_WALLS);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_WALLS);
 
         // Levers
-        getOrCreateTagBuilder(ModTags.MOD_LEVERS)
+        valueLookupBuilder(ModTags.MOD_LEVERS)
                 .add(ModBlocks.WHITE_CONCRETE_LEVER)
                 .add(ModBlocks.ORANGE_CONCRETE_LEVER)
                 .add(ModBlocks.MAGENTA_CONCRETE_LEVER)
@@ -106,7 +106,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.BLACK_CONCRETE_LEVER);
 
         // Pressure Plates
-        getOrCreateTagBuilder(ModTags.MOD_PRESSURE_PLATES)
+        valueLookupBuilder(ModTags.MOD_PRESSURE_PLATES)
                 .add(ModBlocks.WHITE_CONCRETE_PRESSURE_PLATE)
                 .add(ModBlocks.ORANGE_CONCRETE_PRESSURE_PLATE)
                 .add(ModBlocks.MAGENTA_CONCRETE_PRESSURE_PLATE)
@@ -123,11 +123,11 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_PRESSURE_PLATE)
                 .add(ModBlocks.RED_CONCRETE_PRESSURE_PLATE)
                 .add(ModBlocks.BLACK_CONCRETE_PRESSURE_PLATE);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_PRESSURE_PLATES);
-        getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES).addTag(ModTags.MOD_PRESSURE_PLATES);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_PRESSURE_PLATES);
+        valueLookupBuilder(BlockTags.PRESSURE_PLATES).addTag(ModTags.MOD_PRESSURE_PLATES);
 
         // Fences
-        getOrCreateTagBuilder(ModTags.MOD_FENCES)
+        valueLookupBuilder(ModTags.MOD_FENCES)
                 .add(ModBlocks.WHITE_CONCRETE_FENCE)
                 .add(ModBlocks.ORANGE_CONCRETE_FENCE)
                 .add(ModBlocks.MAGENTA_CONCRETE_FENCE)
@@ -144,12 +144,12 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_FENCE)
                 .add(ModBlocks.RED_CONCRETE_FENCE)
                 .add(ModBlocks.BLACK_CONCRETE_FENCE);
-        // Fences are added to the vanilla fences getOrCreateTagBuilder
-        getOrCreateTagBuilder(BlockTags.FENCES).addTag(ModTags.MOD_FENCES);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_FENCES);
+        // Fences are added to the vanilla fences valueLookupBuilder
+        valueLookupBuilder(BlockTags.FENCES).addTag(ModTags.MOD_FENCES);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_FENCES);
 
         // Fence Gates
-        getOrCreateTagBuilder(ModTags.MOD_FENCE_GATES)
+        valueLookupBuilder(ModTags.MOD_FENCE_GATES)
                 .add(ModBlocks.WHITE_CONCRETE_FENCE_GATE)
                 .add(ModBlocks.ORANGE_CONCRETE_FENCE_GATE)
                 .add(ModBlocks.MAGENTA_CONCRETE_FENCE_GATE)
@@ -166,11 +166,11 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_FENCE_GATE)
                 .add(ModBlocks.RED_CONCRETE_FENCE_GATE)
                 .add(ModBlocks.BLACK_CONCRETE_FENCE_GATE);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_FENCE_GATES);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES).addTag(ModTags.MOD_FENCE_GATES);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_FENCE_GATES);
+        valueLookupBuilder(BlockTags.FENCE_GATES).addTag(ModTags.MOD_FENCE_GATES);
 
         // Buttons
-        getOrCreateTagBuilder(ModTags.MOD_BUTTONS)
+        valueLookupBuilder(ModTags.MOD_BUTTONS)
                 .add(ModBlocks.WHITE_CONCRETE_BUTTON)
                 .add(ModBlocks.ORANGE_CONCRETE_BUTTON)
                 .add(ModBlocks.MAGENTA_CONCRETE_BUTTON)
@@ -187,7 +187,7 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.GREEN_CONCRETE_BUTTON)
                 .add(ModBlocks.RED_CONCRETE_BUTTON)
                 .add(ModBlocks.BLACK_CONCRETE_BUTTON);
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_BUTTONS);
-        getOrCreateTagBuilder(BlockTags.BUTTONS).addTag(ModTags.MOD_BUTTONS);
+        valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE).addTag(ModTags.MOD_BUTTONS);
+        valueLookupBuilder(BlockTags.BUTTONS).addTag(ModTags.MOD_BUTTONS);
     }
 }

@@ -19,7 +19,7 @@ import static com.autovw.moreconcrete.common.MoreConcrete.MOD_ID;
 /**
  * @author Autovw
  */
-@EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
 public class ModDataGenerator
 {
     private ModDataGenerator()
