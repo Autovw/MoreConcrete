@@ -2,10 +2,12 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
+        /*
         maven {
             name = 'Forge'
             url = 'https://maven.minecraftforge.net/'
         }
+         */
         maven {
             name = 'NeoForge'
             url = 'https://maven.neoforged.net/releases'
@@ -27,6 +29,6 @@ plugins {
 
 rootProject.name = 'MoreConcrete'
 include "Common"
-include "Forge"
+//include "Forge"
 include "NeoForge"
 include "Fabric"
