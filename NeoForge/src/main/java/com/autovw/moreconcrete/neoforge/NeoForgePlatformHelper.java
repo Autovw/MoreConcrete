@@ -2,7 +2,7 @@ package com.autovw.moreconcrete.neoforge;
 
 import com.autovw.moreconcrete.common.platform.IPlatformHelper;
 import net.neoforged.fml.ModList;
-import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 /**
  * @author Autovw
@@ -39,6 +39,6 @@ public final class NeoForgePlatformHelper implements IPlatformHelper
     @Override
     public boolean isProduction()
     {
-        return FMLLoader.isProduction();
+        return FMLEnvironment.isProduction();
     }
 }

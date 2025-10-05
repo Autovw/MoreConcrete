@@ -237,7 +237,7 @@ public final class ModBlocks
 
     private static DeferredBlock<Block> registerButton(Block parent)
     {
-        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().noCollission().strength(0.5f).sound(SoundType.STONE);
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().noCollision().strength(0.5f).sound(SoundType.STONE);
         return createRegistry(parent, "button", () -> new ButtonBlock(BlockSetType.STONE, 20, properties), properties, new Item.Properties());
     }
 }
