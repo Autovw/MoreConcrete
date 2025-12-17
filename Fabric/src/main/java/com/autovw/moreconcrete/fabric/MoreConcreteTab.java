@@ -10,7 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.*;
@@ -22,7 +22,7 @@ public final class MoreConcreteTab
 {
     public static void init()
     {
-        ResourceKey<CreativeModeTab> tab = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, "tab"));
+        ResourceKey<CreativeModeTab> tab = ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(MoreConcrete.MOD_ID, "tab"));
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, tab, FabricItemGroup.builder()
                         .icon(ModBlocks.LIGHT_BLUE_CONCRETE_STAIRS.asItem()::getDefaultInstance)
                         .title(Component.translatable("itemGroup." + MoreConcrete.MOD_ID + ".tab"))

@@ -2,7 +2,7 @@ package com.autovw.moreconcrete.common.core.util;
 
 import com.autovw.moreconcrete.common.MoreConcrete;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
@@ -22,6 +22,6 @@ public class ModTags
 
     private static TagKey<Block> blockTag(String location)
     {
-        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(MoreConcrete.MOD_ID, location));
+        return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MoreConcrete.MOD_ID, location));
     }
 }

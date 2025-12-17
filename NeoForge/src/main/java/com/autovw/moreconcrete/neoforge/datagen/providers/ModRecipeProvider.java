@@ -6,7 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -268,11 +268,11 @@ public class ModRecipeProvider extends RecipeProvider
 
     private void stonecutting(HolderLookup.RegistryLookup<Item> registryLookup, RecipeOutput output, ItemLike result, Ingredient ingredient, int amount, ItemLike type)
     {
-        ResourceLocation resultId = BuiltInRegistries.ITEM.getKey(result.asItem());
-        ResourceLocation typeId = BuiltInRegistries.ITEM.getKey(type.asItem());
+        Identifier resultId = BuiltInRegistries.ITEM.getKey(result.asItem());
+        Identifier typeId = BuiltInRegistries.ITEM.getKey(type.asItem());
         SingleItemRecipeBuilder.stonecutting(ingredient, RecipeCategory.BUILDING_BLOCKS, result, amount)
                 .unlockedBy("has_concrete", has(type))
-                .save(output, ResourceLocation.fromNamespaceAndPath(resultId.getNamespace(), resultId.getPath() + "_from_" + typeId.getPath() + "_stonecutting").toString());
+                .save(output, Identifier.fromNamespaceAndPath(resultId.getNamespace(), resultId.getPath() + "_from_" + typeId.getPath() + "_stonecutting").toString());
     }
 
     private void concretePressurePlate(HolderLookup.RegistryLookup<Item> registryLookup, RecipeOutput output, ItemLike pressurePlate, ItemLike ingredient)
