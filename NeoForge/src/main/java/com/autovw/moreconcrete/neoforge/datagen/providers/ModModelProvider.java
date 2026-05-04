@@ -8,7 +8,8 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
-import net.minecraft.client.renderer.item.BlockModelWrapper;
+import net.minecraft.client.renderer.item.CuboidItemModelWrapper;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -18,8 +19,9 @@ import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
-import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author Autovw
@@ -73,12 +75,12 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_slab", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM, parentTexture).put(TextureSlot.TOP, parentTexture).put(TextureSlot.SIDE, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM, new Material(parentTexture)).put(TextureSlot.TOP, new Material(parentTexture)).put(TextureSlot.SIDE, new Material(parentTexture));
         MultiVariant slabBottomModel = BlockModelGenerators.plainVariant(ModelTemplates.SLAB_BOTTOM.create(slab, textureMapping, blockModels.modelOutput));
         MultiVariant slabTopModel = BlockModelGenerators.plainVariant(ModelTemplates.SLAB_TOP.create(slab, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSlab(slab, slabBottomModel, slabTopModel, BlockModelGenerators.plainVariant(parentTexture)));
 
-        blockModels.itemModelOutput.accept(slab.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
+        blockModels.itemModelOutput.accept(slab.asItem(), new CuboidItemModelWrapper.Unbaked(this.blockStateLocation(id), Optional.empty(), List.of()));
     }
 
     public void stairsBlock(BlockModelGenerators blockModels, Block stairs)
@@ -87,14 +89,14 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_stairs", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM, parentTexture).put(TextureSlot.SIDE, parentTexture).put(TextureSlot.TOP, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM, new Material(parentTexture)).put(TextureSlot.SIDE, new Material(parentTexture)).put(TextureSlot.TOP, new Material(parentTexture));
         MultiVariant stairsInnerModel = BlockModelGenerators.plainVariant(ModelTemplates.STAIRS_INNER.create(stairs, textureMapping, blockModels.modelOutput));
         Identifier stairsStraightModelLoc = ModelTemplates.STAIRS_STRAIGHT.create(stairs, textureMapping, blockModels.modelOutput);
         MultiVariant stairsStraightModel = BlockModelGenerators.plainVariant(stairsStraightModelLoc);
         MultiVariant stairsOuterModel = BlockModelGenerators.plainVariant(ModelTemplates.STAIRS_OUTER.create(stairs, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createStairs(stairs, stairsInnerModel, stairsStraightModel, stairsOuterModel));
 
-        blockModels.itemModelOutput.accept(stairs.asItem(), new BlockModelWrapper.Unbaked(stairsStraightModelLoc, Collections.emptyList()));
+        blockModels.itemModelOutput.accept(stairs.asItem(), new CuboidItemModelWrapper.Unbaked(stairsStraightModelLoc, Optional.empty(), List.of()));
     }
 
     public void wallBlock(BlockModelGenerators blockModels, Block wall)
@@ -103,14 +105,14 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_wall", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.WALL, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.WALL, new Material(parentTexture));
         MultiVariant wallPostModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_POST.create(wall, textureMapping, blockModels.modelOutput));
         MultiVariant wallLowSideModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_LOW_SIDE.create(wall, textureMapping, blockModels.modelOutput));
         MultiVariant wallTallSideModel = BlockModelGenerators.plainVariant(ModelTemplates.WALL_TALL_SIDE.create(wall, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createWall(wall, wallPostModel, wallLowSideModel, wallTallSideModel));
 
         Identifier wallInventoryModel = ModelTemplates.WALL_INVENTORY.create(wall, textureMapping, blockModels.modelOutput);
-        blockModels.itemModelOutput.accept(wall.asItem(), new BlockModelWrapper.Unbaked(wallInventoryModel, Collections.emptyList()));
+        blockModels.itemModelOutput.accept(wall.asItem(), new CuboidItemModelWrapper.Unbaked(wallInventoryModel, Optional.empty(), List.of()));
     }
 
     public void leverBlock(BlockModelGenerators blockModels, Block lever)
@@ -120,14 +122,14 @@ public class ModModelProvider extends ModelProvider
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
         TextureSlot base = TextureSlot.create("base");
-        TextureMapping textureMapping = new TextureMapping().put(base, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(base, new Material(parentTexture));
         Identifier leverModelLoc = Identifier.fromNamespaceAndPath(MoreConcrete.MOD_ID, "lever_model");
         Identifier leverModelOnLoc = Identifier.fromNamespaceAndPath(MoreConcrete.MOD_ID, "lever_model_on");
         MultiVariant leverModel = BlockModelGenerators.plainVariant(ModelTemplates.create(leverModelLoc.toString(), base).create(lever, textureMapping, blockModels.modelOutput));
         MultiVariant leverModelOn = BlockModelGenerators.plainVariant(ModelTemplates.create(leverModelOnLoc.toString(), "_on", base).create(lever, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(this.createLever(lever, leverModel, leverModelOn));
 
-        blockModels.itemModelOutput.accept(lever.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
+        blockModels.itemModelOutput.accept(lever.asItem(), new CuboidItemModelWrapper.Unbaked(this.blockStateLocation(id), Optional.empty(), List.of()));
     }
 
     private MultiVariantGenerator createLever(Block lever, MultiVariant leverModel, MultiVariant leverModelOn)
@@ -157,12 +159,12 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_pressure_plate", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, new Material(parentTexture));
         MultiVariant plateModelUp = BlockModelGenerators.plainVariant(ModelTemplates.PRESSURE_PLATE_UP.create(pressurePlate, textureMapping, blockModels.modelOutput));
         MultiVariant plateModelDown = BlockModelGenerators.plainVariant(ModelTemplates.PRESSURE_PLATE_DOWN.create(pressurePlate, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createPressurePlate(pressurePlate, plateModelUp, plateModelDown));
 
-        blockModels.itemModelOutput.accept(pressurePlate.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
+        blockModels.itemModelOutput.accept(pressurePlate.asItem(), new CuboidItemModelWrapper.Unbaked(this.blockStateLocation(id), Optional.empty(), List.of()));
     }
 
     public void fenceBlock(BlockModelGenerators blockModels, Block fence)
@@ -171,13 +173,13 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_fence", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, new Material(parentTexture));
         MultiVariant fencePostModel = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_POST.create(fence, textureMapping, blockModels.modelOutput));
         MultiVariant fenceSideModel = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_SIDE.create(fence, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createFence(fence, fencePostModel, fenceSideModel));
 
         Identifier fenceInventoryModel = ModelTemplates.FENCE_INVENTORY.create(fence, textureMapping, blockModels.modelOutput);
-        blockModels.itemModelOutput.accept(fence.asItem(), new BlockModelWrapper.Unbaked(fenceInventoryModel, Collections.emptyList()));
+        blockModels.itemModelOutput.accept(fence.asItem(), new CuboidItemModelWrapper.Unbaked(fenceInventoryModel, Optional.empty(), List.of()));
     }
 
     public void fenceGateBlock(BlockModelGenerators blockModels, Block fenceGate)
@@ -186,14 +188,14 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_fence_gate", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, new Material(parentTexture));
         MultiVariant fenceGateModelOpen = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_OPEN.create(fenceGate, textureMapping, blockModels.modelOutput));
         MultiVariant fenceGateModelClosed = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_CLOSED.create(fenceGate, textureMapping, blockModels.modelOutput));
         MultiVariant fenceGateWallModelOpen = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_WALL_OPEN.create(fenceGate, textureMapping, blockModels.modelOutput));
         MultiVariant fenceGateWallModelClosed = BlockModelGenerators.plainVariant(ModelTemplates.FENCE_GATE_WALL_CLOSED.create(fenceGate, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createFenceGate(fenceGate, fenceGateModelOpen, fenceGateModelClosed, fenceGateWallModelOpen, fenceGateWallModelClosed, true));
 
-        blockModels.itemModelOutput.accept(fenceGate.asItem(), new BlockModelWrapper.Unbaked(this.blockStateLocation(id), Collections.emptyList()));
+        blockModels.itemModelOutput.accept(fenceGate.asItem(), new CuboidItemModelWrapper.Unbaked(this.blockStateLocation(id), Optional.empty(), List.of()));
     }
 
     public void buttonBlock(BlockModelGenerators blockModels, Block button)
@@ -202,13 +204,13 @@ public class ModModelProvider extends ModelProvider
         String parent = id.getPath().replace("_button", "");
         Identifier parentTexture = Identifier.withDefaultNamespace("block/" + parent);
 
-        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, parentTexture);
+        TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TEXTURE, new Material(parentTexture));
         MultiVariant buttonModel = BlockModelGenerators.plainVariant(ModelTemplates.BUTTON.create(button, textureMapping, blockModels.modelOutput));
         MultiVariant buttonPressedModel = BlockModelGenerators.plainVariant(ModelTemplates.BUTTON_PRESSED.create(button, textureMapping, blockModels.modelOutput));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createButton(button, buttonModel, buttonPressedModel));
 
         Identifier buttonInventoryModel = ModelTemplates.BUTTON_INVENTORY.create(button, textureMapping, blockModels.modelOutput);
-        blockModels.itemModelOutput.accept(button.asItem(), new BlockModelWrapper.Unbaked(buttonInventoryModel, Collections.emptyList()));
+        blockModels.itemModelOutput.accept(button.asItem(), new CuboidItemModelWrapper.Unbaked(buttonInventoryModel, Optional.empty(), List.of()));
     }
 
     private Identifier blockStateLocation(Identifier id)

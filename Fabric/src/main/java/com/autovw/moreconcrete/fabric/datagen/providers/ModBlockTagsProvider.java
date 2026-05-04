@@ -2,8 +2,8 @@ package com.autovw.moreconcrete.fabric.datagen.providers;
 
 import com.autovw.moreconcrete.common.core.util.ModTags;
 import com.autovw.moreconcrete.fabric.core.ModBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
 
@@ -12,9 +12,9 @@ import java.util.concurrent.CompletableFuture;
 /**
  * @author Autovw
  */
-public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider
+public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider
 {
-    public ModBlockTagsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture)
+    public ModBlockTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture)
     {
         super(output, registriesFuture);
     }

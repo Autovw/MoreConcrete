@@ -1,12 +1,11 @@
 plugins {
-    id 'java'
     id 'idea'
-    id 'fabric-loom' version '1.13-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom'
 }
 
 group = "com.autovw.moreconcrete"
 version = "${mod_version}-${minecraft_version}"
-archivesBaseName = "moreconcrete-fabric"
+base.archivesName = "moreconcrete-fabric"
 
 sourceSets.main.resources { srcDir 'src/generated/resources' } // src directory for data generator output
 
@@ -41,9 +40,8 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
     //modRuntimeOnly "curse.maven:jei-238222:${jei_fabric_version}"
     implementation project(":Common")
 }
