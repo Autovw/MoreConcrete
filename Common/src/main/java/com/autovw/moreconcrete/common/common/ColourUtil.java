@@ -14,8 +14,6 @@ import java.util.stream.Stream;
  */
 public final class ColourUtil
 {
-    private static final List<Block> CONCRETE_BLOCKS = List.of(Blocks.WHITE_CONCRETE, Blocks.ORANGE_CONCRETE, Blocks.MAGENTA_CONCRETE, Blocks.LIGHT_BLUE_CONCRETE, Blocks.YELLOW_CONCRETE, Blocks.LIME_CONCRETE, Blocks.PINK_CONCRETE, Blocks.GRAY_CONCRETE, Blocks.LIGHT_GRAY_CONCRETE, Blocks.CYAN_CONCRETE, Blocks.PURPLE_CONCRETE, Blocks.BLUE_CONCRETE, Blocks.BROWN_CONCRETE, Blocks.GREEN_CONCRETE, Blocks.RED_CONCRETE, Blocks.BLACK_CONCRETE);
-
     public static Colour parse(String colour)
     {
         return Colour.valueOf(colour.toUpperCase(Locale.ROOT));
@@ -35,7 +33,7 @@ public final class ColourUtil
 
     public static Stream<Block> sortConcreteTab(Stream<Block> blockStream)
     {
-        return Stream.concat(CONCRETE_BLOCKS.stream(), blockStream).sorted(Comparator.comparing((Block block) -> {
+        return Stream.concat(Blocks.CONCRETE.asList().stream(), blockStream).sorted(Comparator.comparing((Block block) -> {
                     BlockData data = ColourUtil.parseBlockData(BuiltInRegistries.BLOCK.getKey(block).getPath());
                     return data.colour().getDisplayPos();
                 })

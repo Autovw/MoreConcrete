@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "concrete_fence_gate",
   "key": {
     "#": "minecraft:cyan_concrete",
